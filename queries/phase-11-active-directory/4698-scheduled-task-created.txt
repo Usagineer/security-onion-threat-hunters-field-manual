@@ -1,0 +1,5 @@
+# Event 4698 — Scheduled Task Created
+
+event.code:4698 | groupby host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName
+
+event.code:(4698 OR 4699 OR 4700 OR 4702)

@@ -1,0 +1,7 @@
+# Persistence — WMI Event Subscriptions
+
+event.code:(5859 OR 5861)
+
+event.category:process AND process.command_line:(*__EventFilter* OR *CommandLineEventConsumer* OR *ActiveScriptEventConsumer* OR *__EventConsumer*)
+
+event.category:process AND process.name:"wmic.exe" AND process.command_line:(*ActiveScriptEventConsumer* OR *__EventFilter*)

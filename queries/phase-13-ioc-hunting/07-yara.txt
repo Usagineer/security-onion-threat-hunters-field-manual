@@ -1,0 +1,7 @@
+# IOC — YARA (via Strelka file scanning)
+
+event.dataset:strelka AND strelka.scan.yara.matches:*
+
+event.dataset:strelka AND strelka.scan.yara.matches:"<rule_name>" | groupby file.name source.ip destination.ip
+
+event.dataset:strelka | groupby strelka.scan.yara.matches

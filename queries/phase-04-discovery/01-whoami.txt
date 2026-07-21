@@ -1,0 +1,5 @@
+# Discovery — whoami
+
+event.category:process AND event.type:start AND process.name:"whoami.exe"
+
+event.category:process AND event.type:start AND process.command_line:*whoami* | groupby host.name process.parent.name

@@ -1,0 +1,5 @@
+# ICS/OT — EtherNet/IP
+
+event.dataset:zeek.conn AND destination.port:(44818 OR 2222) | groupby source.ip destination.ip
+
+event.dataset:zeek.enip | groupby source.ip destination.ip enip.command

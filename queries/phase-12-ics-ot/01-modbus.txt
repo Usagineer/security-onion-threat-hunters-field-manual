@@ -1,0 +1,7 @@
+# ICS/OT — Modbus
+
+event.dataset:zeek.modbus | groupby source.ip destination.ip modbus.function
+
+event.dataset:zeek.conn AND destination.port:502 | groupby source.ip destination.ip
+
+event.dataset:zeek.modbus AND modbus.function:(*Write* OR *Force*) | groupby source.ip destination.ip modbus.function

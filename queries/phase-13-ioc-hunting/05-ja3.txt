@@ -1,0 +1,5 @@
+# IOC — JA3 / JA3S
+
+tls.client.ja3:"<ja3>" OR tls.server.ja3s:"<ja3s>"
+
+event.dataset:zeek.ssl AND tls.client.ja3:"<ja3>" | groupby source.ip destination.ip

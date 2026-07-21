@@ -1,0 +1,9 @@
+# TLS for this IP
+
+event.dataset:zeek.ssl AND (source.ip:<IP> OR destination.ip:<IP>)
+
+event.dataset:zeek.ssl AND (source.ip:<IP> OR destination.ip:<IP>) | groupby tls.client.server_name
+
+event.dataset:zeek.ssl AND (source.ip:<IP> OR destination.ip:<IP>) | groupby tls.client.ja3 tls.server.ja3s
+
+event.dataset:zeek.x509 AND (source.ip:<IP> OR destination.ip:<IP>)

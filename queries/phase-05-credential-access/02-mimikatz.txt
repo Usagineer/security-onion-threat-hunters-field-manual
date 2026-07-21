@@ -1,0 +1,7 @@
+# Credential Access — Mimikatz
+
+event.category:process AND process.command_line:(*sekurlsa* OR *privilege::debug* OR *lsadump* OR *kerberos::* OR *crypto::* OR *mimikatz*)
+
+event.category:process AND process.pe.original_file_name:"mimikatz.exe"
+
+event.category:process AND process.command_line:(*logonpasswords* OR *pth /user* OR *ptt /ticket*)
