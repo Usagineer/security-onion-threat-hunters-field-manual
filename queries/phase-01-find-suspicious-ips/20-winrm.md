@@ -1,0 +1,9 @@
+# WinRM (5985 / 5986)
+
+```
+event.dataset:zeek.conn AND destination.port:(5985 OR 5986) | groupby source.ip destination.ip
+```
+
+```
+source.ip:<SOURCE> AND destination.port:(5985 OR 5986)
+```

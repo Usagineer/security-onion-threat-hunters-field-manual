@@ -1,0 +1,9 @@
+# Discovery — netstat
+
+```
+event.category:process AND event.type:start AND process.name:"netstat.exe"
+```
+
+```
+event.category:process AND event.type:start AND process.command_line:*netstat*
+```

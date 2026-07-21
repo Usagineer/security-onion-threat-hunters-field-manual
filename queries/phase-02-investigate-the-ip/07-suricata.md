@@ -1,0 +1,13 @@
+# Suricata for this IP
+
+```
+event.module:suricata AND (source.ip:<IP> OR destination.ip:<IP>)
+```
+
+```
+event.module:suricata AND (source.ip:<IP> OR destination.ip:<IP>) | groupby rule.name rule.category
+```
+
+```
+event.module:suricata AND (source.ip:<IP> OR destination.ip:<IP>) AND event.severity:1
+```

@@ -1,0 +1,9 @@
+# Discovery — quser / query user
+
+```
+event.category:process AND event.type:start AND process.name:("quser.exe" OR "qwinsta.exe")
+```
+
+```
+event.category:process AND event.type:start AND process.command_line:(*query user* OR *query session* OR *quser*)
+```

@@ -1,0 +1,9 @@
+# Event 4720 — User Account Created
+
+```
+event.code:4720 | groupby host.name winlog.event_data.TargetUserName winlog.event_data.SubjectUserName
+```
+
+```
+event.code:(4720 OR 4722 OR 4724 OR 4738)
+```

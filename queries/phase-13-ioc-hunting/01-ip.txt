@@ -1,7 +1,0 @@
-# IOC — IP
-
-source.ip:<IOC_IP> OR destination.ip:<IOC_IP>
-
-(source.ip:<IOC_IP> OR destination.ip:<IOC_IP>) | groupby event.dataset
-
-event.dataset:zeek.dns AND dns.answers:<IOC_IP>

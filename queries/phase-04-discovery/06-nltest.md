@@ -1,0 +1,9 @@
+# Discovery — nltest
+
+```
+event.category:process AND event.type:start AND process.name:"nltest.exe"
+```
+
+```
+event.category:process AND event.type:start AND process.command_line:(*dclist* OR *domain_trusts* OR *dsgetdc*)
+```

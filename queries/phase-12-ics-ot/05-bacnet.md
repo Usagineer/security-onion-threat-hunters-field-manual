@@ -1,0 +1,9 @@
+# ICS/OT — BACnet
+
+```
+event.dataset:zeek.conn AND destination.port:47808 | groupby source.ip destination.ip
+```
+
+```
+event.dataset:zeek.bacnet | groupby source.ip destination.ip bacnet.service
+```

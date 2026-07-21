@@ -1,5 +1,0 @@
-# Event 7045 — Service Installed
-
-event.code:7045 | groupby host.name winlog.event_data.ServiceName winlog.event_data.ImagePath
-
-event.code:7045 AND winlog.event_data.ImagePath:(*powershell* OR *cmd* OR *%COMSPEC% OR *\\* OR *ADMIN$*)

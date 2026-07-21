@@ -1,0 +1,13 @@
+# Credential Access — SAM
+
+```
+event.category:process AND process.command_line:(*reg* AND *save* AND *sam*)
+```
+
+```
+event.category:process AND process.command_line:(*reg* AND *save* AND *system*)
+```
+
+```
+event.category:process AND process.command_line:(*esentutl* OR *shadowcopy* AND *sam*)
+```

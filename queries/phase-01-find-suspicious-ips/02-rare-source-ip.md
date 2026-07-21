@@ -1,0 +1,13 @@
+# Rare Source IP
+
+```
+event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" | groupby source.ip
+```
+
+```
+event.dataset:zeek.conn AND source.ip:<IP> | groupby destination.ip destination.port network.protocol
+```
+
+```
+source.ip:<IP> OR destination.ip:<IP>
+```

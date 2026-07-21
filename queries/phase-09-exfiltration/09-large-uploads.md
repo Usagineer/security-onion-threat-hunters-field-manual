@@ -1,0 +1,9 @@
+# Exfiltration — Large Uploads
+
+```
+event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" AND NOT destination.ip:"10.0.0.0/8" AND source.bytes:>50000000 | groupby source.ip destination.ip
+```
+
+```
+event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" AND NOT destination.ip:"10.0.0.0/8" | groupby source.ip destination.as.organization.name
+```

@@ -1,7 +1,0 @@
-# Discovery — PowerShell
-
-event.category:process AND event.type:start AND process.name:"powershell.exe" AND process.command_line:(*Get-ADUser* OR *Get-ADComputer* OR *Get-ADGroup* OR *Get-NetUser* OR *Get-DomainUser* OR *Get-NetComputer*)
-
-event.category:process AND event.type:start AND process.name:"powershell.exe" AND process.command_line:(*Get-LocalUser* OR *Get-LocalGroup* OR *Get-Process* OR *Get-Service* OR *Get-NetTCPConnection*)
-
-event.category:process AND event.type:start AND process.name:("powershell.exe" OR "pwsh.exe") AND process.command_line:(*whoami* OR *systeminfo* OR *net view* OR *arp*)

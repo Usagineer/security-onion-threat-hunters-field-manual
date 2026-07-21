@@ -1,5 +1,0 @@
-# Event 4672 — Special Privileges
-
-event.code:4672 | groupby winlog.event_data.SubjectUserName host.name
-
-event.code:4672 AND NOT winlog.event_data.SubjectUserName:(*$ OR SYSTEM)

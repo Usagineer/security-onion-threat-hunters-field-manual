@@ -1,0 +1,9 @@
+# Discovery — arp / route
+
+```
+event.category:process AND event.type:start AND process.name:("arp.exe" OR "route.exe")
+```
+
+```
+event.category:process AND event.type:start AND process.command_line:(*arp -a* OR *route print*)
+```

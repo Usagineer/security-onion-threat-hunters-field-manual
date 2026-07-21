@@ -1,0 +1,9 @@
+# IOC — URL
+
+```
+url.original:*<ioc_path>* OR url.domain:*<ioc_domain>*
+```
+
+```
+event.dataset:zeek.http AND url.original:*<ioc_path>* | groupby source.ip destination.ip
+```

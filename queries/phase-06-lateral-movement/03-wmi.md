@@ -1,0 +1,17 @@
+# Lateral Movement — WMI
+
+```
+event.category:process AND process.parent.name:"wmiprvse.exe" AND process.name:("cmd.exe" OR "powershell.exe")
+```
+
+```
+event.category:process AND process.name:"wmic.exe" AND process.command_line:(*process call create* OR */node:*)
+```
+
+```
+event.dataset:zeek.conn AND destination.port:135 AND source.ip:"10.0.0.0/8" AND destination.ip:"10.0.0.0/8"
+```
+
+```
+event.dataset:zeek.dce_rpc AND dce_rpc.endpoint:("IWbemServices" OR "IWbemLevel1Login")
+```

@@ -1,7 +1,0 @@
-# Credential Access — DCSync
-
-event.dataset:zeek.dce_rpc AND dce_rpc.operation:("DRSGetNCChanges" OR "drsuapi_DsGetNCChanges")
-
-event.code:4662 AND winlog.event_data.Properties:(*1131f6aa* OR *1131f6ad* OR *89e95b76*)
-
-event.category:process AND process.command_line:(*lsadump::dcsync* OR *dcsync /domain*)
