@@ -1,0 +1,9 @@
+# TOR
+
+event.dataset:zeek.notice AND notice.note:*Tor*
+
+event.module:suricata AND rule.name:*TOR*
+
+event.dataset:zeek.ssl AND destination.port:(9001 OR 9030 OR 9050 OR 9051)
+
+source.ip:<INTERNAL_HOST> AND (event.dataset:zeek.ssl OR event.dataset:zeek.conn)

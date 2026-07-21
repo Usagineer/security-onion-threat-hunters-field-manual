@@ -1,0 +1,7 @@
+# One Host -> Many Hosts (Internal Fan-Out)
+
+event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" AND destination.ip:"10.0.0.0/8" | groupby source.ip
+
+event.dataset:zeek.conn AND source.ip:<IP> AND destination.ip:"10.0.0.0/8" | groupby destination.port network.protocol
+
+event.dataset:zeek.conn AND source.ip:<IP> AND destination.ip:"10.0.0.0/8" | groupby destination.ip connection.state
