@@ -1,7 +1,7 @@
 # Rare Destination IP
 
 ```
-event.dataset:zeek.conn AND NOT destination.ip:"10.0.0.0/8" AND NOT destination.ip:"172.16.0.0/12" AND NOT destination.ip:"192.168.0.0/16" | groupby destination.ip
+event.dataset:zeek.conn AND NOT destination.ip:"10.0.0.0/8" AND NOT destination.ip:"172.16.0.0/12" AND NOT destination.ip:"192.168.0.0/16" | groupby destination.ip source.ip
 ```
 
 ```
