@@ -68,6 +68,10 @@ class Config:
         self.api_key = args.api_key or os.environ.get("SO_ES_API_KEY")
         self.verify = args.verify
         self.timeout = args.timeout
+        # Backend: "http" (requests + creds) or "so-cli" (local so-elasticsearch-query).
+        self.backend = "so-cli" if args.so_cli or os.environ.get("SO_HUNT_BACKEND") == "so-cli" else "http"
+        self.so_cli_bin = args.so_cli_bin or os.environ.get("SO_CLI_BIN") or "so-elasticsearch-query"
+        self.sudo = args.sudo
 
     def auth_headers(self):
         h = {"Content-Type": "application/json"}
@@ -165,7 +169,32 @@ def build_body(lucene, fields, time_from, time_to, size, order):
 # --------------------------------------------------------------------------- #
 # Execution / output
 # --------------------------------------------------------------------------- #
+def so_cli_command(cfg, body):
+    """Build the so-elasticsearch-query argv for a _search (no API creds needed)."""
+    uri = f"{cfg.index}/_search?ignore_unavailable=true&allow_no_indices=true"
+    cmd = [cfg.so_cli_bin, uri, "-H", "Content-Type: application/json", "-d", json.dumps(body)]
+    if cfg.sudo:
+        cmd = ["sudo"] + cmd
+    return cmd
+
+
 def run_search(cfg, body):
+    if cfg.backend == "so-cli":
+        import subprocess
+        cmd = so_cli_command(cfg, body)
+        try:
+            out = subprocess.run(cmd, capture_output=True, text=True, timeout=cfg.timeout)
+        except FileNotFoundError:
+            raise SystemExit(f"'{cfg.so_cli_bin}' not found — run on the SO manager, or set "
+                             "--so-cli-bin / $SO_CLI_BIN. (so-elasticsearch-query ships with SO.)")
+        if out.returncode != 0:
+            raise RuntimeError(f"{cfg.so_cli_bin} exited {out.returncode}: "
+                               f"{(out.stderr or out.stdout)[:400]}")
+        try:
+            return json.loads(out.stdout)
+        except json.JSONDecodeError:
+            raise RuntimeError(f"non-JSON from {cfg.so_cli_bin}: {out.stdout[:400]}")
+
     requests = _import_requests()
     url = f"{cfg.url}/{cfg.index}/_search?ignore_unavailable=true&allow_no_indices=true"
     resp = requests.post(
@@ -278,6 +307,12 @@ def main():
                     help="verify TLS cert (default off — SO uses self-signed)")
     ap.add_argument("--timeout", type=int, default=60)
 
+    cli = ap.add_argument_group("no-API backend (run ON the SO manager)")
+    cli.add_argument("--so-cli", action="store_true",
+                     help="query via local so-elasticsearch-query — no API creds needed")
+    cli.add_argument("--so-cli-bin", help="path to so-elasticsearch-query (default: on PATH)")
+    cli.add_argument("--sudo", action="store_true", help="prefix the so-cli call with sudo")
+
     ap.add_argument("--last", default="24h",
                     help='relative window, e.g. 24h, 7d, 30d (default 24h)')
     ap.add_argument("--from", dest="time_from", help="absolute ISO start (overrides --last)")
@@ -311,8 +346,10 @@ def main():
     time_to = args.time_to
 
     cfg = Config(args)
-    if not args.dry_run and not cfg.basic_auth() and not cfg.api_key:
-        raise SystemExit("No credentials. Set SO_ES_USER/SO_ES_PASS or SO_ES_API_KEY "
+    if (not args.dry_run and cfg.backend == "http"
+            and not cfg.basic_auth() and not cfg.api_key):
+        raise SystemExit("No credentials. Set SO_ES_USER/SO_ES_PASS or SO_ES_API_KEY, "
+                         "or use --so-cli to query locally without API access "
                          "(see automation/README.md).")
 
     targets = gather_targets(args)
@@ -334,6 +371,10 @@ def main():
         print(f"\n# {label}")
         print(f"  query : {query}")
         if args.dry_run:
+            if cfg.backend == "so-cli":
+                import shlex
+                print("  # command:")
+                print("  " + " ".join(shlex.quote(c) for c in so_cli_command(cfg, body)))
             print(json.dumps(body, indent=2))
             ran += 1
             continue

@@ -36,7 +36,36 @@ cp automation/.env.example automation/.env    # then edit .env
 
 Only dependency is `requests`. Python 3.8+.
 
-## Connect to Elasticsearch
+## No API access? Use the local backend (`--so-cli`)
+
+If you can't create an Elasticsearch user or reach `:9200`, but you **have
+shell access to the SO manager**, use Security Onion's built-in
+`so-elasticsearch-query` helper. It authenticates with the box's own service
+account — **no API user, no credentials, no `.env` needed.**
+
+Run `so_hunt.py` on the manager with `--so-cli` (add `--sudo` if the helper
+requires root in your install):
+
+```
+python3 automation/so_hunt.py --so-cli --sudo --rare --last 7d \
+  --file queries/phase-01-find-suspicious-ips/01-rare-destination-ip.md
+```
+
+Everything else (—`--phase`, `--var`, `--csv`, `--dry-run`, rare ordering) works
+identically; only the execution backend changes. `--dry-run` prints the exact
+`so-elasticsearch-query` command it would run, so you can also copy/paste it or
+drop it straight into a shell script.
+
+Set `SO_HUNT_BACKEND=so-cli` (and `SO_CLI_BIN=/path/to/so-elasticsearch-query`
+if it's not on `$PATH`) to make this the default.
+
+If neither API nor shell access is available — only the SOC web UI — you can't
+script it externally. Instead automate inside the platform: save each query as a
+**Saved Query** in Hunt for one-click reuse, and convert recurring hunts into
+**Sigma rules** in the Detections module so SO runs them on a schedule and raises
+alerts for you.
+
+## Connect to Elasticsearch (API backend)
 
 Run `so_hunt.py` **on the SO manager** (simplest — `https://localhost:9200`), or
 from a host you've allowed to reach ES.
@@ -110,10 +139,12 @@ python automation/so_hunt.py --file queries/.../10-beaconing.md --dry-run
 **Linux (cron)** — daily 7-day rare-destination sweep to CSV:
 
 ```
-0 7 * * *  cd /opt/manual && python3 automation/so_hunt.py \
+0 7 * * *  cd /opt/manual && python3 automation/so_hunt.py --so-cli --sudo \
   --file queries/phase-01-find-suspicious-ips/01-rare-destination-ip.md \
   --rare --last 7d --csv /var/log/hunts/rare-dest-$(date +\%F).csv
 ```
+
+(Drop `--so-cli --sudo` if you're using the API backend with credentials.)
 
 **Windows (Task Scheduler)** — run `so_hunt.py` with the same args on a trigger.
 
