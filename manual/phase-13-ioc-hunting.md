@@ -17,57 +17,65 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Ip](../queries/phase-13-ioc-hunting/01-ip.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Ip. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Domain](../queries/phase-13-ioc-hunting/02-domain.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Domain. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Url](../queries/phase-13-ioc-hunting/03-url.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Url. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Hash](../queries/phase-13-ioc-hunting/04-hash.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Hash. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [JA3](../queries/phase-13-ioc-hunting/05-ja3.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Ja3. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [User Agent](../queries/phase-13-ioc-hunting/06-user-agent.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: User Agent. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [YARA](../queries/phase-13-ioc-hunting/07-yara.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Yara. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Sigma](../queries/phase-13-ioc-hunting/08-sigma.md)
 
-**Why use it:** Searches Security Onion telemetry for the specified indicator type: Sigma. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+#### Attacker use and next pivot
+
+An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 

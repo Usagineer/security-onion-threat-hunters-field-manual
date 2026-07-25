@@ -17,57 +17,65 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Registry Run Keys](../queries/phase-07-persistence/01-registry-run-keys.md)
 
-**Why use it:** Looks for persistence mechanisms involving Registry Run Keys. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Startup Folder](../queries/phase-07-persistence/02-startup-folder.md)
 
-**Why use it:** Looks for persistence mechanisms involving Startup Folder. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Services](../queries/phase-07-persistence/03-services.md)
 
-**Why use it:** Looks for persistence mechanisms involving Services. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Wmi Events](../queries/phase-07-persistence/04-wmi-events.md)
 
-**Why use it:** Looks for persistence mechanisms involving Wmi Events. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Scheduled Tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
 
-**Why use it:** Looks for persistence mechanisms involving Scheduled Tasks. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Bits Jobs](../queries/phase-07-persistence/06-bits-jobs.md)
 
-**Why use it:** Looks for persistence mechanisms involving Bits Jobs. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Com Hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
 
-**Why use it:** Looks for persistence mechanisms involving Com Hijacking. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Linux Cron And Temp Execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
 
-**Why use it:** Looks for persistence mechanisms involving Linux Cron And Temp Execution. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+#### Attacker use and next pivot
+
+An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 

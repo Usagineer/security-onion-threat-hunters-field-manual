@@ -17,85 +17,97 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Successful Logon](../queries/phase-11-active-directory/4624-successful-logon.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Successful Logon. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Failed Logon](../queries/phase-11-active-directory/4625-failed-logon.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Failed Logon. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Special Privileges](../queries/phase-11-active-directory/4672-special-privileges.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Special Privileges. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Process Creation](../queries/phase-11-active-directory/4688-process-creation.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Process Creation. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Scheduled Task Created](../queries/phase-11-active-directory/4698-scheduled-task-created.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Scheduled Task Created. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [User Account Created](../queries/phase-11-active-directory/4720-user-account-created.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving User Account Created. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Member Added Global Group](../queries/phase-11-active-directory/4728-member-added-global-group.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Member Added Global Group. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Member Added Local Group](../queries/phase-11-active-directory/4732-member-added-local-group.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Member Added Local Group. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Kerberos Tgt Requested](../queries/phase-11-active-directory/4768-kerberos-tgt-requested.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Tgt Requested. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Kerberos Service Ticket](../queries/phase-11-active-directory/4769-kerberos-service-ticket.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Service Ticket. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Kerberos Preauth Failed](../queries/phase-11-active-directory/4771-kerberos-preauth-failed.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Preauth Failed. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Service Installed](../queries/phase-11-active-directory/7045-service-installed.md)
 
-**Why use it:** Reviews Windows and Active Directory event evidence involving Service Installed. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
+#### Attacker use and next pivot
+
+An attacker may abuse authentication or directory changes to validate credentials, increase privilege, or create durable access. Pivot to the source workstation, target host, logon type, account changes, service/task creation, and remote execution.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 

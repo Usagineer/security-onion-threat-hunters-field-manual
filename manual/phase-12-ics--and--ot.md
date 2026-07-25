@@ -17,78 +17,89 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Modbus](../queries/phase-12-ics-ot/01-modbus.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Modbus. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Ethernet Ip](../queries/phase-12-ics-ot/02-ethernet-ip.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Ethernet Ip. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Cip](../queries/phase-12-ics-ot/03-cip.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Cip. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Dnp3](../queries/phase-12-ics-ot/04-dnp3.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Dnp3. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Bacnet](../queries/phase-12-ics-ot/05-bacnet.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Bacnet. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Opc Ua](../queries/phase-12-ics-ot/06-opc-ua.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Opc Ua. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [S7](../queries/phase-12-ics-ot/07-s7.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving S7. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Engineering Workstations](../queries/phase-12-ics-ot/08-engineering-workstations.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Engineering Workstations. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Plc Programming](../queries/phase-12-ics-ot/09-plc-programming.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Plc Programming. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Unauthorized Controllers](../queries/phase-12-ics-ot/10-unauthorized-controllers.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving Unauthorized Controllers. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [It Ot Boundary And Hmi Impact](../queries/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
 
-**Why use it:** Reviews ICS/OT communications and impact-related activity involving It Ot Boundary And Hmi Impact. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+#### Attacker use and next pivot
+
+An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 

@@ -17,64 +17,73 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [SMB](../queries/phase-06-lateral-movement/01-smb.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Smb. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Psexec](../queries/phase-06-lateral-movement/02-psexec.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Psexec. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [WMI](../queries/phase-06-lateral-movement/03-wmi.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Wmi. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [WinRM](../queries/phase-06-lateral-movement/04-winrm.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [RDP](../queries/phase-06-lateral-movement/05-rdp.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Remote Services](../queries/phase-06-lateral-movement/06-remote-services.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Remote Services. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Scheduled Tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Scheduled Tasks. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [DCOM](../queries/phase-06-lateral-movement/08-dcom.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Dcom. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Valid Account Spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
 
-**Why use it:** Looks for lateral-movement behavior involving Valid Account Spread. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+#### Attacker use and next pivot
+
+An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 

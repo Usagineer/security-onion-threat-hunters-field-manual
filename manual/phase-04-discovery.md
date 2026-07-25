@@ -17,85 +17,97 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Whoami](../queries/phase-04-discovery/01-whoami.md)
 
-**Why use it:** Looks for host or network discovery activity involving Whoami. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Hostname Ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
 
-**Why use it:** Looks for host or network discovery activity involving Hostname Ipconfig. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Arp Route](../queries/phase-04-discovery/03-arp-route.md)
 
-**Why use it:** Looks for host or network discovery activity involving Arp Route. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
 
-**Why use it:** Looks for host or network discovery activity involving Systeminfo. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Net User Group](../queries/phase-04-discovery/05-net-user-group.md)
 
-**Why use it:** Looks for host or network discovery activity involving Net User Group. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Nltest](../queries/phase-04-discovery/06-nltest.md)
 
-**Why use it:** Looks for host or network discovery activity involving Nltest. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Netstat](../queries/phase-04-discovery/07-netstat.md)
 
-**Why use it:** Looks for host or network discovery activity involving Netstat. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Tasklist](../queries/phase-04-discovery/08-tasklist.md)
 
-**Why use it:** Looks for host or network discovery activity involving Tasklist. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Quser Query User](../queries/phase-04-discovery/09-quser-query-user.md)
 
-**Why use it:** Looks for host or network discovery activity involving Quser Query User. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Powershell Discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
 
-**Why use it:** Looks for host or network discovery activity involving Powershell Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Network Service Enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
 
-**Why use it:** Looks for host or network discovery activity involving Network Service Enumeration. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Icmp And Subnet Discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
 
-**Why use it:** Looks for host or network discovery activity involving Icmp And Subnet Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
-**Attacker use and next pivot:** An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+#### Attacker use and next pivot
+
+An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
 
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
