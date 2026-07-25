@@ -1,5 +1,9 @@
 # Found PowerShell -> chase execution chain
 
+## What this does
+
+Provides the next investigative pivots after finding Powershell. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.category:process AND process.name:("powershell.exe" OR "pwsh.exe") AND process.command_line:(*-enc* OR *-EncodedCommand*)
 ```
@@ -19,7 +23,3 @@ event.module:endpoint AND event.category:network AND process.name:("powershell.e
 ```
 event.category:process AND process.parent.name:("powershell.exe" OR "pwsh.exe") | groupby process.name
 ```
-
-## What this does
-
-Provides the next investigative pivots after finding Powershell. Use the results with the surrounding host, user, time, and network context before escalating.

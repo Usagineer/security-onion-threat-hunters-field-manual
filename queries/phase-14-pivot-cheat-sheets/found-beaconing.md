@@ -1,5 +1,9 @@
 # Found beaconing -> confirm and fingerprint
 
+## What this does
+
+Provides the next investigative pivots after finding Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.conn AND source.ip:<HOST> AND destination.ip:<DEST>
 ```
@@ -19,7 +23,3 @@ event.module:suricata AND (source.ip:<HOST> OR destination.ip:<DEST>)
 ```
 event.module:endpoint AND event.category:network AND host.ip:<HOST> AND destination.ip:<DEST> | groupby process.name
 ```
-
-## What this does
-
-Provides the next investigative pivots after finding Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.

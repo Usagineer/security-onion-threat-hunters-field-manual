@@ -1,5 +1,9 @@
 # Discovery — quser / query user
 
+## What this does
+
+Looks for host or network discovery activity involving Quser Query User. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.category:process AND event.type:start AND process.name:("quser.exe" OR "qwinsta.exe")
 ```
@@ -7,7 +11,3 @@ event.category:process AND event.type:start AND process.name:("quser.exe" OR "qw
 ```
 event.category:process AND event.type:start AND process.command_line:(*query user* OR *query session* OR *quser*)
 ```
-
-## What this does
-
-Looks for host or network discovery activity involving Quser Query User. Use the results with the surrounding host, user, time, and network context before escalating.

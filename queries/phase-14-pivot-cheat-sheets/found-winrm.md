@@ -1,5 +1,9 @@
 # Found WinRM -> chase remote execution
 
+## What this does
+
+Provides the next investigative pivots after finding Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.conn AND destination.port:(5985 OR 5986) AND (source.ip:<IP> OR destination.ip:<IP>)
 ```
@@ -11,7 +15,3 @@ event.category:process AND process.parent.name:"wsmprovhost.exe" AND host.ip:<TA
 ```
 event.code:4624 AND winlog.event_data.LogonType:3 AND host.ip:<TARGET_IP> | groupby source.ip winlog.event_data.TargetUserName
 ```
-
-## What this does
-
-Provides the next investigative pivots after finding Winrm. Use the results with the surrounding host, user, time, and network context before escalating.

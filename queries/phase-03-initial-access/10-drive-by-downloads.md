@@ -1,5 +1,9 @@
 # Drive-by Downloads — Initial Access
 
+## What this does
+
+Looks for signs of initial-access activity involving Drive By Downloads. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.module:suricata AND rule.category:("A Network Trojan was detected" OR "Exploit Kit Activity Detected")
 ```
@@ -15,7 +19,3 @@ event.dataset:zeek.http AND file.mime_type:"application/x-dosexec" | groupby url
 ```
 event.category:process AND process.parent.name:("chrome.exe" OR "msedge.exe" OR "firefox.exe" OR "iexplore.exe") AND process.name:("powershell.exe" OR "cmd.exe" OR "wscript.exe" OR "cscript.exe" OR "mshta.exe")
 ```
-
-## What this does
-
-Looks for signs of initial-access activity involving Drive By Downloads. Use the results with the surrounding host, user, time, and network context before escalating.

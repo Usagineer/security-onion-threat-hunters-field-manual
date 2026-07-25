@@ -1,5 +1,9 @@
 # Found RDP -> chase the logon
 
+## What this does
+
+Provides the next investigative pivots after finding Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.conn AND destination.port:3389 AND (source.ip:<IP> OR destination.ip:<IP>)
 ```
@@ -15,7 +19,3 @@ event.code:4625 AND winlog.event_data.LogonType:10 | groupby source.ip winlog.ev
 ```
 event.code:4778 | groupby winlog.event_data.AccountName source.ip
 ```
-
-## What this does
-
-Provides the next investigative pivots after finding Rdp. Use the results with the surrounding host, user, time, and network context before escalating.

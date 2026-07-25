@@ -1,5 +1,9 @@
 # Exfiltration — Database Collection and Staging
 
+## What this does
+
+Looks for collection or exfiltration behavior involving Database Collection. Use the results with the surrounding host, user, time, and network context before escalating.
+
 > UNVERIFIED: Validate container and database process names used in your environment.
 
 ```
@@ -17,7 +21,3 @@ event.category:process AND process.name:(scp OR scp.exe OR sftp OR sftp.exe OR r
 Database export is often legitimate. Escalate when it is unusual for the account,
 comes from an interactive or newly remote-logged-on session, writes to a temporary
 location, or is followed by an external transfer.
-
-## What this does
-
-Looks for collection or exfiltration behavior involving Database Collection. Use the results with the surrounding host, user, time, and network context before escalating.

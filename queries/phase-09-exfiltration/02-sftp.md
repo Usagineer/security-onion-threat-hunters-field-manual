@@ -1,5 +1,9 @@
 # Exfiltration — SFTP
 
+## What this does
+
+Looks for collection or exfiltration behavior involving Sftp. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.conn AND destination.port:22 AND source.ip:"10.0.0.0/8" AND NOT destination.ip:"10.0.0.0/8" AND source.bytes:>10000000 | groupby source.ip destination.ip
 ```
@@ -7,7 +11,3 @@ event.dataset:zeek.conn AND destination.port:22 AND source.ip:"10.0.0.0/8" AND N
 ```
 event.dataset:zeek.ssh AND NOT destination.ip:"10.0.0.0/8" | groupby source.ip destination.ip ssh.client
 ```
-
-## What this does
-
-Looks for collection or exfiltration behavior involving Sftp. Use the results with the surrounding host, user, time, and network context before escalating.

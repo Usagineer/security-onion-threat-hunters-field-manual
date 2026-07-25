@@ -1,5 +1,9 @@
 # Master IP Pivot (run top to bottom for <IP>)
 
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Master Ip Pivot. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 source.ip:<IP> OR destination.ip:<IP>
 ```
@@ -39,7 +43,3 @@ event.module:endpoint AND (source.ip:<IP> OR destination.ip:<IP>)
 ```
 event.module:endpoint AND event.category:process AND host.ip:<IP>
 ```
-
-## What this does
-
-Finds and prioritizes suspicious network behavior associated with Master Ip Pivot. Use the results with the surrounding host, user, time, and network context before escalating.

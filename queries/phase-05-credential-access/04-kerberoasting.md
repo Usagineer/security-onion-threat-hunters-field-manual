@@ -1,5 +1,9 @@
 # Credential Access — Kerberoasting
 
+## What this does
+
+Looks for credential-access behavior involving Kerberoasting. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.code:4769 AND winlog.event_data.TicketEncryptionType:0x17 AND NOT winlog.event_data.ServiceName:krbtgt AND NOT winlog.event_data.ServiceName:*$
 ```
@@ -15,7 +19,3 @@ event.dataset:zeek.kerberos AND kerberos.request_type:"TGS" AND kerberos.cipher:
 ```
 event.category:process AND process.command_line:(*Request-SPNTicket* OR *Rubeus* AND *kerberoast* OR *GetUserSPNs*)
 ```
-
-## What this does
-
-Looks for credential-access behavior involving Kerberoasting. Use the results with the surrounding host, user, time, and network context before escalating.

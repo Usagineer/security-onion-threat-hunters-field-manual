@@ -1,5 +1,9 @@
 # Suricata Alert Triage
 
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Suricata Alert Triage. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:suricata.alert | groupby rule.name
 ```
@@ -28,6 +32,3 @@ Treat breadth and sequence as evidence: the same high-value alert from one
 source to several destinations, or a download alert followed by a C2/stager
 alert, warrants rapid scoping. Confirm handler/victim roles with direction and
 PCAP/community ID, never port numbers alone.
-## What this does
-
-Finds and prioritizes suspicious network behavior associated with Suricata Alert Triage. Use the results with the surrounding host, user, time, and network context before escalating.

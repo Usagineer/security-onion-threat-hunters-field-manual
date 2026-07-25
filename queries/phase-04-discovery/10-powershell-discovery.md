@@ -1,5 +1,9 @@
 # Discovery — PowerShell
 
+## What this does
+
+Looks for host or network discovery activity involving Powershell Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.category:process AND event.type:start AND process.name:"powershell.exe" AND process.command_line:(*Get-ADUser* OR *Get-ADComputer* OR *Get-ADGroup* OR *Get-NetUser* OR *Get-DomainUser* OR *Get-NetComputer*)
 ```
@@ -11,7 +15,3 @@ event.category:process AND event.type:start AND process.name:"powershell.exe" AN
 ```
 event.category:process AND event.type:start AND process.name:("powershell.exe" OR "pwsh.exe") AND process.command_line:(*whoami* OR *systeminfo* OR *net view* OR *arp*)
 ```
-
-## What this does
-
-Looks for host or network discovery activity involving Powershell Discovery. Use the results with the surrounding host, user, time, and network context before escalating.

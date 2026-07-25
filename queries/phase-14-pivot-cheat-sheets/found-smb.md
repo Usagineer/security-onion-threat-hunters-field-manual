@@ -1,5 +1,9 @@
 # Found SMB -> chase lateral movement
 
+## What this does
+
+Provides the next investigative pivots after finding Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.smb_mapping AND (source.ip:<IP> OR destination.ip:<IP>) | groupby smb.share
 ```
@@ -19,7 +23,3 @@ event.code:4624 AND winlog.event_data.LogonType:3 AND host.ip:<TARGET_IP> | grou
 ```
 event.category:process AND process.parent.name:"wsmprovhost.exe" AND host.ip:<TARGET_IP>
 ```
-
-## What this does
-
-Provides the next investigative pivots after finding Smb. Use the results with the surrounding host, user, time, and network context before escalating.

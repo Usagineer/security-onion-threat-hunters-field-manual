@@ -1,5 +1,9 @@
 # Discovery — ICMP and Subnet Enumeration
 
+## What this does
+
+Looks for host or network discovery activity involving Icmp And Subnet Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
+
 > UNVERIFIED: Validate the Zeek ICMP dataset name and tune the threshold to local monitoring tools.
 
 ```
@@ -17,7 +21,3 @@ event.dataset:zeek.notice AND source.ip:<HOST> AND notice.note:(*Scan* OR *Addre
 Corroborate a fan-out against the host role and its process telemetry. Inventory,
 monitoring, and OT polling systems commonly scan; an interactive shell followed by
 new reachability tests is materially more suspicious.
-
-## What this does
-
-Looks for host or network discovery activity involving Icmp And Subnet Discovery. Use the results with the surrounding host, user, time, and network context before escalating.

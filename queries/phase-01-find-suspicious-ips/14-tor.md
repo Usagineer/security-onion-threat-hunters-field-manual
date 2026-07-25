@@ -1,5 +1,9 @@
 # TOR
 
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Tor. Use the results with the surrounding host, user, time, and network context before escalating.
+
 ```
 event.dataset:zeek.notice AND notice.note:*Tor*
 ```
@@ -15,7 +19,3 @@ event.dataset:zeek.ssl AND destination.port:(9001 OR 9030 OR 9050 OR 9051)
 ```
 source.ip:<INTERNAL_HOST> AND (event.dataset:zeek.ssl OR event.dataset:zeek.conn)
 ```
-
-## What this does
-
-Finds and prioritizes suspicious network behavior associated with Tor. Use the results with the surrounding host, user, time, and network context before escalating.
