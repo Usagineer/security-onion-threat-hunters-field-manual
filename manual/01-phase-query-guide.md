@@ -1,5 +1,22 @@
 # Phase Query Guide for New Analysts
 
+## Detailed phase explanations
+
+- [Phase 1 — Find Suspicious IPs](phase-01-find-suspicious-ips.md)
+- [Phase 2 — Investigate the Suspicious IP](phase-02-investigate-the-ip.md)
+- [Phase 3 — Initial Access](phase-03-initial-access.md)
+- [Phase 4 — Discovery](phase-04-discovery.md)
+- [Phase 5 — Credential Access](phase-05-credential-access.md)
+- [Phase 6 — Lateral Movement](phase-06-lateral-movement.md)
+- [Phase 7 — Persistence](phase-07-persistence.md)
+- [Phase 8 — Command and Control](phase-08-command-and-control.md)
+- [Phase 9 — Exfiltration](phase-09-exfiltration.md)
+- [Phase 10 — Malware and Execution](phase-10-malware-and-execution.md)
+- [Phase 11 — Active Directory and Windows Events](phase-11-active-directory-and-windows-events.md)
+- [Phase 12 — ICS / OT](phase-12-ics--and--ot.md)
+- [Phase 13 — IOC Hunting](phase-13-ioc-hunting.md)
+- [Phase 14 — Pivot Cheat Sheets](phase-14-pivot-cheat-sheets.md)
+
 This guide explains what each query phase is for and how to use the phases as one investigation workflow. It complements the short **What this does** section at the top of every query file.
 
 ## Before you search
