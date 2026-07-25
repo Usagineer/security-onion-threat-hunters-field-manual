@@ -11,3 +11,7 @@ event.dataset:zeek.conn AND destination.port:443 AND destination.ip:("1.1.1.1" O
 ```
 event.dataset:zeek.ssl AND tls.client.server_name:*cloudflare-dns.com | groupby source.ip
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Dns Over Https Doh. Use the results with the surrounding host, user, time, and network context before escalating.

@@ -11,3 +11,7 @@ event.dataset:zeek.conn AND destination.ip:<IP> | groupby destination.as.organiz
 ```
 event.dataset:zeek.dns AND dns.answers:<IP>
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Many Hosts One Destination. Use the results with the surrounding host, user, time, and network context before escalating.

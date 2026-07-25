@@ -15,3 +15,6 @@ event.dataset:zeek.conn AND ((source.ip:<HOST> AND destination.ip:<DEST>) OR (so
 Do not exclude internal destinations: an attacker-controlled internal host can
 act as a handler or staging server. Repeated connections to a small fixed set of
 pairs indicate persistent C2 or retries, not necessarily a scan.
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.

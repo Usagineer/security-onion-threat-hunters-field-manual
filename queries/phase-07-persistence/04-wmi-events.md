@@ -11,3 +11,7 @@ event.category:process AND process.command_line:(*__EventFilter* OR *CommandLine
 ```
 event.category:process AND process.name:"wmic.exe" AND process.command_line:(*ActiveScriptEventConsumer* OR *__EventFilter*)
 ```
+
+## What this does
+
+Looks for persistence mechanisms involving Wmi Events. Use the results with the surrounding host, user, time, and network context before escalating.

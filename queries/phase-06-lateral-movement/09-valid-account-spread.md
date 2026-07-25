@@ -17,3 +17,7 @@ event.code:4625 AND winlog.event_data.TargetUserName:<ACCOUNT> | groupby source.
 Scope by account *and* source host. A successful remote logon is not enough by
 itself: look for a new source-to-destination relationship, multiple target hosts,
 failures preceding success, or post-logon process execution.
+
+## What this does
+
+Looks for lateral-movement behavior involving Valid Account Spread. Use the results with the surrounding host, user, time, and network context before escalating.

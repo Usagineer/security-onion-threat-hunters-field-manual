@@ -11,3 +11,7 @@ event.dataset:zeek.conn AND source.ip:<IP> | groupby destination.ip destination.
 ```
 source.ip:<IP> OR destination.ip:<IP>
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Rare Source Ip. Use the results with the surrounding host, user, time, and network context before escalating.

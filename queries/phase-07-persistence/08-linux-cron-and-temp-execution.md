@@ -17,3 +17,7 @@ event.category:file AND file.path:(*/etc/cron.*/* OR */var/spool/cron/* OR */var
 For a suspected cron entry, capture its full command, owner, parent process,
 first-seen time, and outbound network activity. Remove the persistence mechanism
 before killing its child process, or it may restart on the next schedule.
+
+## What this does
+
+Looks for persistence mechanisms involving Linux Cron And Temp Execution. Use the results with the surrounding host, user, time, and network context before escalating.

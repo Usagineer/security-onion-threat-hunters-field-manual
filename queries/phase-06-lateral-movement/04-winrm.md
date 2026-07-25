@@ -11,3 +11,7 @@ event.category:process AND process.parent.name:"wsmprovhost.exe"
 ```
 event.category:process AND process.name:("powershell.exe" OR "cmd.exe") AND process.parent.name:"wsmprovhost.exe"
 ```
+
+## What this does
+
+Looks for lateral-movement behavior involving Winrm. Use the results with the surrounding host, user, time, and network context before escalating.

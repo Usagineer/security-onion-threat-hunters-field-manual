@@ -7,3 +7,7 @@ event.dataset:zeek.ssl AND tls.client.server_name:(*mega.nz OR *mega.co.nz OR *m
 ```
 event.category:process AND process.name:("MEGAsync.exe" OR "megacmd.exe")
 ```
+
+## What this does
+
+Looks for collection or exfiltration behavior involving Mega. Use the results with the surrounding host, user, time, and network context before escalating.

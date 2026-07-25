@@ -11,3 +11,7 @@ event.dataset:zeek.cip AND cip.service:*Write* | groupby source.ip destination.i
 ```
 event.dataset:zeek.modbus AND modbus.function:*Write* | groupby source.ip destination.ip
 ```
+
+## What this does
+
+Reviews ICS/OT communications and impact-related activity involving Plc Programming. Use the results with the surrounding host, user, time, and network context before escalating.

@@ -7,3 +7,7 @@ event.code:4732 | groupby host.name winlog.event_data.TargetUserName winlog.even
 ```
 event.code:4732 AND winlog.event_data.TargetUserName:*Administrators*
 ```
+
+## What this does
+
+Reviews Windows and Active Directory event evidence involving Member Added Local Group. Use the results with the surrounding host, user, time, and network context before escalating.

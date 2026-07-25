@@ -11,3 +11,7 @@ event.dataset:zeek.x509 AND x509.certificate.issuer:*self* | groupby source.ip d
 ```
 event.dataset:zeek.ssl AND tls.version:("TLSv10" OR "TLSv11" OR "SSLv3") | groupby source.ip destination.ip
 ```
+
+## What this does
+
+Looks for command-and-control behavior involving Tls. Use the results with the surrounding host, user, time, and network context before escalating.

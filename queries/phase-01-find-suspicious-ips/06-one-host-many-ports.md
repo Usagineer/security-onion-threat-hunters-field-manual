@@ -11,3 +11,7 @@ event.dataset:zeek.conn AND source.ip:<IP> AND connection.state:("S0" OR "REJ" O
 ```
 event.dataset:zeek.notice AND source.ip:<IP>
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with One Host Many Ports. Use the results with the surrounding host, user, time, and network context before escalating.

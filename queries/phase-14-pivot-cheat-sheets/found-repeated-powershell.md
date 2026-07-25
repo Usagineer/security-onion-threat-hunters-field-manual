@@ -20,3 +20,6 @@ Use a repeated command line as the campaign key: determine how many hosts ran
 it, under which accounts, and whether it came from a domain share or Task
 Scheduler. Validate approved software and deployment tooling before concluding
 that repeated execution is malicious.
+## What this does
+
+Provides the next investigative pivots after finding Repeated Powershell. Use the results with the surrounding host, user, time, and network context before escalating.

@@ -15,3 +15,7 @@ event.module:endpoint AND event.category:process AND host.ip:<IP> | groupby proc
 ```
 event.module:endpoint AND event.category:network AND (source.ip:<IP> OR destination.ip:<IP>)
 ```
+
+## What this does
+
+Pivots through available network, alert, and endpoint evidence for Endpoint. Use the results with the surrounding host, user, time, and network context before escalating.

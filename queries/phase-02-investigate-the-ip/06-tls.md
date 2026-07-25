@@ -15,3 +15,7 @@ event.dataset:zeek.ssl AND (source.ip:<IP> OR destination.ip:<IP>) | groupby tls
 ```
 event.dataset:zeek.x509 AND (source.ip:<IP> OR destination.ip:<IP>)
 ```
+
+## What this does
+
+Pivots through available network, alert, and endpoint evidence for Tls. Use the results with the surrounding host, user, time, and network context before escalating.

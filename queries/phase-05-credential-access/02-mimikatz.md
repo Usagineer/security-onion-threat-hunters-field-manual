@@ -11,3 +11,7 @@ event.category:process AND process.pe.original_file_name:"mimikatz.exe"
 ```
 event.category:process AND process.command_line:(*logonpasswords* OR *pth /user* OR *ptt /ticket*)
 ```
+
+## What this does
+
+Looks for credential-access behavior involving Mimikatz. Use the results with the surrounding host, user, time, and network context before escalating.

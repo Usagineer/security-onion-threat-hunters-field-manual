@@ -7,3 +7,7 @@ event.dataset:zeek.ssl AND tls.client.server_name:(*mega.nz OR *mega.co.nz OR *p
 ```
 event.dataset:zeek.dns AND dns.question.name:(*mega.nz OR *wetransfer.com OR *transfer.sh OR *gofile.io OR *anonfiles*) | groupby source.ip dns.question.name
 ```
+
+## What this does
+
+Looks for collection or exfiltration behavior involving Cloud Storage. Use the results with the surrounding host, user, time, and network context before escalating.

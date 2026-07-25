@@ -11,3 +11,7 @@ event.dataset:zeek.http AND http.request.method:POST AND NOT destination.ip:"10.
 ```
 event.dataset:zeek.http AND http.request.method:POST AND NOT http.request.method:GET | groupby url.domain user_agent.original
 ```
+
+## What this does
+
+Looks for command-and-control behavior involving Http Post. Use the results with the surrounding host, user, time, and network context before escalating.

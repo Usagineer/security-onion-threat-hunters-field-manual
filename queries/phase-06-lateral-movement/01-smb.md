@@ -11,3 +11,7 @@ event.dataset:zeek.smb_mapping AND smb.share:(*ADMIN$* OR *C$* OR *IPC$*) | grou
 ```
 event.dataset:zeek.smb_files AND file.name:(*.exe OR *.dll OR *.ps1 OR *.bat) | groupby source.ip destination.ip file.name
 ```
+
+## What this does
+
+Looks for lateral-movement behavior involving Smb. Use the results with the surrounding host, user, time, and network context before escalating.

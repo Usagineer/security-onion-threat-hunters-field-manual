@@ -11,3 +11,7 @@ event.category:process AND process.name:"sc.exe" AND process.command_line:*creat
 ```
 event.category:registry AND registry.path:*System*CurrentControlSet*Services*
 ```
+
+## What this does
+
+Looks for persistence mechanisms involving Services. Use the results with the surrounding host, user, time, and network context before escalating.

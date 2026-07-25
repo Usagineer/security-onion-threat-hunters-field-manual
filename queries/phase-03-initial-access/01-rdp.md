@@ -11,3 +11,7 @@ event.code:4625 AND winlog.event_data.LogonType:10 | groupby source.ip destinati
 ```
 event.code:4625 AND winlog.event_data.LogonType:10 | groupby source.ip winlog.event_data.TargetUserName
 ```
+
+## What this does
+
+Looks for signs of initial-access activity involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.

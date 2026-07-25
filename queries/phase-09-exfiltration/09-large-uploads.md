@@ -7,3 +7,7 @@ event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" AND NOT destination.ip:"10.0.
 ```
 event.dataset:zeek.conn AND source.ip:"10.0.0.0/8" AND NOT destination.ip:"10.0.0.0/8" | groupby source.ip destination.as.organization.name
 ```
+
+## What this does
+
+Looks for collection or exfiltration behavior involving Large Uploads. Use the results with the surrounding host, user, time, and network context before escalating.

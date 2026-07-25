@@ -15,3 +15,7 @@ event.dataset:zeek.dns AND source.ip:<HOST> | groupby dns.question.name
 ```
 event.dataset:zeek.dns AND dns.question.name:/.{50,}/
 ```
+
+## What this does
+
+Looks for command-and-control behavior involving Dns Tunneling. Use the results with the surrounding host, user, time, and network context before escalating.

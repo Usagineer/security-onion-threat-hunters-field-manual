@@ -11,3 +11,7 @@ event.dataset:zeek.ssh AND ssh.auth.success:false | groupby source.ip destinatio
 ```
 event.dataset:zeek.ssh | groupby source.ip destination.ip ssh.auth.success
 ```
+
+## What this does
+
+Looks for signs of initial-access activity involving Ssh. Use the results with the surrounding host, user, time, and network context before escalating.

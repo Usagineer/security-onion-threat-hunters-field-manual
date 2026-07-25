@@ -11,3 +11,7 @@ event.code:4624 AND winlog.event_data.LogonType:10 | groupby source.ip winlog.ev
 ```
 event.code:4778 | groupby winlog.event_data.AccountName source.ip
 ```
+
+## What this does
+
+Looks for lateral-movement behavior involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.

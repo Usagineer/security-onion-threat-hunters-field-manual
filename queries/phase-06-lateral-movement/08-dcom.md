@@ -11,3 +11,7 @@ event.dataset:zeek.conn AND destination.port:135 AND source.ip:"10.0.0.0/8" AND 
 ```
 event.dataset:zeek.dce_rpc AND dce_rpc.endpoint:("IDispatch" OR "ShellWindows" OR "MMC20")
 ```
+
+## What this does
+
+Looks for lateral-movement behavior involving Dcom. Use the results with the surrounding host, user, time, and network context before escalating.

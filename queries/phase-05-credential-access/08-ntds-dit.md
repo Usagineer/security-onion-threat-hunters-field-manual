@@ -15,3 +15,7 @@ event.category:process AND process.name:("ntdsutil.exe" OR "vssadmin.exe" OR "di
 ```
 event.dataset:zeek.smb_files AND file.name:*ntds.dit*
 ```
+
+## What this does
+
+Looks for credential-access behavior involving Ntds Dit. Use the results with the surrounding host, user, time, and network context before escalating.

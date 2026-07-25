@@ -15,3 +15,7 @@ event.dataset:zeek.kerberos AND kerberos.request_type:"TGS" AND kerberos.cipher:
 ```
 event.category:process AND process.command_line:(*Request-SPNTicket* OR *Rubeus* AND *kerberoast* OR *GetUserSPNs*)
 ```
+
+## What this does
+
+Looks for credential-access behavior involving Kerberoasting. Use the results with the surrounding host, user, time, and network context before escalating.

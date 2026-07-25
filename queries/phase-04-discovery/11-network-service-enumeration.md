@@ -15,3 +15,6 @@ event.dataset:zeek.notice AND source.ip:<IP> AND notice.note:(*Scan* OR *Address
 Use this after identifying a suspicious host. A small number of new LDAP/LDAPS
 or SMB connections can be targeted directory or share discovery even when the
 host's dominant traffic is a persistent session to only a few endpoints.
+## What this does
+
+Looks for host or network discovery activity involving Network Service Enumeration. Use the results with the surrounding host, user, time, and network context before escalating.

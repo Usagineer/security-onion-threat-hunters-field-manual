@@ -23,3 +23,7 @@ tls.client.ja3:"<ja3>" OR tls.server.ja3s:"<ja3s>"
 ```
 user_agent.original:"*<ioc_user_agent>*"
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Ioc Sweep. Use the results with the surrounding host, user, time, and network context before escalating.

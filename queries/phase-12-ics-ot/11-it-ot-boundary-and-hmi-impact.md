@@ -18,3 +18,7 @@ Treat an IT-to-OT connection as a lead, not proof: monitoring and engineering
 tools can be expected. Raise priority when a non-engineering host reaches an OT
 service, an HMI account is used from a new source, or collection/configuration
 commands appear near the connection.
+
+## What this does
+
+Reviews ICS/OT communications and impact-related activity involving It Ot Boundary And Hmi Impact. Use the results with the surrounding host, user, time, and network context before escalating.

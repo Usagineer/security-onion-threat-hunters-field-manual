@@ -11,3 +11,7 @@ event.dataset:zeek.ftp | groupby source.ip destination.ip ftp.command ftp.reply_
 ```
 event.dataset:zeek.ftp AND ftp.reply_code:530 | groupby source.ip destination.ip
 ```
+
+## What this does
+
+Looks for signs of initial-access activity involving Ftp. Use the results with the surrounding host, user, time, and network context before escalating.

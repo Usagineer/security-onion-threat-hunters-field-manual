@@ -15,3 +15,7 @@ event.dataset:zeek.http AND http.response.status_code:500 | groupby source.ip ur
 ```
 event.dataset:zeek.http AND http.request.method:POST AND destination.ip:"10.0.0.0/8" | groupby source.ip url.original
 ```
+
+## What this does
+
+Looks for signs of initial-access activity involving Web Attacks. Use the results with the surrounding host, user, time, and network context before escalating.

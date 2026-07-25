@@ -25,3 +25,6 @@ with protocol, timing, alerts, and endpoint telemetry.
 ```
 event.dataset:zeek.conn AND destination.ip:<IP> | groupby destination.as.organization.name source.ip destination.port
 ```
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Rare Destination Ip. Use the results with the surrounding host, user, time, and network context before escalating.

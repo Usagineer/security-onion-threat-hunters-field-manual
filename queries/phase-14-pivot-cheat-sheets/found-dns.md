@@ -15,3 +15,7 @@ event.dataset:zeek.ssl AND tls.client.server_name:*<domain>* | groupby source.ip
 ```
 event.module:suricata AND (dns.question.name:*<domain>* OR destination.ip:<RESOLVED_IP>)
 ```
+
+## What this does
+
+Provides the next investigative pivots after finding Dns. Use the results with the surrounding host, user, time, and network context before escalating.

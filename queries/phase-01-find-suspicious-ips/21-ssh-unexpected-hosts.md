@@ -15,3 +15,6 @@ event.dataset:zeek.conn AND destination.port:22 AND NOT source.ip:"10.0.0.0/8" A
 ```
 event.dataset:zeek.notice AND notice.note:(*SSH* OR *Scan* OR *Password_Guessing*) | groupby source.ip destination.ip notice.note
 ```
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Ssh Unexpected Hosts. Use the results with the surrounding host, user, time, and network context before escalating.

@@ -19,3 +19,7 @@ event.module:endpoint AND event.category:network AND process.name:("powershell.e
 ```
 event.category:process AND process.parent.name:("powershell.exe" OR "pwsh.exe") | groupby process.name
 ```
+
+## What this does
+
+Provides the next investigative pivots after finding Powershell. Use the results with the surrounding host, user, time, and network context before escalating.

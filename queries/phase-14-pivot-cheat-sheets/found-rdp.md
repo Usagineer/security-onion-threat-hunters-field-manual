@@ -15,3 +15,7 @@ event.code:4625 AND winlog.event_data.LogonType:10 | groupby source.ip winlog.ev
 ```
 event.code:4778 | groupby winlog.event_data.AccountName source.ip
 ```
+
+## What this does
+
+Provides the next investigative pivots after finding Rdp. Use the results with the surrounding host, user, time, and network context before escalating.

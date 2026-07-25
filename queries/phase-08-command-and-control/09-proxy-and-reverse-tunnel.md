@@ -17,3 +17,7 @@ event.dataset:zeek.conn AND source.ip:<HOST> AND NOT destination.ip:<INTERNAL_RA
 Pair the process command line with the network connection. An encrypted tunnel
 may hide the final destination and payload, so preserve endpoint evidence and
 record byte counts on both sides of the pivot.
+
+## What this does
+
+Looks for command-and-control behavior involving Proxy And Reverse Tunnel. Use the results with the surrounding host, user, time, and network context before escalating.

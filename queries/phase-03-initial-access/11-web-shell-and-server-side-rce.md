@@ -17,3 +17,7 @@ event.dataset:zeek.http AND http.request.method:(POST OR GET) AND url.original:(
 Start with the web request, then pivot to process creation and the web server's
 outbound connections. A 200 response is not evidence that a request was benign;
 look for a new child process or network session close to the request timestamp.
+
+## What this does
+
+Looks for signs of initial-access activity involving Web Shell And Server Side Rce. Use the results with the surrounding host, user, time, and network context before escalating.

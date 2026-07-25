@@ -19,3 +19,6 @@ event.dataset:zeek.conn AND source.ip:<IP> AND destination.port:(139 OR 445) | g
 Low-count SMB touches to several new peers may be more important than the
 highest-count file-server traffic. Prioritize peer-to-peer SMB, failed probes,
 admin shares, and executable or script writes.
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Smb Exposure. Use the results with the surrounding host, user, time, and network context before escalating.

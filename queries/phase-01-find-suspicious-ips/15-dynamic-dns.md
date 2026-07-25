@@ -11,3 +11,7 @@ event.dataset:zeek.dns AND dns.question.name:*duckdns.org | groupby source.ip dn
 ```
 source.ip:<HOST> OR destination.ip:<RESOLVED_IP>
 ```
+
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with Dynamic Dns. Use the results with the surrounding host, user, time, and network context before escalating.

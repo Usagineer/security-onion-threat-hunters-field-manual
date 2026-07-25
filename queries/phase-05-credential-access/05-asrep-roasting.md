@@ -15,3 +15,7 @@ event.dataset:zeek.kerberos AND kerberos.request_type:"AS" AND kerberos.success:
 ```
 event.category:process AND process.command_line:(*Rubeus* AND *asreproast* OR *Get-ASREPHash*)
 ```
+
+## What this does
+
+Looks for credential-access behavior involving Asrep Roasting. Use the results with the surrounding host, user, time, and network context before escalating.

@@ -20,3 +20,6 @@ Many low-count destination pairs, especially with `S0`/`REJ`/reset states,
 support scanning. High counts to a small fixed set of pairs support persistent
 sessions or retries. Low-count touches to new LDAP/SMB/RDP/WinRM destinations
 can still be targeted discovery or lateral movement.
+## What this does
+
+Finds and prioritizes suspicious network behavior associated with One Host Many Hosts. Use the results with the surrounding host, user, time, and network context before escalating.
