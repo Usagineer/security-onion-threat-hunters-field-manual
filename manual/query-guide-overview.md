@@ -1,4 +1,4 @@
-# Phase Query Guide for New Analysts
+# Query Guide Overview
 
 ## Detailed phase explanations
 
