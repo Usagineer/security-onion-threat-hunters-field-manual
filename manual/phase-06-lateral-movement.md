@@ -17,75 +17,111 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [SMB](../queries/phase-06-lateral-movement/01-smb.md)
 
+#### What this query is for
+
+Use the **SMB** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **SMB** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Psexec](../queries/phase-06-lateral-movement/02-psexec.md)
 
+#### What this query is for
+
+Use the **Psexec** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **Psexec** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [WMI](../queries/phase-06-lateral-movement/03-wmi.md)
 
+#### What this query is for
+
+Use the **WMI** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **WMI** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [WinRM](../queries/phase-06-lateral-movement/04-winrm.md)
 
+#### What this query is for
+
+Use the **WinRM** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **WinRM** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [RDP](../queries/phase-06-lateral-movement/05-rdp.md)
 
+#### What this query is for
+
+Use the **RDP** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **RDP** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Remote Services](../queries/phase-06-lateral-movement/06-remote-services.md)
 
+#### What this query is for
+
+Use the **Remote Services** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **Remote Services** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Scheduled Tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
 
+#### What this query is for
+
+Use the **Scheduled Tasks** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **Scheduled Tasks** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [DCOM](../queries/phase-06-lateral-movement/08-dcom.md)
 
+#### What this query is for
+
+Use the **DCOM** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **DCOM** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Valid Account Spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
 
+#### What this query is for
+
+Use the **Valid Account Spread** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this remote-management path to execute on a new host, copy tools, and extend their foothold. On the destination, look for a new process, persistence, outbound communications, and another source-to-target movement edge.
+An attacker may abuse **Valid Account Spread** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

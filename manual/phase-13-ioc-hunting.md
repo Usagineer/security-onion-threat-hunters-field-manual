@@ -17,67 +17,99 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Ip](../queries/phase-13-ioc-hunting/01-ip.md)
 
+#### What this query is for
+
+Use the **Ip** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **Ip** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Domain](../queries/phase-13-ioc-hunting/02-domain.md)
 
+#### What this query is for
+
+Use the **Domain** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **Domain** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Url](../queries/phase-13-ioc-hunting/03-url.md)
 
+#### What this query is for
+
+Use the **Url** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **Url** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Hash](../queries/phase-13-ioc-hunting/04-hash.md)
 
+#### What this query is for
+
+Use the **Hash** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **Hash** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [JA3](../queries/phase-13-ioc-hunting/05-ja3.md)
 
+#### What this query is for
+
+Use the **JA3** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **JA3** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [User Agent](../queries/phase-13-ioc-hunting/06-user-agent.md)
 
+#### What this query is for
+
+Use the **User Agent** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **User Agent** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [YARA](../queries/phase-13-ioc-hunting/07-yara.md)
 
+#### What this query is for
+
+Use the **YARA** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **YARA** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Sigma](../queries/phase-13-ioc-hunting/08-sigma.md)
 
+#### What this query is for
+
+Use the **Sigma** query to scope known indicators across network, endpoint, and identity telemetry. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the observed indicator as infrastructure, payload identity, or a shared artifact while rotating other parts of their operation. Pivot from every match to affected hosts, process execution, related domains or IPs, and the surrounding behavior rather than treating the IOC as the whole case.
+An attacker may abuse **Sigma** to reuse or rotate infrastructure and artifacts while affecting additional hosts or hiding related behavior. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

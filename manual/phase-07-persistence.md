@@ -17,67 +17,99 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Registry Run Keys](../queries/phase-07-persistence/01-registry-run-keys.md)
 
+#### What this query is for
+
+Use the **Registry Run Keys** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Registry Run Keys** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Startup Folder](../queries/phase-07-persistence/02-startup-folder.md)
 
+#### What this query is for
+
+Use the **Startup Folder** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Startup Folder** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Services](../queries/phase-07-persistence/03-services.md)
 
+#### What this query is for
+
+Use the **Services** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Services** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Wmi Events](../queries/phase-07-persistence/04-wmi-events.md)
 
+#### What this query is for
+
+Use the **Wmi Events** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Wmi Events** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Scheduled Tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
 
+#### What this query is for
+
+Use the **Scheduled Tasks** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Scheduled Tasks** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Bits Jobs](../queries/phase-07-persistence/06-bits-jobs.md)
 
+#### What this query is for
+
+Use the **Bits Jobs** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Bits Jobs** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Com Hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
 
+#### What this query is for
+
+Use the **Com Hijacking** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Com Hijacking** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Linux Cron And Temp Execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
 
+#### What this query is for
+
+Use the **Linux Cron And Temp Execution** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this mechanism to restore access after reboot, logoff, or cleanup and to keep a payload available for later action. Pivot from the configured payload to its process ancestry, network connections, creation event, and copies on peer hosts.
+An attacker may abuse **Linux Cron And Temp Execution** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

@@ -17,91 +17,135 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Modbus](../queries/phase-12-ics-ot/01-modbus.md)
 
+#### What this query is for
+
+Use the **Modbus** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Modbus** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Ethernet Ip](../queries/phase-12-ics-ot/02-ethernet-ip.md)
 
+#### What this query is for
+
+Use the **Ethernet Ip** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Ethernet Ip** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Cip](../queries/phase-12-ics-ot/03-cip.md)
 
+#### What this query is for
+
+Use the **Cip** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Cip** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Dnp3](../queries/phase-12-ics-ot/04-dnp3.md)
 
+#### What this query is for
+
+Use the **Dnp3** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Dnp3** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Bacnet](../queries/phase-12-ics-ot/05-bacnet.md)
 
+#### What this query is for
+
+Use the **Bacnet** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Bacnet** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Opc Ua](../queries/phase-12-ics-ot/06-opc-ua.md)
 
+#### What this query is for
+
+Use the **Opc Ua** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Opc Ua** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [S7](../queries/phase-12-ics-ot/07-s7.md)
 
+#### What this query is for
+
+Use the **S7** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **S7** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Engineering Workstations](../queries/phase-12-ics-ot/08-engineering-workstations.md)
 
+#### What this query is for
+
+Use the **Engineering Workstations** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Engineering Workstations** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Plc Programming](../queries/phase-12-ics-ot/09-plc-programming.md)
 
+#### What this query is for
+
+Use the **Plc Programming** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Plc Programming** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Unauthorized Controllers](../queries/phase-12-ics-ot/10-unauthorized-controllers.md)
 
+#### What this query is for
+
+Use the **Unauthorized Controllers** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **Unauthorized Controllers** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [It Ot Boundary And Hmi Impact](../queries/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
 
+#### What this query is for
+
+Use the **It Ot Boundary And Hmi Impact** query to evaluate OT protocol and engineering activity with operational safety context. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this OT-related action to gain engineering access, alter controller or HMI behavior, or affect availability and process integrity. Coordinate with OT owners, then pivot to source systems, remote access, engineering changes, and related control traffic.
+An attacker may abuse **It Ot Boundary And Hmi Impact** to use engineering or control-system access to alter operations, gain control visibility, or affect availability and integrity. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

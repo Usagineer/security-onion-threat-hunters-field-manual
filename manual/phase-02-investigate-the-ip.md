@@ -17,75 +17,111 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Everything](../queries/phase-02-investigate-the-ip/00-everything.md)
 
+#### What this query is for
+
+Use the **Everything** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **Everything** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [SMB](../queries/phase-02-investigate-the-ip/01-smb.md)
 
+#### What this query is for
+
+Use the **SMB** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **SMB** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [RDP](../queries/phase-02-investigate-the-ip/02-rdp.md)
 
+#### What this query is for
+
+Use the **RDP** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **RDP** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [WinRM](../queries/phase-02-investigate-the-ip/03-winrm.md)
 
+#### What this query is for
+
+Use the **WinRM** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **WinRM** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [DNS](../queries/phase-02-investigate-the-ip/04-dns.md)
 
+#### What this query is for
+
+Use the **DNS** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **DNS** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [HTTP](../queries/phase-02-investigate-the-ip/05-http.md)
 
+#### What this query is for
+
+Use the **HTTP** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **HTTP** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [TLS](../queries/phase-02-investigate-the-ip/06-tls.md)
 
+#### What this query is for
+
+Use the **TLS** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **TLS** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
 
+#### What this query is for
+
+Use the **Suricata** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **Suricata** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
 
+#### What this query is for
+
+Use the **Endpoint** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+An attacker may abuse **Endpoint** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

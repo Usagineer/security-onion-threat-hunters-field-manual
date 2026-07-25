@@ -17,75 +17,111 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Beaconing](../queries/phase-08-command-and-control/01-beaconing.md)
 
+#### What this query is for
+
+Use the **Beaconing** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Beaconing** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Dns Tunneling](../queries/phase-08-command-and-control/02-dns-tunneling.md)
 
+#### What this query is for
+
+Use the **Dns Tunneling** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Dns Tunneling** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Long Connections](../queries/phase-08-command-and-control/03-long-connections.md)
 
+#### What this query is for
+
+Use the **Long Connections** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Long Connections** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [JA3](../queries/phase-08-command-and-control/04-ja3.md)
 
+#### What this query is for
+
+Use the **JA3** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **JA3** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Rare Domains](../queries/phase-08-command-and-control/05-rare-domains.md)
 
+#### What this query is for
+
+Use the **Rare Domains** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Rare Domains** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [User Agents](../queries/phase-08-command-and-control/06-user-agents.md)
 
+#### What this query is for
+
+Use the **User Agents** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **User Agents** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Http Post](../queries/phase-08-command-and-control/07-http-post.md)
 
+#### What this query is for
+
+Use the **Http Post** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Http Post** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [TLS](../queries/phase-08-command-and-control/08-tls.md)
 
+#### What this query is for
+
+Use the **TLS** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **TLS** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Proxy And Reverse Tunnel](../queries/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
 
+#### What this query is for
+
+Use the **Proxy And Reverse Tunnel** query to identify command channels, tunnels, and suspicious infrastructure. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+An attacker may abuse **Proxy And Reverse Tunnel** to maintain remote control, deliver tools, hide traffic in expected protocols, or tunnel to other systems. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

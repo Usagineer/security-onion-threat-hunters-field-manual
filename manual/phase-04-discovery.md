@@ -17,99 +17,147 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Whoami](../queries/phase-04-discovery/01-whoami.md)
 
+#### What this query is for
+
+Use the **Whoami** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Whoami** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Hostname Ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
 
+#### What this query is for
+
+Use the **Hostname Ipconfig** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Hostname Ipconfig** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Arp Route](../queries/phase-04-discovery/03-arp-route.md)
 
+#### What this query is for
+
+Use the **Arp Route** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Arp Route** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
 
+#### What this query is for
+
+Use the **Systeminfo** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Systeminfo** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Net User Group](../queries/phase-04-discovery/05-net-user-group.md)
 
+#### What this query is for
+
+Use the **Net User Group** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Net User Group** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Nltest](../queries/phase-04-discovery/06-nltest.md)
 
+#### What this query is for
+
+Use the **Nltest** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Nltest** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Netstat](../queries/phase-04-discovery/07-netstat.md)
 
+#### What this query is for
+
+Use the **Netstat** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Netstat** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Tasklist](../queries/phase-04-discovery/08-tasklist.md)
 
+#### What this query is for
+
+Use the **Tasklist** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Tasklist** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Quser Query User](../queries/phase-04-discovery/09-quser-query-user.md)
 
+#### What this query is for
+
+Use the **Quser Query User** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Quser Query User** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Powershell Discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
 
+#### What this query is for
+
+Use the **Powershell Discovery** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Powershell Discovery** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Network Service Enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
 
+#### What this query is for
+
+Use the **Network Service Enumeration** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Network Service Enumeration** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Icmp And Subnet Discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
 
+#### What this query is for
+
+Use the **Icmp And Subnet Discovery** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this discovery activity to identify privileged accounts, domain controllers, shares, remote services, and high-value targets. The next position is often credential access or lateral movement to a discovered system.
+An attacker may abuse **Icmp And Subnet Discovery** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

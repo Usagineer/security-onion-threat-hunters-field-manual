@@ -17,91 +17,135 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [FTP](../queries/phase-09-exfiltration/01-ftp.md)
 
+#### What this query is for
+
+Use the **FTP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **FTP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [SFTP](../queries/phase-09-exfiltration/02-sftp.md)
 
+#### What this query is for
+
+Use the **SFTP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **SFTP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [SCP](../queries/phase-09-exfiltration/03-scp.md)
 
+#### What this query is for
+
+Use the **SCP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **SCP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Cloud Storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
 
+#### What this query is for
+
+Use the **Cloud Storage** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Cloud Storage** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
 
+#### What this query is for
+
+Use the **Onedrive** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Onedrive** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
 
+#### What this query is for
+
+Use the **Dropbox** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Dropbox** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Mega](../queries/phase-09-exfiltration/07-mega.md)
 
+#### What this query is for
+
+Use the **Mega** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Mega** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Google Drive](../queries/phase-09-exfiltration/08-google-drive.md)
 
+#### What this query is for
+
+Use the **Google Drive** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Google Drive** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Large Uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
 
+#### What this query is for
+
+Use the **Large Uploads** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Large Uploads** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Archive Creation](../queries/phase-09-exfiltration/10-archive-creation.md)
 
+#### What this query is for
+
+Use the **Archive Creation** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Archive Creation** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Database Collection](../queries/phase-09-exfiltration/11-database-collection.md)
 
+#### What this query is for
+
+Use the **Database Collection** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+An attacker may abuse **Database Collection** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

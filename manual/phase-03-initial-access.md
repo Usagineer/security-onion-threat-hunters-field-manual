@@ -17,91 +17,135 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [RDP](../queries/phase-03-initial-access/01-rdp.md)
 
+#### What this query is for
+
+Use the **RDP** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **RDP** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [VPN](../queries/phase-03-initial-access/02-vpn.md)
 
+#### What this query is for
+
+Use the **VPN** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **VPN** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [SSH](../queries/phase-03-initial-access/03-ssh.md)
 
+#### What this query is for
+
+Use the **SSH** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **SSH** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Web Attacks](../queries/phase-03-initial-access/04-web-attacks.md)
 
+#### What this query is for
+
+Use the **Web Attacks** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **Web Attacks** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [SMB](../queries/phase-03-initial-access/05-smb.md)
 
+#### What this query is for
+
+Use the **SMB** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **SMB** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [MSSQL](../queries/phase-03-initial-access/06-mssql.md)
 
+#### What this query is for
+
+Use the **MSSQL** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **MSSQL** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [FTP](../queries/phase-03-initial-access/07-ftp.md)
 
+#### What this query is for
+
+Use the **FTP** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **FTP** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Email](../queries/phase-03-initial-access/08-email.md)
 
+#### What this query is for
+
+Use the **Email** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **Email** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Phishing](../queries/phase-03-initial-access/09-phishing.md)
 
+#### What this query is for
+
+Use the **Phishing** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **Phishing** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Drive By Downloads](../queries/phase-03-initial-access/10-drive-by-downloads.md)
 
+#### What this query is for
+
+Use the **Drive By Downloads** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **Drive By Downloads** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Web Shell And Server Side Rce](../queries/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
 
+#### What this query is for
+
+Use the **Web Shell And Server Side Rce** query to establish how access was gained through an exposed service, remote access path, or user delivery. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+An attacker may use **Web Shell And Server Side Rce** to take advantage of an exposed or weakly protected service, or use stolen credentials or social engineering, to gain an initial foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 

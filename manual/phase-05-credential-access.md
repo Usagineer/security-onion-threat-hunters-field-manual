@@ -17,75 +17,111 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Lsass Access](../queries/phase-05-credential-access/01-lsass-access.md)
 
+#### What this query is for
+
+Use the **Lsass Access** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Lsass Access** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
 
+#### What this query is for
+
+Use the **Mimikatz** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Mimikatz** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Dcsync](../queries/phase-05-credential-access/03-dcsync.md)
 
+#### What this query is for
+
+Use the **Dcsync** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Dcsync** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
 
+#### What this query is for
+
+Use the **Kerberoasting** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Kerberoasting** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Asrep Roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
 
+#### What this query is for
+
+Use the **Asrep Roasting** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Asrep Roasting** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Procdump](../queries/phase-05-credential-access/06-procdump.md)
 
+#### What this query is for
+
+Use the **Procdump** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Procdump** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Sam](../queries/phase-05-credential-access/07-sam.md)
 
+#### What this query is for
+
+Use the **Sam** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Sam** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Ntds Dit](../queries/phase-05-credential-access/08-ntds-dit.md)
 
+#### What this query is for
+
+Use the **Ntds Dit** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Ntds Dit** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ### [Registry Hive And Sql Shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
 
+#### What this query is for
+
+Use the **Registry Hive And Sql Shell** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+
 #### Attacker use and next pivot
 
-An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+An attacker may abuse **Registry Hive And Sql Shell** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
 
-Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
 
 ## Pivots and evidence preservation
 
