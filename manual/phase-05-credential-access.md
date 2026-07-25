@@ -18,46 +18,64 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [Lsass Access](../queries/phase-05-credential-access/01-lsass-access.md)
 
 **Why use it:** Looks for credential-access behavior involving Lsass Access. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
 
 **Why use it:** Looks for credential-access behavior involving Mimikatz. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Dcsync](../queries/phase-05-credential-access/03-dcsync.md)
 
 **Why use it:** Looks for credential-access behavior involving Dcsync. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
 
 **Why use it:** Looks for credential-access behavior involving Kerberoasting. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Asrep Roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
 
 **Why use it:** Looks for credential-access behavior involving Asrep Roasting. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Procdump](../queries/phase-05-credential-access/06-procdump.md)
 
 **Why use it:** Looks for credential-access behavior involving Procdump. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Sam](../queries/phase-05-credential-access/07-sam.md)
 
 **Why use it:** Looks for credential-access behavior involving Sam. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Ntds Dit](../queries/phase-05-credential-access/08-ntds-dit.md)
 
 **Why use it:** Looks for credential-access behavior involving Ntds Dit. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Registry Hive And Sql Shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
 
 **Why use it:** Looks for credential-access behavior involving Registry Hive And Sql Shell. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use obtained credentials, hashes, tickets, or secrets to impersonate users and reach systems that were previously unavailable. Follow with authentication analysis, remote-service activity, and use of the affected account on new hosts.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation

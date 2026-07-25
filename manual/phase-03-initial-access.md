@@ -18,56 +18,78 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [RDP](../queries/phase-03-initial-access/01-rdp.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [VPN](../queries/phase-03-initial-access/02-vpn.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Vpn. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [SSH](../queries/phase-03-initial-access/03-ssh.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Ssh. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Web Attacks](../queries/phase-03-initial-access/04-web-attacks.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Web Attacks. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [SMB](../queries/phase-03-initial-access/05-smb.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [MSSQL](../queries/phase-03-initial-access/06-mssql.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Mssql. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [FTP](../queries/phase-03-initial-access/07-ftp.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Ftp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Email](../queries/phase-03-initial-access/08-email.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Email. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Phishing](../queries/phase-03-initial-access/09-phishing.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Phishing. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Drive By Downloads](../queries/phase-03-initial-access/10-drive-by-downloads.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Drive By Downloads. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Web Shell And Server Side Rce](../queries/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
 
 **Why use it:** Looks for signs of initial-access activity involving Web Shell And Server Side Rce. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may abuse this access path to gain an initial foothold with stolen credentials, an exposed service, or user-delivered content. After success, expect process execution, host and account discovery, and attempts to establish durable access.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation

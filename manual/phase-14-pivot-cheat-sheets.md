@@ -18,46 +18,64 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [Found Beaconing](../queries/phase-14-pivot-cheat-sheets/found-beaconing.md)
 
 **Why use it:** Provides the next investigative pivots after finding Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Dns](../queries/phase-14-pivot-cheat-sheets/found-dns.md)
 
 **Why use it:** Provides the next investigative pivots after finding Dns. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Powershell](../queries/phase-14-pivot-cheat-sheets/found-powershell.md)
 
 **Why use it:** Provides the next investigative pivots after finding Powershell. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Rdp](../queries/phase-14-pivot-cheat-sheets/found-rdp.md)
 
 **Why use it:** Provides the next investigative pivots after finding Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Repeated Powershell](../queries/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
 
 **Why use it:** Provides the next investigative pivots after finding Repeated Powershell. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Smb](../queries/phase-14-pivot-cheat-sheets/found-smb.md)
 
 **Why use it:** Provides the next investigative pivots after finding Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Suspicious Ip](../queries/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
 
 **Why use it:** Provides the next investigative pivots after finding Suspicious Ip. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Telemetry Gap](../queries/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
 
 **Why use it:** Provides the next investigative pivots after finding Telemetry Gap. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Found Winrm](../queries/phase-14-pivot-cheat-sheets/found-winrm.md)
 
 **Why use it:** Provides the next investigative pivots after finding Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the observed behavior as one step in a larger chain. Treat this query as the next focused move: identify the precise host, account, process, or infrastructure value, then continue into the detailed behavior phase that explains the objective.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation

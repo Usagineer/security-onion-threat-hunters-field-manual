@@ -18,46 +18,64 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [Everything](../queries/phase-02-investigate-the-ip/00-everything.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Everything. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [SMB](../queries/phase-02-investigate-the-ip/01-smb.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [RDP](../queries/phase-02-investigate-the-ip/02-rdp.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [WinRM](../queries/phase-02-investigate-the-ip/03-winrm.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [DNS](../queries/phase-02-investigate-the-ip/04-dns.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Dns. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [HTTP](../queries/phase-02-investigate-the-ip/05-http.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Http. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [TLS](../queries/phase-02-investigate-the-ip/06-tls.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Tls. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Suricata. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
 
 **Why use it:** Pivots through available network, alert, and endpoint evidence for Endpoint. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use the identified IP as command infrastructure, a staging location, or a route to another system. After contact, look for DNS or TLS context, the endpoint process behind the connection, and activity on every other host that used the same destination.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation

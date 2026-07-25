@@ -18,56 +18,78 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [FTP](../queries/phase-09-exfiltration/01-ftp.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Ftp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [SFTP](../queries/phase-09-exfiltration/02-sftp.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Sftp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [SCP](../queries/phase-09-exfiltration/03-scp.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Scp. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Cloud Storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Cloud Storage. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Onedrive. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Dropbox. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Mega](../queries/phase-09-exfiltration/07-mega.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Mega. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Google Drive](../queries/phase-09-exfiltration/08-google-drive.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Google Drive. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Large Uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Large Uploads. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Archive Creation](../queries/phase-09-exfiltration/10-archive-creation.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Archive Creation. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Database Collection](../queries/phase-09-exfiltration/11-database-collection.md)
 
 **Why use it:** Looks for collection or exfiltration behavior involving Database Collection. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this transfer path to move collected data to an external service or staging system. Work backward to collection and archive creation, then forward to the destination, account, repeat transfers, and associated command-and-control channel.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation

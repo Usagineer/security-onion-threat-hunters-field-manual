@@ -18,46 +18,64 @@ Choose the query that matches the behavior in the lead. Each result should give 
 ### [Beaconing](../queries/phase-08-command-and-control/01-beaconing.md)
 
 **Why use it:** Looks for command-and-control behavior involving Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Dns Tunneling](../queries/phase-08-command-and-control/02-dns-tunneling.md)
 
 **Why use it:** Looks for command-and-control behavior involving Dns Tunneling. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Long Connections](../queries/phase-08-command-and-control/03-long-connections.md)
 
 **Why use it:** Looks for command-and-control behavior involving Long Connections. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [JA3](../queries/phase-08-command-and-control/04-ja3.md)
 
 **Why use it:** Looks for command-and-control behavior involving Ja3. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Rare Domains](../queries/phase-08-command-and-control/05-rare-domains.md)
 
 **Why use it:** Looks for command-and-control behavior involving Rare Domains. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [User Agents](../queries/phase-08-command-and-control/06-user-agents.md)
 
 **Why use it:** Looks for command-and-control behavior involving User Agents. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Http Post](../queries/phase-08-command-and-control/07-http-post.md)
 
 **Why use it:** Looks for command-and-control behavior involving Http Post. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [TLS](../queries/phase-08-command-and-control/08-tls.md)
 
 **Why use it:** Looks for command-and-control behavior involving Tls. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ### [Proxy And Reverse Tunnel](../queries/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
 
 **Why use it:** Looks for command-and-control behavior involving Proxy And Reverse Tunnel. Use the results with the surrounding host, user, time, and network context before escalating.
+**Attacker use and next pivot:** An attacker may use this channel to receive commands, deliver tools, tunnel traffic, or maintain an interactive session while hiding in expected protocols. Pivot to the responsible process, shared infrastructure, other affected hosts, and any transfer or staging behavior.
+
 Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
