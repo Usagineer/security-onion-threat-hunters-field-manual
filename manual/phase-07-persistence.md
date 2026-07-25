@@ -17,99 +17,115 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Registry Run Keys](../queries/phase-07-persistence/01-registry-run-keys.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Registry Run Keys** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Registry Run Keys** because Run-key changes reveal programs configured to start at user logon. This query searches **event.code:13** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Registry Run Keys** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can place a payload in an autorun value. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which user hive is writable and when it executes. From **Registry Run Keys**, the likely next move is to relaunch malware and resume C2. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Startup Folder](../queries/phase-07-persistence/02-startup-folder.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Startup Folder** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Startup Folder** because Startup-folder changes reveal user-logon persistence. This query searches **event.code:11** and organizes matches by **host.name file.name process.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Startup Folder** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can place a script, shortcut, or executable in a startup path. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which user and path trigger execution. From **Startup Folder**, the likely next move is to regain execution at logon. Analyst pivot: **host.name file.name process.name** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Services](../queries/phase-07-persistence/03-services.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Services** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Services** because service installation reveals privileged boot-time or on-demand execution. This query searches **event.code:7045** and organizes matches by **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Services** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can register a payload as a Windows service. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which account and binary path execute. From **Services**, the likely next move is to persist across reboot or run as SYSTEM. Analyst pivot: **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Wmi Events](../queries/phase-07-persistence/04-wmi-events.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Wmi Events** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Wmi Events** because WMI activity can reveal remote process creation or event-triggered persistence. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Wmi Events** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can execute remotely or bind filters and consumers for durable execution. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and event triggers accept WMI actions. From **Wmi Events**, the likely next move is to execute through WmiPrvSE or persist with subscriptions. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Scheduled Tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Scheduled Tasks** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Scheduled Tasks** because task creation identifies code scheduled by time, event, logon, or remote action. This query searches **event.code:4698** and organizes matches by **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Scheduled Tasks** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can register a payload for one-time execution or persistence. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which task principal, trigger, and command execute. From **Scheduled Tasks**, the likely next move is to run later, after reboot, or on another host. Analyst pivot: **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Bits Jobs](../queries/phase-07-persistence/06-bits-jobs.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Bits Jobs** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Bits Jobs** because BITS activity reveals resilient background transfer and notification-command execution. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Bits Jobs** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can download, upload, or launch content through trusted BITS components. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which URL, path, and job owner succeed. From **Bits Jobs**, the likely next move is to retrieve a stage, transfer data, or persist. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Com Hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Com Hijacking** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Com Hijacking** because COM registration changes can expose execution through a trusted application. This query searches **event.code:13** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Com Hijacking** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can redirect a COM class to malicious code. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which trusted callers and writable registrations are available. From **Com Hijacking**, the likely next move is to inherit the caller context and persist. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Linux Cron And Temp Execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Linux Cron And Temp Execution** query to find mechanisms that keep a payload available after reboot, logoff, or cleanup. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Linux Cron And Temp Execution** because cron entries reveal recurring Linux execution, especially from temporary paths. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Linux Cron And Temp Execution** to create or modify a durable execution mechanism so access survives cleanup and can support later actions. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can schedule scripts or payloads periodically or after reboot. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which account, interpreter, and path execute. From **Linux Cron And Temp Execution**, the likely next move is to relaunch C2, collection, or transfer jobs. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

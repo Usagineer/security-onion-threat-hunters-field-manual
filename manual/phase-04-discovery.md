@@ -17,147 +17,171 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Whoami](../queries/phase-04-discovery/01-whoami.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Whoami** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Whoami** because identity discovery reveals the current user, groups, privileges, and integrity level. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **host.name process.parent.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Whoami** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can check whether the foothold already has useful privileges. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned the effective identity and token capabilities. From **Whoami**, the likely next move is to choose escalation, credential theft, or permitted actions. Analyst pivot: **host.name process.parent.name** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Hostname Ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Hostname Ipconfig** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Hostname Ipconfig** because host and IP configuration reveal system identity, interfaces, DNS, gateways, and subnets. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **host.name process.parent.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Hostname Ipconfig** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can orient a foothold within the network. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned the host name, address ranges, DNS suffix, and routes. From **Hostname Ipconfig**, the likely next move is to target local subnets or choose egress. Analyst pivot: **host.name process.parent.name** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Arp Route](../queries/phase-04-discovery/03-arp-route.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Arp Route** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Arp Route** because ARP and routing data reveal neighbors, gateways, and reachable paths without a broad scan. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Arp Route** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can identify nearby systems and routes from local state. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned neighbor addresses, gateways, and additional subnets. From **Arp Route**, the likely next move is to probe selected hosts or cross a routed boundary. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Systeminfo** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Systeminfo** because system information reveals OS build, architecture, hotfixes, domain role, and uptime. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Systeminfo** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can profile a host for compatible exploits and payloads. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned the platform, missing patches, architecture, and role. From **Systeminfo**, the likely next move is to select an exploit or deploy the correct binary. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Net User Group](../queries/phase-04-discovery/05-net-user-group.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Net User Group** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Net User Group** because account and group enumeration reveals users and privileged memberships. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **host.name process.command_line**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Net User Group** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can identify administrators, service accounts, and identities worth attacking. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which accounts exist and which groups confer privilege. From **Net User Group**, the likely next move is to spray, steal, or impersonate a selected identity. Analyst pivot: **host.name process.command_line** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Nltest](../queries/phase-04-discovery/06-nltest.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Nltest** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Nltest** because nltest reveals domain controllers, trusts, and secure-channel relationships. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Nltest** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can map authentication infrastructure and trust paths. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which controllers and domains accept credentials. From **Nltest**, the likely next move is to attack directory services or cross a trust. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Netstat](../queries/phase-04-discovery/07-netstat.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Netstat** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Netstat** because netstat exposes listeners, active connections, endpoints, and owning processes. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Netstat** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can identify services, security tools, and usable communication paths. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which ports listen and which remote systems are trusted. From **Netstat**, the likely next move is to connect locally or mimic an approved channel. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Tasklist](../queries/phase-04-discovery/08-tasklist.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Tasklist** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Tasklist** because process enumeration exposes applications, security products, and privileged processes. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Tasklist** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can profile defenses and select credential or injection targets. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which controls and useful processes are running. From **Tasklist**, the likely next move is to evade defenses, dump credentials, or inject code. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Quser Query User](../queries/phase-04-discovery/09-quser-query-user.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Quser Query User** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Quser Query User** because session enumeration identifies active and disconnected users. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Quser Query User** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can locate privileged sessions for hijacking or token theft. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which users and sessions are present. From **Quser Query User**, the likely next move is to target or impersonate a privileged session. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Powershell Discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Powershell Discovery** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Powershell Discovery** because PowerShell can automate host, domain, process, and network discovery. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Powershell Discovery** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can collect broad environmental data through built-in capabilities. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned the same inventory available to an administrator. From **Powershell Discovery**, the likely next move is to feed discoveries into credential, movement, and collection scripts. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Network Service Enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Network Service Enumeration** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Network Service Enumeration** because service probing identifies reachable protocols and remote-access paths. This query searches **event.dataset:zeek.conn, event.dataset:zeek.notice, ports 135/139/445/389/636** and organizes matches by **destination.ip destination.port connection.state; destination.ip destination.port network.protocol**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Network Service Enumeration** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can scan hosts for exploitable services or valid-account entry points. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which ports, systems, and protocols respond. From **Network Service Enumeration**, the likely next move is to exploit or authenticate to a discovered service. Analyst pivot: **destination.ip destination.port connection.state; destination.ip destination.port network.protocol** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Icmp And Subnet Discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Icmp And Subnet Discovery** query to identify reconnaissance of users, hosts, routes, processes, and services. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Icmp And Subnet Discovery** because ICMP and subnet probing identify live hosts and reachable address space. This query searches **event.dataset:zeek.conn, event.dataset:zeek.notice** and organizes matches by **destination.ip; destination.ip destination.port**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Icmp And Subnet Discovery** to enumerate the environment to locate privileged identities, useful services, and high-value targets for credential theft or movement. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can build a target list before detailed service enumeration. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which IPs respond and where network boundaries exist. From **Icmp And Subnet Discovery**, the likely next move is to scan responsive hosts and prioritize infrastructure. Analyst pivot: **destination.ip; destination.ip destination.port** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

@@ -17,111 +17,129 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [SMB](../queries/phase-06-lateral-movement/01-smb.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **SMB** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **SMB** because SMB connections, shares, and file operations reveal Windows file access and admin-share use. This query searches **event.dataset:zeek.conn, event.dataset:zeek.smb_mapping, event.dataset:zeek.smb_files, ports 445** and organizes matches by **source.ip destination.ip; source.ip destination.ip smb.share**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **SMB** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can enumerate shares, copy tools, collect data, or execute through administrative shares. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **SMB**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **source.ip destination.ip; source.ip destination.ip smb.share** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Psexec](../queries/phase-06-lateral-movement/02-psexec.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Psexec** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Psexec** because admin-share writes plus service creation form a recognizable PsExec execution chain. This query searches **event.dataset:zeek.dce_rpc, event.code:7045** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Psexec** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can copy a service binary and start it remotely with administrative credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which credentials and targets permit service execution. From **Psexec**, the likely next move is to run as SYSTEM and repeat movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [WMI](../queries/phase-06-lateral-movement/03-wmi.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **WMI** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **WMI** because WMI activity can reveal remote process creation or event-triggered persistence. This query searches **event.dataset:zeek.conn, event.dataset:zeek.dce_rpc, ports 135** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **WMI** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can execute remotely or bind filters and consumers for durable execution. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and event triggers accept WMI actions. From **WMI**, the likely next move is to execute through WmiPrvSE or persist with subscriptions. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [WinRM](../queries/phase-06-lateral-movement/04-winrm.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **WinRM** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **WinRM** because WinRM and wsmprovhost evidence identify remote PowerShell execution. This query searches **event.dataset:zeek.conn, ports 5985/5986** and organizes matches by **source.ip destination.ip**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **WinRM** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can run commands remotely through Windows management with valid credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and accounts permit noninteractive administration. From **WinRM**, the likely next move is to deploy scripts, collect credentials, or continue movement. Analyst pivot: **source.ip destination.ip** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [RDP](../queries/phase-06-lateral-movement/05-rdp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **RDP** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **RDP** because RDP traffic and logons identify interactive Windows access, its account, source, target, and result. This query searches **event.dataset:zeek.conn, event.code:4624, event.code:4778, ports 3389** and organizes matches by **source.ip destination.ip; source.ip winlog.event_data.TargetUserName destination.ip**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **RDP** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can authenticate with guessed, stolen, or reused credentials for an interactive desktop. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which Windows host and credential permit interactive access. From **RDP**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **source.ip destination.ip; source.ip winlog.event_data.TargetUserName destination.ip** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Remote Services](../queries/phase-06-lateral-movement/06-remote-services.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Remote Services** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Remote Services** because remote service control connects authentication to destination-side execution. This query searches **event.dataset:zeek.dce_rpc, event.code:7045** and organizes matches by **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Remote Services** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can create or modify a service to run a supplied binary with privilege. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which targets permit service control. From **Remote Services**, the likely next move is to execute as SYSTEM or establish persistence. Analyst pivot: **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Scheduled Tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Scheduled Tasks** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Scheduled Tasks** because task creation identifies code scheduled by time, event, logon, or remote action. This query searches **event.dataset:zeek.dce_rpc, event.code:4698** and organizes matches by **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Scheduled Tasks** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can register a payload for one-time execution or persistence. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which task principal, trigger, and command execute. From **Scheduled Tasks**, the likely next move is to run later, after reboot, or on another host. Analyst pivot: **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [DCOM](../queries/phase-06-lateral-movement/08-dcom.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **DCOM** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **DCOM** because DCOM activity can reveal remote object activation used for lateral execution. This query searches **event.dataset:zeek.conn, event.dataset:zeek.dce_rpc, ports 135** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **DCOM** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can instantiate remote COM objects through valid credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which systems expose DCOM and permit activation. From **DCOM**, the likely next move is to launch a target-side process and continue movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ### [Valid Account Spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Valid Account Spread** query to map remote access and execution between source and target systems. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Valid Account Spread** because one account authenticating broadly can expose credential reuse or lateral movement. This query searches **event.dataset:zeek.conn, event.code:4624, event.code:4625, ports 22/3389/445/5985/5986** and organizes matches by **source.ip host.name winlog.event_data.LogonType; destination.ip destination.port**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Valid Account Spread** to use remote-management protocols or valid accounts to execute on a new host and expand their foothold. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can quietly reuse a valid account across remote services. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned where the account works and what privilege it has. From **Valid Account Spread**, the likely next move is to expand to higher-value systems. Analyst pivot: **source.ip host.name winlog.event_data.LogonType; destination.ip destination.port** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

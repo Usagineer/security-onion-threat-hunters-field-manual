@@ -17,111 +17,129 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Everything](../queries/phase-02-investigate-the-ip/00-everything.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Everything** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Everything** because a broad IP pivot establishes every dataset, direction, and protocol tied to the address. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **network.protocol destination.port; event.dataset**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Everything** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use one address for delivery, C2, scanning, redirection, or transfer. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and protocols communicate with the address. From **Everything**, the likely next move is to pivot to the endpoint process and behavior-specific phase. Analyst pivot: **network.protocol destination.port; event.dataset** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [SMB](../queries/phase-02-investigate-the-ip/01-smb.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **SMB** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **SMB** because SMB connections, shares, and file operations reveal Windows file access and admin-share use. This query searches **event.dataset:zeek.smb_mapping, event.dataset:zeek.smb_files, event.dataset:zeek.dce_rpc** and organizes matches by **smb.share; file.name file.path**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **SMB** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can enumerate shares, copy tools, collect data, or execute through administrative shares. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **SMB**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **smb.share; file.name file.path** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [RDP](../queries/phase-02-investigate-the-ip/02-rdp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **RDP** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **RDP** because RDP traffic and logons identify interactive Windows access, its account, source, target, and result. This query searches **event.dataset:zeek.conn, event.dataset:zeek.rdp, event.code:4624, ports 3389** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **RDP** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can authenticate with guessed, stolen, or reused credentials for an interactive desktop. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which Windows host and credential permit interactive access. From **RDP**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [WinRM](../queries/phase-02-investigate-the-ip/03-winrm.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **WinRM** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **WinRM** because WinRM and wsmprovhost evidence identify remote PowerShell execution. This query searches **event.dataset:zeek.conn, event.dataset:zeek.http, ports 5985/5986** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **WinRM** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can run commands remotely through Windows management with valid credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and accounts permit noninteractive administration. From **WinRM**, the likely next move is to deploy scripts, collect credentials, or continue movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [DNS](../queries/phase-02-investigate-the-ip/04-dns.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **DNS** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **DNS** because DNS evidence links queried names, answers, clients, and subsequent connections. This query searches **event.dataset:zeek.dns** and organizes matches by **dns.question.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **DNS** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can resolve delivery or C2 infrastructure, use dynamic answers, or bypass approved resolvers. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which host queried which name and which address it received. From **DNS**, the likely next move is to connect to the answer, rotate infrastructure, or tunnel through DNS. Analyst pivot: **dns.question.name** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [HTTP](../queries/phase-02-investigate-the-ip/05-http.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **HTTP** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **HTTP** because HTTP metadata exposes methods, hosts, paths, agents, status, and transfer direction. This query searches **event.dataset:zeek.http** and organizes matches by **url.domain http.request.method; user_agent.original**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **HTTP** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can deliver payloads, receive commands, or transfer data through web protocols. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which URI, client, and server complete the exchange. From **HTTP**, the likely next move is to retrieve content, post results, or switch to TLS. Analyst pivot: **url.domain http.request.method; user_agent.original** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [TLS](../queries/phase-02-investigate-the-ip/06-tls.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **TLS** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **TLS** because TLS metadata reveals SNI, certificates, versions, fingerprints, and encrypted session outcomes. This query searches **event.dataset:zeek.ssl, event.dataset:zeek.x509** and organizes matches by **tls.client.server_name; tls.client.ja3 tls.server.ja3s**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **TLS** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can hide delivery or C2 content inside encryption while leaking handshake metadata. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which names, certificates, and clients identify the encrypted channel. From **TLS**, the likely next move is to cluster related hosts or pivot to the responsible endpoint process. Analyst pivot: **tls.client.server_name; tls.client.ja3 tls.server.ja3s** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [Suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Suricata** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Suricata** because signature alerts can identify exploit delivery, malware, policy violations, or C2. This query searches **event.module:suricata** and organizes matches by **rule.name rule.category**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Suricata** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can send known exploit or malware traffic that matches a network signature. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which flow triggered and whether communication succeeded. From **Suricata**, the likely next move is to pivot through community ID to protocol and endpoint evidence. Analyst pivot: **rule.name rule.category** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ### [Endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Endpoint** query to investigate communication with a known IP and connect network evidence to endpoint activity. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Endpoint** because endpoint network and process records identify the executable and user behind a connection. This query searches **event.module:endpoint** and organizes matches by **process.name destination.ip destination.port; process.name process.parent.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Endpoint** to use an address, service, or protocol to communicate with infrastructure, stage access, or reach another system. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can run network activity from a payload, script, or abused trusted process. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which process, parent, user, and host own the traffic. From **Endpoint**, the likely next move is to trace ancestry, files, persistence, and follow-on execution. Analyst pivot: **process.name destination.ip destination.port; process.name process.parent.name** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

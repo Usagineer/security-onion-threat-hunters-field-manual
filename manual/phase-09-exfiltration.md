@@ -17,135 +17,157 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [FTP](../queries/phase-09-exfiltration/01-ftp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **FTP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **FTP** because FTP records reveal legacy file transfer, authentication, and unusual endpoints. This query searches **event.dataset:zeek.conn, event.dataset:zeek.ftp, ports 21** and organizes matches by **source.ip destination.ip; source.ip destination.ip ftp.arg**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **FTP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can deliver payloads or exfiltrate data, sometimes with exposed credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which server accepts files and which credentials work. From **FTP**, the likely next move is to upload tooling, retrieve staged data, or switch to SFTP. Analyst pivot: **source.ip destination.ip; source.ip destination.ip ftp.arg** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [SFTP](../queries/phase-09-exfiltration/02-sftp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **SFTP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **SFTP** because SFTP evidence identifies encrypted file transfer over SSH. This query searches **event.dataset:zeek.conn, event.dataset:zeek.ssh, ports 22** and organizes matches by **source.ip destination.ip; source.ip destination.ip ssh.client**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **SFTP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use valid SSH credentials to import tools or export data while content stays encrypted. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which account and endpoint support file transfer. From **SFTP**, the likely next move is to repeat transfers or establish an interactive SSH session. Analyst pivot: **source.ip destination.ip; source.ip destination.ip ssh.client** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [SCP](../queries/phase-09-exfiltration/03-scp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **SCP** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **SCP** because SCP evidence identifies direct file copies over SSH. This query searches **event.dataset:zeek.conn, ports 22** and organizes matches by **source.ip destination.ip source.bytes**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **SCP** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use stolen SSH credentials to import tools or export archives. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which account can copy which local and remote paths. From **SCP**, the likely next move is to execute the tool or move more collected data. Analyst pivot: **source.ip destination.ip source.bytes** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Cloud Storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Cloud Storage** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Cloud Storage** because cloud-storage uploads can expose trusted services used for unauthorized transfer. This query searches **event.dataset:zeek.ssl, event.dataset:zeek.dns** and organizes matches by **source.ip tls.client.server_name; source.ip dns.question.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Cloud Storage** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can blend exfiltration into commonly allowed HTTPS providers. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which provider and account accept uploads. From **Cloud Storage**, the likely next move is to move staged data or switch providers. Analyst pivot: **source.ip tls.client.server_name; source.ip dns.question.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Onedrive** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Onedrive** because OneDrive activity can identify data movement through Microsoft cloud storage. This query searches **event.dataset:zeek.ssl, event.dataset:zeek.conn** and organizes matches by **source.ip tls.client.server_name; source.ip**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Onedrive** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can abuse a Microsoft account or sync client to upload collected files. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which tenant, identity, and folders receive data. From **Onedrive**, the likely next move is to share or retrieve files externally. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Dropbox** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Dropbox** because Dropbox activity can expose transfers to personal or attacker-controlled storage. This query searches **event.dataset:zeek.ssl, event.dataset:zeek.dns** and organizes matches by **source.ip tls.client.server_name; source.ip**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Dropbox** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use Dropbox clients or APIs over trusted HTTPS. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which account or token accepts uploads. From **Dropbox**, the likely next move is to retrieve data or automate more uploads. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Mega](../queries/phase-09-exfiltration/07-mega.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Mega** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Mega** because MEGA traffic can identify uncommon encrypted cloud-storage transfer. This query searches **event.dataset:zeek.ssl** and organizes matches by **source.ip tls.client.server_name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Mega** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use MEGA clients or APIs for encrypted archive transfer. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which process and account can upload. From **Mega**, the likely next move is to move more archives or stage tools. Analyst pivot: **source.ip tls.client.server_name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Google Drive](../queries/phase-09-exfiltration/08-google-drive.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Google Drive** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Google Drive** because Google Drive activity can expose upload to consumer or attacker-controlled accounts. This query searches **event.dataset:zeek.ssl, event.dataset:zeek.conn** and organizes matches by **source.ip tls.client.server_name; source.ip**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Google Drive** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use OAuth, browsers, or sync tools for trusted-service exfiltration. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which user, token, and process perform uploads. From **Google Drive**, the likely next move is to share the files or continue synchronized collection. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Large Uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Large Uploads** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Large Uploads** because high outbound byte counts identify candidate bulk transfer. This query searches **event.dataset:zeek.conn** and organizes matches by **source.ip destination.ip; source.ip destination.as.organization.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Large Uploads** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can send archives or exports in large or threshold-avoiding chunks. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which host, destination, and transfer size succeed. From **Large Uploads**, the likely next move is to complete exfiltration or switch to a quieter channel. Analyst pivot: **source.ip destination.ip; source.ip destination.as.organization.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Archive Creation](../queries/phase-09-exfiltration/10-archive-creation.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Archive Creation** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Archive Creation** because archive creation can reveal staging before transfer. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **host.name process.name file.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Archive Creation** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can compress and optionally encrypt collected files. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which paths are readable and where staging is possible. From **Archive Creation**, the likely next move is to upload the archive and remove staging evidence. Analyst pivot: **host.name process.name file.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ### [Database Collection](../queries/phase-09-exfiltration/11-database-collection.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Database Collection** query to assess data collection, staging, and outbound transfer. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Database Collection** because database dump and export activity can expose bulk structured-data collection. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **host.name user.name process.name process.command_line**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Database Collection** to collect and stage data before transferring it to external infrastructure or a cloud service. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use native tools to export valuable tables efficiently. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which databases, credentials, and staging paths are available. From **Database Collection**, the likely next move is to compress and exfiltrate the dump. Analyst pivot: **host.name user.name process.name process.command_line** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

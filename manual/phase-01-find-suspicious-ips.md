@@ -130,7 +130,7 @@ Every hunt below is step 1. The **Master IP Pivot** at the end is steps 2–4. P
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~2 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Attackers communicate with destinations that almost nobody else in your environment talks to. Popular destinations (Windows Update, Office 365, Google) are contacted by hundreds of hosts. C2 is usually contacted by one.
 
@@ -163,6 +163,15 @@ source.ip:<IP> OR destination.ip:<IP>
 - ✔ Long connections, large uploads, or regular intervals to that IP
 - ✔ A matching Suricata alert or Zeek notice on the same `network.community_id`
 
+
+### Attack Use
+
+Attackers often place C2 or staging on a destination that only one compromised host contacts.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that one host communicates with low-prevalence infrastructure. From **Rare Destination IP**, the likely next move is to retain the rare destination as C2 or staging while testing additional protocols. For the investigation, pivot from the rare IP to DNS, TLS, HTTP, and the endpoint process, then search for other hosts using the same infrastructure.
+
 **Next Pivots**
 
 - Confirmed rare + external? → **Master IP Pivot** (below)
@@ -194,7 +203,7 @@ source.ip:<IP> OR destination.ip:<IP>
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~2 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Hunt 1 finds rare *destinations*. This finds rare *initiators* — an internal host that suddenly starts originating connections it never used to (a normally quiet server reaching out, a printer speaking SMB to a DC, a workstation initiating admin protocols).
 
@@ -226,6 +235,15 @@ source.ip:<IP> OR destination.ip:<IP>
 - ✔ A workstation originating admin protocols (SMB/RDP/WinRM/LDAP) to many peers
 - ✔ A host whose destination/port profile changed abruptly
 
+
+### Attack Use
+
+A compromised quiet host may begin initiating connections for C2, scanning, or remote administration.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which normally quiet internal host can originate traffic. From **Rare Source IP**, the likely next move is to use that host to scan, administer peers, or reach external infrastructure. For the investigation, pivot to the new destinations, process owner, account, and any change in the host role.
+
 **Next Pivots**
 
 - Originating admin protocols? → Hunt 4 (One → Many) and Phase 6 (Lateral Movement)
@@ -255,7 +273,7 @@ source.ip:<IP> OR destination.ip:<IP>
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Freshly stood-up attacker infrastructure has no history in your data. A destination that appears for the first time today — especially one a single host talks to — is a classic lead.
 
@@ -282,6 +300,15 @@ event.dataset:zeek.conn AND destination.ip:<IP> | groupby source.ip destination.
 - ✔ First-seen IP contacted by exactly one internal host
 - ✔ First-seen IP on a hosting/VPS ASN
 - ✔ First-seen domain (Hunt 15) resolving to it
+
+
+### Attack Use
+
+Attackers can bring up fresh infrastructure to avoid reputation and historical detections.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that newly deployed infrastructure is not yet blocked or baselined. From **New / First-Seen External IP**, the likely next move is to move delivery or C2 to the first-seen address before reputation catches up. For the investigation, pivot from the first-seen address to its resolving domains, ASN, TLS identity, connection timing, and other hosts that contacted it.
 
 **Next Pivots**
 
@@ -312,7 +339,7 @@ event.dataset:zeek.conn AND destination.ip:<IP> | groupby source.ip destination.
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 One internal host connecting to an unusually large number of *other internal* hosts is the signature of scanning, spraying, or lateral movement. This is one of the highest-value hunts in Phase 1.
 
@@ -344,6 +371,15 @@ event.dataset:zeek.conn AND source.ip:<IP> AND destination.ip:"10.0.0.0/8" | gro
 - ✔ Concentrated on 445 (SMB), 3389 (RDP), 5985/5986 (WinRM), 135 (RPC), 389/636 (LDAP)
 - ✔ Successful (`SF`) admin-protocol connections fanning out
 
+
+### Attack Use
+
+An attacker may fan out to locate reachable hosts, validate stolen credentials, or deploy tools through remote services.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which internal hosts answer and which remote protocols are reachable. From **One Host → Many Hosts (Internal Fan-Out)**, the likely next move is to select responsive targets for exploitation, credential use, or lateral movement. For the investigation, pivot from the source host to protocol-specific evidence, target logons, and destination-side execution.
+
 **Next Pivots**
 
 - SMB fan-out? → Hunt 18, then Phase 6 (PsExec / service creation)
@@ -374,7 +410,7 @@ event.dataset:zeek.conn AND source.ip:<IP> AND destination.ip:"10.0.0.0/8" | gro
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 The inverse of Hunt 4. When many internal hosts all talk to one external IP that isn't a known service, that IP may be a shared C2, a malicious ad/redirect, or a watering hole.
 
@@ -403,6 +439,15 @@ event.dataset:zeek.dns AND dns.answers:<IP>
 - ✔ Many hosts → one hosting/VPS IP
 - ✔ Convergence on an odd port (not 80/443)
 - ✔ All hosts resolved the same freshly-registered / DGA-looking domain
+
+
+### Attack Use
+
+A shared C2 server, watering hole, or malicious redirect can draw multiple internal hosts to one destination.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that several victims can reach one shared destination. From **Many Hosts → One Destination (C2 Convergence)**, the likely next move is to operate common C2, redirect, or watering-hole infrastructure across the affected set. For the investigation, pivot to the common domain, process, timing, and affected-host set to distinguish a shared service from an attack.
 
 **Next Pivots**
 
@@ -433,7 +478,7 @@ event.dataset:zeek.dns AND dns.answers:<IP>
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 A single source hitting many distinct destination ports (on one or many targets) is port scanning / service discovery — reconnaissance that precedes lateral movement.
 
@@ -467,6 +512,15 @@ event.dataset:zeek.notice AND source.ip:<IP>
 - ✔ Zeek `Scan::` notices
 - ✔ Scan immediately followed by a successful connection on one port (they found something)
 
+
+### Attack Use
+
+An attacker may scan ports to identify a usable service before exploiting it or moving laterally.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which ports and services are exposed on selected targets. From **One Host → Many Ports (Port Scan)**, the likely next move is to choose a vulnerable service or a protocol that accepts stolen credentials. For the investigation, pivot from the scanner to discovered targets and follow any successful connection on SMB, RDP, WinRM, SSH, or another exposed service.
+
 **Next Pivots**
 
 - Found an open service they connected to? → the relevant protocol hunt (18–21)
@@ -496,7 +550,7 @@ event.dataset:zeek.notice AND source.ip:<IP>
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Exfiltration shows up as an internal host *sending* far more than it receives, or a single large upload to an external destination.
 
@@ -523,6 +577,15 @@ event.dataset:zeek.conn AND source.ip:<HOST> AND destination.ip:<DEST> | groupby
 - ✔ Upload ≫ download to an external IP
 - ✔ Destination = file-sharing / cloud storage (Hunt targets: Dropbox, Mega, Google Drive, pastebin, transfer.sh)
 - ✔ Upload over an odd protocol/port, or bursts on a beacon schedule
+
+
+### Attack Use
+
+An attacker may upload collected files, archives, or database exports to an external destination.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which egress destination and transfer size leave the network successfully. From **Large Outbound Transfer (Exfil)**, the likely next move is to increase exfiltration, split it into chunks, or change to a backup channel. For the investigation, pivot backward to archive creation and collection, then forward to the destination, account, repeat transfers, and C2 channel.
 
 **Next Pivots**
 
@@ -553,7 +616,7 @@ event.dataset:zeek.conn AND source.ip:<HOST> AND destination.ip:<DEST> | groupby
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Attackers pull tooling and second-stage payloads onto a beachhead. A host downloading a large blob from a rare external IP — especially over plain HTTP — can be tool ingress.
 
@@ -582,6 +645,15 @@ event.dataset:zeek.http AND destination.ip:<EXTERNAL_IP> AND source.ip:<INTERNAL
 - ✔ Large download from a rare/hosting IP
 - ✔ Executable/script/archive MIME type
 - ✔ Plain-HTTP download of a binary (no TLS) from a non-CDN
+
+
+### Attack Use
+
+An attacker may download tools or a second-stage payload after gaining a foothold.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which host can retrieve large content and where it can be delivered. From **Large Inbound Transfer (Staging / Download)**, the likely next move is to execute the downloaded payload and use the host as a beachhead. For the investigation, pivot to the endpoint process, downloaded file, parent process, execution, persistence, and the hosting infrastructure.
 
 **Next Pivots**
 
@@ -612,7 +684,7 @@ event.dataset:zeek.http AND destination.ip:<EXTERNAL_IP> AND source.ip:<INTERNAL
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Interactive C2, reverse shells, and tunnels hold a single connection open for a long time. A multi-hour flow to an external IP is worth a look — legitimate long connections are a short, known list.
 
@@ -635,6 +707,15 @@ event.dataset:zeek.conn AND destination.ip:<IP> | groupby destination.as.organiz
 - ✔ Hours-long TCP flow to a hosting/VPS IP
 - ✔ Long connection on a non-standard port
 - ✔ Long connection carrying little data (keep-alive C2) *or* steady transfer (tunnel)
+
+
+### Attack Use
+
+An attacker may keep a tunnel, reverse shell, or interactive remote session open for long periods.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which destination permits a durable session and which path stays open. From **Long-Lived Connections**, the likely next move is to carry an interactive shell, tunnel, or long-running C2 channel over it. For the investigation, pivot to the responsible process, port owner, byte pattern, destination, and related beaconing.
 
 **Next Pivots**
 
@@ -665,7 +746,7 @@ event.dataset:zeek.conn AND destination.ip:<IP> | groupby destination.as.organiz
 | **Difficulty** | 🔴 Advanced |
 | **Hunt Time** | ~15 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 C2 implants "phone home" on a schedule (every 30s, 60s, 5m — often with jitter). Regular, low-variance timing between a host and a destination is one of the strongest network indicators of an implant.
 
@@ -695,6 +776,15 @@ Look for consistent small `network.bytes`, consistent `destination.port`, and a 
 - ✔ Uniform small payloads
 - ✔ Destination on a hosting/VPS ASN
 - ✔ Persisting across hours/days regardless of user activity
+
+
+### Attack Use
+
+A beacon lets an implant receive tasks and maintain contact with an operator.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which hosts are infected and how often they can reach C2. From **Beaconing (Regular Interval)**, the likely next move is to send tasks, alter sleep intervals, or migrate to secondary infrastructure. For the investigation, pivot to the destination infrastructure, TLS or HTTP identity, endpoint process, other hosts with the same pattern, and possible transfer activity.
 
 **Next Pivots**
 
@@ -726,7 +816,7 @@ Look for consistent small `network.bytes`, consistent `destination.port`, and a 
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Devices that should *never* originate arbitrary internet traffic — domain controllers, database servers, printers, cameras, PLCs — doing so is either misconfiguration or compromise. Both deserve attention.
 
@@ -751,6 +841,15 @@ source.ip:<SERVER_IP> AND NOT destination.ip:"10.0.0.0/8"
 - ✔ A DC/DB/print server/camera making outbound internet connections
 - ✔ Outbound on odd ports from infrastructure
 - ✔ OT/ICS devices reaching the internet at all (see Phase 12)
+
+
+### Attack Use
+
+A compromised server, IoT device, or OT asset may initiate internet traffic to reach C2 or download tools despite policy.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which restricted server or device has direct egress. From **Servers / IoT Talking Directly to the Internet**, the likely next move is to use the unexpected path for C2, tool retrieval, or movement across network zones. For the investigation, pivot to asset ownership, allowed egress paths, process or firmware context, and the external destination.
 
 **Next Pivots**
 
@@ -781,7 +880,7 @@ source.ip:<SERVER_IP> AND NOT destination.ip:"10.0.0.0/8"
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Geography is a weak-but-cheap signal. Traffic to countries where you have no business presence narrows the field fast — especially combined with a rare destination or hosting ASN.
 
@@ -804,6 +903,15 @@ event.dataset:zeek.conn AND destination.geo.country_name:"<Country>" | groupby d
 - ✔ Traffic to a country with no business nexus
 - ✔ Single host → rare-country hosting IP
 - ✔ Rare country + rare destination + long/beaconing = stacked signals
+
+
+### Attack Use
+
+Attackers may host infrastructure in regions outside normal business operations or route traffic through foreign services.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which foreign-hosted paths are reachable without immediate blocking. From **Connections to Rare Countries**, the likely next move is to continue through that region or provider while blending with legitimate global traffic. For the investigation, pivot to the IP, ASN, domain, process, and timing; geography is supporting context, not proof.
 
 **Next Pivots**
 
@@ -834,7 +942,7 @@ event.dataset:zeek.conn AND destination.geo.country_name:"<Country>" | groupby d
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Adversaries rent cheap VPS instances for C2 and staging. Outbound traffic to raw VPS/hosting ASNs (as opposed to the SaaS *products* those clouds also host) is disproportionately interesting.
 
@@ -859,6 +967,15 @@ event.dataset:zeek.conn AND destination.as.organization.name:*DigitalOcean* | gr
 - ✔ A single host talking to a raw VPS IP (not a recognizable SaaS)
 - ✔ VPS destination on a non-standard port
 - ✔ VPS + beaconing / long connection / rare-first-seen
+
+
+### Attack Use
+
+Attackers commonly rent VPS instances for disposable C2, redirectors, phishing, and staging.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which cloud or VPS networks are allowed and look ordinary. From **Cloud & VPS Providers**, the likely next move is to operate disposable redirectors, C2, phishing, or staging from rented infrastructure. For the investigation, pivot to the exact VM address, TLS identity, connection regularity, endpoint process, and any infrastructure reuse.
 
 **Next Pivots**
 
@@ -889,7 +1006,7 @@ event.dataset:zeek.conn AND destination.as.organization.name:*DigitalOcean* | gr
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 TOR usage in most enterprises is anomalous and is used for anonymized C2, exfil, and evasion. Security Onion (Zeek) frequently flags TOR via SSL notices and known-node intel.
 
@@ -921,6 +1038,15 @@ source.ip:<INTERNAL_HOST> AND (event.dataset:zeek.ssl OR event.dataset:zeek.conn
 - ✔ TLS to known TOR nodes (intel match)
 - ✔ Randomized/rotating self-signed-style TLS SNIs typical of TOR
 
+
+### Attack Use
+
+Attackers may use Tor to hide C2, remote access, or exfiltration paths.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that Tor connections can leave the environment and conceal destination identity. From **TOR**, the likely next move is to route C2 or exfiltration through the anonymity network. For the investigation, pivot to the internal host, Tor process or browser, destination role, transferred data, and related persistence or command activity.
+
 **Next Pivots**
 
 - → Phase 8 (C2), Phase 9 (Exfil)
@@ -950,7 +1076,7 @@ source.ip:<INTERNAL_HOST> AND (event.dataset:zeek.ssl OR event.dataset:zeek.conn
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Cheap/free dynamic-DNS domains (`*.duckdns.org`, `*.no-ip.com`, `*.ddns.net`, `*.hopto.org`, etc.) let attackers point a memorable name at rotating infrastructure. Common in commodity RAT C2.
 
@@ -977,6 +1103,15 @@ source.ip:<HOST> OR destination.ip:<RESOLVED_IP>
 - ✔ Internal host resolving a DDNS name
 - ✔ DDNS name resolving to a hosting/VPS IP
 - ✔ DDNS + beaconing / long connection to the resolved IP
+
+
+### Attack Use
+
+Attackers may use dynamic DNS to move infrastructure while retaining a stable name.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that a stable domain can point to changing attacker-controlled addresses. From **Dynamic DNS**, the likely next move is to rotate backend infrastructure without reconfiguring the implant or lure. For the investigation, pivot to the domain, resolved IP history, TLS/HTTP activity, endpoint process, and any other hosts resolving the name.
 
 **Next Pivots**
 
@@ -1007,7 +1142,7 @@ source.ip:<HOST> OR destination.ip:<RESOLVED_IP>
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 DoH hides DNS resolution inside HTTPS, blinding your DNS monitoring. Malware and evasive tooling use it to resolve C2 without touching your resolvers. Hunt the *known DoH endpoints*.
 
@@ -1034,6 +1169,15 @@ event.dataset:zeek.ssl AND tls.client.server_name:*cloudflare-dns.com | groupby 
 - ✔ A host reaching a DoH endpoint while *not* using your internal DNS
 - ✔ DoH from a server or unusual host
 - ✔ Browser DoH is common — server/appliance DoH is not
+
+
+### Attack Use
+
+Attackers may use DoH to bypass local DNS visibility or carry C2-related resolution inside encrypted web traffic.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which encrypted DNS provider is reachable outside normal resolver visibility. From **DNS over HTTPS (DoH)**, the likely next move is to resolve or signal infrastructure while hiding queries inside HTTPS. For the investigation, pivot to the DoH client process, destination, allowed policy, and adjacent suspicious traffic.
 
 **Next Pivots**
 
@@ -1064,7 +1208,7 @@ event.dataset:zeek.ssl AND tls.client.server_name:*cloudflare-dns.com | groupby 
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 In a managed network, clients should resolve only through approved internal DNS servers. A host sending DNS (udp/53, tcp/53) directly to an external resolver is bypassing controls — sometimes for tunneling or evasion.
 
@@ -1091,6 +1235,15 @@ A single host generating a very high volume of unique, long, random-looking subd
 - ✔ Host using an external resolver directly
 - ✔ Huge count of unique subdomains under one parent domain (tunneling)
 - ✔ Long TXT/NULL query patterns
+
+
+### Attack Use
+
+Attackers may point a host at an external resolver to bypass internal DNS controls or resolve malicious infrastructure.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned that a host can bypass approved resolvers. From **Rogue / External DNS Servers**, the likely next move is to resolve malicious names directly and evade internal DNS filtering or logging. For the investigation, pivot to the client, resolver, queried names, configuration changes, and other hosts using the resolver.
 
 **Next Pivots**
 
@@ -1121,7 +1274,7 @@ A single host generating a very high volume of unique, long, random-looking subd
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 SMB (445) is the workhorse of Windows lateral movement: admin-share access, PsExec, file drops. Client-to-client SMB and access to `ADMIN$`/`C$` are the patterns to surface.
 
@@ -1150,6 +1303,15 @@ event.dataset:zeek.smb_files | groupby source.ip destination.ip file.name file.p
 - ✔ Workstation → workstation SMB (peers usually don't need it)
 - ✔ Access to `ADMIN$` / `C$` outside of admin/patch workflows
 - ✔ Executables/scripts written over SMB (`.exe`, `.dll`, `.ps1`, `.bat`)
+
+
+### Attack Use
+
+Attackers may abuse exposed or unusual SMB access to enumerate shares, copy tools, or move laterally.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which shares, files, and administrative paths are accessible over SMB. From **SMB Exposure & Rare SMB**, the likely next move is to copy tooling, collect files, create remote execution artifacts, or move laterally. For the investigation, pivot to share access, file operations, authentication, service creation, and source-to-target relationships.
 
 **Next Pivots**
 
@@ -1180,7 +1342,7 @@ event.dataset:zeek.smb_files | groupby source.ip destination.ip file.name file.p
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 RDP (3389) is a top lateral-movement and initial-access vector. Surface who can reach RDP, RDP exposed to the internet, and one-to-many RDP.
 
@@ -1209,6 +1371,15 @@ event.dataset:zeek.conn AND destination.port:3389 AND source.ip:"10.0.0.0/8" | g
 - ✔ Inbound RDP from the internet (should almost never exist)
 - ✔ One host RDP-ing to many internal hosts
 - ✔ RDP from a workstation acting as a jump point
+
+
+### Attack Use
+
+Attackers may use RDP with stolen credentials or exposed services to obtain interactive access.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which hosts expose RDP and which identities can establish sessions. From **RDP Reach & Exposure**, the likely next move is to gain interactive control, run discovery, and establish persistence. For the investigation, pivot to logon type, source IP, account, session timing, destination processes, and follow-on discovery or persistence.
 
 **Next Pivots**
 
@@ -1239,7 +1410,7 @@ event.dataset:zeek.conn AND destination.port:3389 AND source.ip:"10.0.0.0/8" | g
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 WinRM (5985 HTTP / 5986 HTTPS) powers PowerShell Remoting and is a favorite for stealthy lateral movement (`Enter-PSSession`, `Invoke-Command`, Evil-WinRM). A **workstation** initiating WinRM is rarely legitimate.
 
@@ -1264,6 +1435,15 @@ source.ip:<SOURCE> AND destination.port:(5985 OR 5986)
 - ✔ Workstation → server/DC WinRM
 - ✔ One source → many WinRM targets (fan-out)
 - ✔ WinRM immediately after SMB access to the same target (tool drop → remote exec)
+
+
+### Attack Use
+
+Attackers may use WinRM to execute PowerShell remotely and move through managed Windows systems.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which managed Windows hosts accept WinRM and remote PowerShell. From **WinRM (5985 / 5986)**, the likely next move is to execute scripts without a desktop and fan out through administrative credentials. For the investigation, pivot to wsmprovhost activity, authentication, command lines, source/target pairs, and destination-side execution.
 
 **Next Pivots**
 
@@ -1294,7 +1474,7 @@ source.ip:<SOURCE> AND destination.port:(5985 OR 5986)
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~3 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 SSH (22) is normal to Linux/network gear but suspicious to Windows endpoints, in fan-out patterns, or inbound from the internet.
 
@@ -1322,6 +1502,15 @@ event.dataset:zeek.conn AND destination.port:22 AND NOT source.ip:"10.0.0.0/8" A
 - ✔ One source → many SSH targets
 - ✔ Inbound SSH from the internet, or many failed auths → one success (brute force)
 - ✔ Unusual SSH client banners
+
+
+### Attack Use
+
+Attackers may use SSH for remote shells, tunneling, or tool transfer to unexpected systems.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which unexpected hosts accept SSH and whether long sessions or forwarding work. From **SSH to Unexpected Hosts**, the likely next move is to open a shell, transfer files, add keys, or tunnel toward another subnet. For the investigation, pivot to authentication outcomes, command or process evidence, destination role, long-lived sessions, and port forwarding.
 
 **Next Pivots**
 
@@ -1352,7 +1541,7 @@ event.dataset:zeek.conn AND destination.port:22 AND NOT source.ip:"10.0.0.0/8" A
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Suricata is your signature-based tripwire. Rather than chasing every alert, triage by *severity* and *category*, then pivot to the IP behind the highest-fidelity hits.
 
@@ -1384,6 +1573,15 @@ This pulls the Zeek conn/http/ssl/dns records for the exact flow that alerted.
 - ✔ The same source/destination across multiple different signatures
 - ✔ Alerts that correlate with a rare/beaconing IP from earlier hunts
 
+
+### Attack Use
+
+A Suricata hit can identify exploit delivery, malware, or C2 traffic that an attacker is actively using.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which flow triggered a known exploit, malware, or C2 signature. From **Suricata Alert Triage**, the likely next move is to continue the detected behavior, change payloads, or move to infrastructure not covered by the signature. For the investigation, pivot on community ID, signature context, flow records, endpoint process, and related infrastructure before acting.
+
 **Next Pivots**
 
 - Use `network.community_id` to pivot into any Zeek log → **Master IP Pivot**
@@ -1413,7 +1611,7 @@ This pulls the Zeek conn/http/ssl/dns records for the exact flow that alerted.
 | **Difficulty** | 🟡 Intermediate |
 | **Hunt Time** | ~5 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 Zeek's `weird` log records protocol violations and things Zeek couldn't parse cleanly — malformed TLS, unexpected protocol on a port, tunneling artifacts. Weird activity clustered on one host is a lead.
 
@@ -1440,6 +1638,15 @@ event.dataset:zeek.weird AND source.ip:<HOST> | groupby zeek.weird.name
 - ✔ Protocol-on-wrong-port weirds (e.g. non-HTTP on 80, non-TLS on 443) → possible tunneling
 - ✔ Malformed / truncated protocol violations concentrated on one pair
 - ✔ Weird events lining up with a rare/beaconing destination
+
+
+### Attack Use
+
+Attackers may generate malformed or protocol-mismatched traffic while tunneling, evading parsing, or using custom tooling.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which malformed or mismatched traffic reaches its destination. From **Zeek Weird Logs**, the likely next move is to use protocol ambiguity, custom tooling, or tunneling to evade normal parsing. For the investigation, pivot to the host pair, protocol, unusual port, related TLS/HTTP data, and endpoint process.
 
 **Next Pivots**
 
@@ -1469,7 +1676,7 @@ event.dataset:zeek.weird AND source.ip:<HOST> | groupby zeek.weird.name
 | **Difficulty** | 🔴 Advanced |
 | **Hunt Time** | ~15 min |
 
-**Why hunt this?**
+### Why Hunt This
 
 JA3 fingerprints the TLS *client*; JA3S fingerprints the *server*. Malware TLS stacks (Cobalt Strike, Metasploit, custom implants) often produce rare or known-bad fingerprints, and their certs are frequently self-signed with junk fields.
 
@@ -1502,6 +1709,15 @@ event.dataset:zeek.ssl AND (tls.client.server_name:"" OR NOT tls.client.server_n
 - ✔ JA3 matching a known offensive-tool fingerprint (compare to threat intel)
 - ✔ Rare JA3 + beaconing = strong stack
 
+
+### Attack Use
+
+Attackers may use uncommon TLS stacks, no-SNI sessions, or suspicious certificates to hide C2 in encryption.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which TLS fingerprints, certificates, and no-SNI paths are accepted. From **JA3 / JA3S & TLS Anomalies**, the likely next move is to reuse the encrypted channel across hosts or rotate infrastructure while retaining the client. For the investigation, pivot to the JA3/JA3S, certificate, destination, timing, endpoint process, and other hosts with the same fingerprint.
+
 **Next Pivots**
 
 - → Hunt 10 (Beaconing), Hunt 13 (VPS)
@@ -1532,7 +1748,7 @@ event.dataset:zeek.ssl AND (tls.client.server_name:"" OR NOT tls.client.server_n
 | **Difficulty** | 🟢 Easy |
 | **Hunt Time** | ~2 min per indicator |
 
-**Why hunt this?**
+### Why Hunt This
 
 When you receive an indicator (from intel, a report, or another hunt), sweep all of Security Onion for it in one shot. This is the fastest path from "here's an IOC" to "is it in my network?"
 
@@ -1577,6 +1793,15 @@ user_agent.original:"*<ioc_user_agent>*"
 - ✔ Any hit at all — a match on a curated IOC is high confidence by definition
 - ✔ Which internal host(s) touched the indicator, and when (first/last seen)
 - ✔ Whether the contact succeeded (`connection.state:SF`, HTTP 200, resolved answer)
+
+
+### Attack Use
+
+A confirmed IOC can reveal active infrastructure, payloads, or related artifacts used by an attacker.
+
+### Attacker Pivot
+
+By this point, the attacker may have learned which known indicator is present, on which hosts, and during which stage. From **IOC Sweep (IP / Domain / URL / Hash / JA3 / UA)**, the likely next move is to continue on already affected systems, rotate the exposed indicator, or reuse connected infrastructure. For the investigation, pivot from every match to the host, process, account, first/last seen, and connected indicators to scope the full operation.
 
 **Next Pivots**
 

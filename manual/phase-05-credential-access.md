@@ -17,111 +17,129 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Lsass Access](../queries/phase-05-credential-access/01-lsass-access.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Lsass Access** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Lsass Access** because LSASS access can indicate attempted theft of passwords, NTLM hashes, and Kerberos material. This query searches **event.code:10** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Lsass Access** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can read or dump authentication memory after obtaining sufficient privilege. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which reusable credentials are present. From **Lsass Access**, the likely next move is to pass hashes or tickets and move laterally. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Mimikatz** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Mimikatz** because Mimikatz behavior is a high-signal indicator of credential and ticket theft. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Mimikatz** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can extract secrets, manipulate Kerberos tickets, or impersonate identities. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which credentials and protections are present. From **Mimikatz**, the likely next move is to perform pass-the-hash, pass-the-ticket, or DCSync. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Dcsync](../queries/phase-05-credential-access/03-dcsync.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Dcsync** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Dcsync** because replication requests from non-domain controllers can reveal theft of directory credential data. This query searches **event.dataset:zeek.dce_rpc, event.code:4662** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Dcsync** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can impersonate a domain controller using replication rights. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned whether domain password material can be requested remotely. From **Dcsync**, the likely next move is to obtain privileged hashes and compromise more identities. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Kerberoasting** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Kerberoasting** because unusual service-ticket requests can expose service accounts selected for offline cracking. This query searches **event.dataset:zeek.kerberos, event.code:4769** and organizes matches by **winlog.event_data.ServiceName winlog.event_data.TargetUserName**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Kerberoasting** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can request SPN tickets and crack them without repeated authentication. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which service accounts use weak passwords or encryption. From **Kerberoasting**, the likely next move is to recover a service credential and access its resources. Analyst pivot: **winlog.event_data.ServiceName winlog.event_data.TargetUserName** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Asrep Roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Asrep Roasting** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Asrep Roasting** because AS-REP responses identify preauthentication-disabled accounts exposed to offline cracking. This query searches **event.dataset:zeek.kerberos, event.code:4768** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Asrep Roasting** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can request crackable authentication material without knowing a password. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which accounts are misconfigured and crackable. From **Asrep Roasting**, the likely next move is to recover a password and use the account for access. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Procdump](../queries/phase-05-credential-access/06-procdump.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Procdump** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Procdump** because ProcDump against sensitive processes can expose credential-dump staging with a legitimate utility. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Procdump** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can write LSASS memory to disk for offline extraction. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned whether LSASS can be accessed and where dumps can be written. From **Procdump**, the likely next move is to extract, compress, and transfer credentials. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Sam](../queries/phase-05-credential-access/07-sam.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Sam** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Sam** because SAM and SYSTEM hive activity can reveal theft of local password hashes. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Sam** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can export hives and derive local hashes offline. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which local accounts and reusable passwords exist. From **Sam**, the likely next move is to crack or pass a local administrator hash. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Ntds Dit](../queries/phase-05-credential-access/08-ntds-dit.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Ntds Dit** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Ntds Dit** because NTDS.dit access can indicate theft of the Active Directory credential database. This query searches **event.dataset:zeek.smb_files** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Ntds Dit** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can copy NTDS.dit and SYSTEM data for offline domain-hash extraction. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned whether domain database files are accessible. From **Ntds Dit**, the likely next move is to forge authentication and compromise the domain at scale. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ### [Registry Hive And Sql Shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Registry Hive And Sql Shell** query to find attempts to obtain passwords, hashes, tickets, or directory secrets. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Registry Hive And Sql Shell** because database connections and command-shell behavior can expose database and host compromise. This query searches **the query file's protocol, process, identity, or indicator filters** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Registry Hive And Sql Shell** to obtain reusable authentication material and impersonate an identity that can reach systems previously unavailable. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can steal database credentials or enable command features such as xp_cmdshell. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which database accepts access and whether its service can run OS commands. From **Registry Hive And Sql Shell**, the likely next move is to dump data, execute payloads, or pivot from the database host. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 

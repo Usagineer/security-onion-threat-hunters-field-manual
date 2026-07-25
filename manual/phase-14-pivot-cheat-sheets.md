@@ -17,111 +17,129 @@ Choose the query that matches the behavior in the lead. Each result should give 
 
 ### [Found Beaconing](../queries/phase-14-pivot-cheat-sheets/found-beaconing.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Beaconing** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Beaconing** because repeated low-variance connections can reveal an automated implant calling home. This query searches **event.dataset:zeek.conn, event.dataset:zeek.ssl, event.dataset:zeek.http, event.module:suricata, event.module:endpoint** and organizes matches by **tls.client.ja3 tls.client.server_name; url.original user_agent.original**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Beaconing** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can poll C2 at fixed or jittered intervals while generating little traffic. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts are infected and how reliably C2 is reachable. From **Found Beaconing**, the likely next move is to deliver tasks, change timing, or move to backup C2. Analyst pivot: **tls.client.ja3 tls.client.server_name; url.original user_agent.original** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Dns](../queries/phase-14-pivot-cheat-sheets/found-dns.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Dns** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Dns** because DNS evidence links queried names, answers, clients, and subsequent connections. This query searches **event.dataset:zeek.dns, event.dataset:zeek.conn, event.dataset:zeek.ssl, event.module:suricata** and organizes matches by **source.ip dns.answers; source.ip destination.port**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Dns** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can resolve delivery or C2 infrastructure, use dynamic answers, or bypass approved resolvers. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which host queried which name and which address it received. From **Found Dns**, the likely next move is to connect to the answer, rotate infrastructure, or tunnel through DNS. Analyst pivot: **source.ip dns.answers; source.ip destination.port** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Powershell](../queries/phase-14-pivot-cheat-sheets/found-powershell.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Powershell** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Powershell** because PowerShell ancestry, arguments, and network activity can expose a complete execution chain. This query searches **event.module:endpoint** and organizes matches by **destination.ip destination.port; process.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Powershell** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can use PowerShell for discovery, download, execution, credentials, and evasion. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which user, parent, script, and privilege are involved. From **Found Powershell**, the likely next move is to run another stage, persist, or execute remotely. Analyst pivot: **destination.ip destination.port; process.name** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Rdp](../queries/phase-14-pivot-cheat-sheets/found-rdp.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Rdp** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Rdp** because RDP traffic and logons identify interactive Windows access, its account, source, target, and result. This query searches **event.dataset:zeek.conn, event.code:4624, event.code:4625, event.code:4778, ports 3389** and organizes matches by **source.ip winlog.event_data.TargetUserName host.name; source.ip winlog.event_data.TargetUserName**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Rdp** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can authenticate with guessed, stolen, or reused credentials for an interactive desktop. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which Windows host and credential permit interactive access. From **Found Rdp**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **source.ip winlog.event_data.TargetUserName host.name; source.ip winlog.event_data.TargetUserName** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Repeated Powershell](../queries/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Repeated Powershell** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Repeated Powershell** because repeated PowerShell can expose automation, persistence, remote management, or recurring execution. This query searches **event.code:4698** and organizes matches by **process.command_line host.name user.name; host.name user.name process.parent.name process.command_line**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Repeated Powershell** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can rerun scripts through tasks, services, WinRM, or C2. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which command and trigger recur. From **Found Repeated Powershell**, the likely next move is to refresh persistence or retrieve more commands. Analyst pivot: **process.command_line host.name user.name; host.name user.name process.parent.name process.command_line** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Smb](../queries/phase-14-pivot-cheat-sheets/found-smb.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Smb** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Smb** because SMB connections, shares, and file operations reveal Windows file access and admin-share use. This query searches **event.dataset:zeek.smb_mapping, event.dataset:zeek.smb_files, event.code:7045, event.code:4624** and organizes matches by **smb.share; file.name**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Smb** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can enumerate shares, copy tools, collect data, or execute through administrative shares. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **Found Smb**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **smb.share; file.name** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Suspicious Ip](../queries/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Suspicious Ip** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Suspicious Ip** because an IP sweep identifies every source/destination relationship tied to known infrastructure. This query searches **event.dataset:zeek.dns, event.dataset:zeek.http, event.dataset:zeek.ssl, event.dataset:zeek.smb_mapping, event.dataset:zeek.smb_files** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Suspicious Ip** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can reuse an address for delivery, C2, scanning, staging, or transfer. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and processes contacted it. From **Found Suspicious Ip**, the likely next move is to rotate infrastructure or continue on compromised hosts. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Telemetry Gap](../queries/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Telemetry Gap** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Telemetry Gap** because a sudden telemetry gap can indicate failure, isolation, tampering, or defense impairment. This query searches **event.dataset:zeek.conn** and organizes matches by **the matching host, account, process, source, destination, and timestamp**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Telemetry Gap** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can disable or evade collection before louder actions. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which host is blind and whether network activity continues. From **Found Telemetry Gap**, the likely next move is to dump credentials, move, or exfiltrate unseen. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ### [Found Winrm](../queries/phase-14-pivot-cheat-sheets/found-winrm.md)
 
-#### What this query is for
+#### Why Hunt This
 
-Use the **Found Winrm** query to choose the next focused pivot after a common finding. It narrows the investigation to the relevant records and exposes the host, account, source, destination, process, or timestamp that should become the next pivot.
+Hunt for **Found Winrm** because WinRM and wsmprovhost evidence identify remote PowerShell execution. This query searches **event.dataset:zeek.conn, event.code:4624, ports 5985/5986** and organizes matches by **source.ip winlog.event_data.TargetUserName**, exposing the concrete artifacts needed to prove or rule out this behavior.
 
-#### Attacker use and next pivot
+#### Attack Use
 
-An attacker may abuse **Found Winrm** to advance one step in an attack chain by using the observed artifact to locate related accounts, systems, processes, or infrastructure. A match can reveal the attacker's current position, intended objective, or the path to the next system or stage of the operation.
+An adversary can run commands remotely through Windows management with valid credentials. Review the result in the context of the asset owner and expected workflow; the protocol or tool alone is not proof of malicious intent.
 
-After a match, pivot on the most specific value in the result and look for related activity before and after the event. Confirm the behavior with another telemetry source and compare it with expected operations.
+#### Attacker Pivot
+
+By this point, the attacker may have learned which hosts and accounts permit noninteractive administration. From **Found Winrm**, the likely next move is to deploy scripts, collect credentials, or continue movement. Analyst pivot: **source.ip winlog.event_data.TargetUserName** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
 ## Pivots and evidence preservation
 
