@@ -6,41 +6,69 @@
 
 Investigate collection, staging, compression, and outbound transfer through protocols and cloud services.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 Large transfers may be backup or synchronization; correlate with archive creation, exports, identity, and destination ownership.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-ftp](../queries/phase-09-exfiltration/01-ftp.md)
-- [02-sftp](../queries/phase-09-exfiltration/02-sftp.md)
-- [03-scp](../queries/phase-09-exfiltration/03-scp.md)
-- [04-cloud-storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
-- [05-onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
-- [06-dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
-- [07-mega](../queries/phase-09-exfiltration/07-mega.md)
-- [08-google-drive](../queries/phase-09-exfiltration/08-google-drive.md)
-- [09-large-uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
-- [10-archive-creation](../queries/phase-09-exfiltration/10-archive-creation.md)
-- [11-database-collection](../queries/phase-09-exfiltration/11-database-collection.md)
+### [FTP](../queries/phase-09-exfiltration/01-ftp.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Ftp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [SFTP](../queries/phase-09-exfiltration/02-sftp.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Sftp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [SCP](../queries/phase-09-exfiltration/03-scp.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Scp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Cloud Storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Cloud Storage. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Onedrive. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Dropbox. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Mega](../queries/phase-09-exfiltration/07-mega.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Mega. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Google Drive](../queries/phase-09-exfiltration/08-google-drive.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Google Drive. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Large Uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Large Uploads. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Archive Creation](../queries/phase-09-exfiltration/10-archive-creation.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Archive Creation. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Database Collection](../queries/phase-09-exfiltration/11-database-collection.md)
+
+**Why use it:** Looks for collection or exfiltration behavior involving Database Collection. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

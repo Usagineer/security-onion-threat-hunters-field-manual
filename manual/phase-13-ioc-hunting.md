@@ -6,38 +6,54 @@
 
 Scope known IPs, domains, URLs, hashes, fingerprints, user agents, YARA, and Sigma results.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 Indicator quality, specificity, recency, and shared infrastructure determine how much confidence a match deserves.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-ip](../queries/phase-13-ioc-hunting/01-ip.md)
-- [02-domain](../queries/phase-13-ioc-hunting/02-domain.md)
-- [03-url](../queries/phase-13-ioc-hunting/03-url.md)
-- [04-hash](../queries/phase-13-ioc-hunting/04-hash.md)
-- [05-ja3](../queries/phase-13-ioc-hunting/05-ja3.md)
-- [06-user-agent](../queries/phase-13-ioc-hunting/06-user-agent.md)
-- [07-yara](../queries/phase-13-ioc-hunting/07-yara.md)
-- [08-sigma](../queries/phase-13-ioc-hunting/08-sigma.md)
+### [Ip](../queries/phase-13-ioc-hunting/01-ip.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Ip. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Domain](../queries/phase-13-ioc-hunting/02-domain.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Domain. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Url](../queries/phase-13-ioc-hunting/03-url.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Url. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Hash](../queries/phase-13-ioc-hunting/04-hash.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Hash. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [JA3](../queries/phase-13-ioc-hunting/05-ja3.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Ja3. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [User Agent](../queries/phase-13-ioc-hunting/06-user-agent.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: User Agent. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [YARA](../queries/phase-13-ioc-hunting/07-yara.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Yara. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Sigma](../queries/phase-13-ioc-hunting/08-sigma.md)
+
+**Why use it:** Searches Security Onion telemetry for the specified indicator type: Sigma. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

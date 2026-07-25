@@ -6,39 +6,59 @@
 
 Build a complete, IP-centered evidence picture from a network alert, IOC, or analyst lead.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 A rare address alone is weak. Confidence rises when DNS, protocol logs, alerts, and endpoint telemetry describe the same activity.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [00-everything](../queries/phase-02-investigate-the-ip/00-everything.md)
-- [01-smb](../queries/phase-02-investigate-the-ip/01-smb.md)
-- [02-rdp](../queries/phase-02-investigate-the-ip/02-rdp.md)
-- [03-winrm](../queries/phase-02-investigate-the-ip/03-winrm.md)
-- [04-dns](../queries/phase-02-investigate-the-ip/04-dns.md)
-- [05-http](../queries/phase-02-investigate-the-ip/05-http.md)
-- [06-tls](../queries/phase-02-investigate-the-ip/06-tls.md)
-- [07-suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
-- [08-endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
+### [Everything](../queries/phase-02-investigate-the-ip/00-everything.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Everything. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [SMB](../queries/phase-02-investigate-the-ip/01-smb.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [RDP](../queries/phase-02-investigate-the-ip/02-rdp.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [WinRM](../queries/phase-02-investigate-the-ip/03-winrm.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [DNS](../queries/phase-02-investigate-the-ip/04-dns.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Dns. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [HTTP](../queries/phase-02-investigate-the-ip/05-http.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Http. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [TLS](../queries/phase-02-investigate-the-ip/06-tls.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Tls. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Suricata. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
+
+**Why use it:** Pivots through available network, alert, and endpoint evidence for Endpoint. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

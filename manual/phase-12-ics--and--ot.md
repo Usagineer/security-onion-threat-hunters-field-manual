@@ -6,41 +6,69 @@
 
 Safely investigate industrial protocol traffic, engineering activity, controllers, and IT-to-OT paths.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 OT context and owner validation are mandatory; avoid active probing or disruptive containment without authority.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-modbus](../queries/phase-12-ics-ot/01-modbus.md)
-- [02-ethernet-ip](../queries/phase-12-ics-ot/02-ethernet-ip.md)
-- [03-cip](../queries/phase-12-ics-ot/03-cip.md)
-- [04-dnp3](../queries/phase-12-ics-ot/04-dnp3.md)
-- [05-bacnet](../queries/phase-12-ics-ot/05-bacnet.md)
-- [06-opc-ua](../queries/phase-12-ics-ot/06-opc-ua.md)
-- [07-s7](../queries/phase-12-ics-ot/07-s7.md)
-- [08-engineering-workstations](../queries/phase-12-ics-ot/08-engineering-workstations.md)
-- [09-plc-programming](../queries/phase-12-ics-ot/09-plc-programming.md)
-- [10-unauthorized-controllers](../queries/phase-12-ics-ot/10-unauthorized-controllers.md)
-- [11-it-ot-boundary-and-hmi-impact](../queries/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
+### [Modbus](../queries/phase-12-ics-ot/01-modbus.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Modbus. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Ethernet Ip](../queries/phase-12-ics-ot/02-ethernet-ip.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Ethernet Ip. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Cip](../queries/phase-12-ics-ot/03-cip.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Cip. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Dnp3](../queries/phase-12-ics-ot/04-dnp3.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Dnp3. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Bacnet](../queries/phase-12-ics-ot/05-bacnet.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Bacnet. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Opc Ua](../queries/phase-12-ics-ot/06-opc-ua.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Opc Ua. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [S7](../queries/phase-12-ics-ot/07-s7.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving S7. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Engineering Workstations](../queries/phase-12-ics-ot/08-engineering-workstations.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Engineering Workstations. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Plc Programming](../queries/phase-12-ics-ot/09-plc-programming.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Plc Programming. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Unauthorized Controllers](../queries/phase-12-ics-ot/10-unauthorized-controllers.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving Unauthorized Controllers. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [It Ot Boundary And Hmi Impact](../queries/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
+
+**Why use it:** Reviews ICS/OT communications and impact-related activity involving It Ot Boundary And Hmi Impact. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

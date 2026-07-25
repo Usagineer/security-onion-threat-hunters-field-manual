@@ -6,39 +6,59 @@
 
 Detect theft or abuse of passwords, hashes, tickets, registry hives, LSASS, and directory secrets.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 High-impact actions need endpoint, account, target, command-line, and authorization context before classification.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-lsass-access](../queries/phase-05-credential-access/01-lsass-access.md)
-- [02-mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
-- [03-dcsync](../queries/phase-05-credential-access/03-dcsync.md)
-- [04-kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
-- [05-asrep-roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
-- [06-procdump](../queries/phase-05-credential-access/06-procdump.md)
-- [07-sam](../queries/phase-05-credential-access/07-sam.md)
-- [08-ntds-dit](../queries/phase-05-credential-access/08-ntds-dit.md)
-- [09-registry-hive-and-sql-shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
+### [Lsass Access](../queries/phase-05-credential-access/01-lsass-access.md)
+
+**Why use it:** Looks for credential-access behavior involving Lsass Access. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
+
+**Why use it:** Looks for credential-access behavior involving Mimikatz. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Dcsync](../queries/phase-05-credential-access/03-dcsync.md)
+
+**Why use it:** Looks for credential-access behavior involving Dcsync. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
+
+**Why use it:** Looks for credential-access behavior involving Kerberoasting. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Asrep Roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
+
+**Why use it:** Looks for credential-access behavior involving Asrep Roasting. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Procdump](../queries/phase-05-credential-access/06-procdump.md)
+
+**Why use it:** Looks for credential-access behavior involving Procdump. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Sam](../queries/phase-05-credential-access/07-sam.md)
+
+**Why use it:** Looks for credential-access behavior involving Sam. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Ntds Dit](../queries/phase-05-credential-access/08-ntds-dit.md)
+
+**Why use it:** Looks for credential-access behavior involving Ntds Dit. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Registry Hive And Sql Shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
+
+**Why use it:** Looks for credential-access behavior involving Registry Hive And Sql Shell. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

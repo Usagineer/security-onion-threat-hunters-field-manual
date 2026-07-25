@@ -6,41 +6,69 @@
 
 Determine how an actor first entered through remote access, public services, email, or user delivery.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 Build a delivery or login chain rather than trusting a successful authentication event by itself.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-rdp](../queries/phase-03-initial-access/01-rdp.md)
-- [02-vpn](../queries/phase-03-initial-access/02-vpn.md)
-- [03-ssh](../queries/phase-03-initial-access/03-ssh.md)
-- [04-web-attacks](../queries/phase-03-initial-access/04-web-attacks.md)
-- [05-smb](../queries/phase-03-initial-access/05-smb.md)
-- [06-mssql](../queries/phase-03-initial-access/06-mssql.md)
-- [07-ftp](../queries/phase-03-initial-access/07-ftp.md)
-- [08-email](../queries/phase-03-initial-access/08-email.md)
-- [09-phishing](../queries/phase-03-initial-access/09-phishing.md)
-- [10-drive-by-downloads](../queries/phase-03-initial-access/10-drive-by-downloads.md)
-- [11-web-shell-and-server-side-rce](../queries/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
+### [RDP](../queries/phase-03-initial-access/01-rdp.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [VPN](../queries/phase-03-initial-access/02-vpn.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Vpn. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [SSH](../queries/phase-03-initial-access/03-ssh.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Ssh. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Web Attacks](../queries/phase-03-initial-access/04-web-attacks.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Web Attacks. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [SMB](../queries/phase-03-initial-access/05-smb.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [MSSQL](../queries/phase-03-initial-access/06-mssql.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Mssql. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [FTP](../queries/phase-03-initial-access/07-ftp.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Ftp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Email](../queries/phase-03-initial-access/08-email.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Email. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Phishing](../queries/phase-03-initial-access/09-phishing.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Phishing. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Drive By Downloads](../queries/phase-03-initial-access/10-drive-by-downloads.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Drive By Downloads. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Web Shell And Server Side Rce](../queries/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
+
+**Why use it:** Looks for signs of initial-access activity involving Web Shell And Server Side Rce. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

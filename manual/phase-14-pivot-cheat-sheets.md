@@ -6,39 +6,59 @@
 
 Choose a fast, evidence-preserving next search after a common finding.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 A cheat sheet accelerates triage but does not replace the full phase methodology or corroboration.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [found-beaconing](../queries/phase-14-pivot-cheat-sheets/found-beaconing.md)
-- [found-dns](../queries/phase-14-pivot-cheat-sheets/found-dns.md)
-- [found-powershell](../queries/phase-14-pivot-cheat-sheets/found-powershell.md)
-- [found-rdp](../queries/phase-14-pivot-cheat-sheets/found-rdp.md)
-- [found-repeated-powershell](../queries/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
-- [found-smb](../queries/phase-14-pivot-cheat-sheets/found-smb.md)
-- [found-suspicious-ip](../queries/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
-- [found-telemetry-gap](../queries/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
-- [found-winrm](../queries/phase-14-pivot-cheat-sheets/found-winrm.md)
+### [Found Beaconing](../queries/phase-14-pivot-cheat-sheets/found-beaconing.md)
+
+**Why use it:** Provides the next investigative pivots after finding Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Dns](../queries/phase-14-pivot-cheat-sheets/found-dns.md)
+
+**Why use it:** Provides the next investigative pivots after finding Dns. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Powershell](../queries/phase-14-pivot-cheat-sheets/found-powershell.md)
+
+**Why use it:** Provides the next investigative pivots after finding Powershell. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Rdp](../queries/phase-14-pivot-cheat-sheets/found-rdp.md)
+
+**Why use it:** Provides the next investigative pivots after finding Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Repeated Powershell](../queries/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
+
+**Why use it:** Provides the next investigative pivots after finding Repeated Powershell. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Smb](../queries/phase-14-pivot-cheat-sheets/found-smb.md)
+
+**Why use it:** Provides the next investigative pivots after finding Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Suspicious Ip](../queries/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
+
+**Why use it:** Provides the next investigative pivots after finding Suspicious Ip. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Telemetry Gap](../queries/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
+
+**Why use it:** Provides the next investigative pivots after finding Telemetry Gap. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Found Winrm](../queries/phase-14-pivot-cheat-sheets/found-winrm.md)
+
+**Why use it:** Provides the next investigative pivots after finding Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

@@ -6,39 +6,59 @@
 
 Map movement between systems using SMB, PsExec, WMI, WinRM, RDP, services, tasks, DCOM, and accounts.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 Remote administration is common; source role, target set, command, and timing distinguish normal work from spread.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-smb](../queries/phase-06-lateral-movement/01-smb.md)
-- [02-psexec](../queries/phase-06-lateral-movement/02-psexec.md)
-- [03-wmi](../queries/phase-06-lateral-movement/03-wmi.md)
-- [04-winrm](../queries/phase-06-lateral-movement/04-winrm.md)
-- [05-rdp](../queries/phase-06-lateral-movement/05-rdp.md)
-- [06-remote-services](../queries/phase-06-lateral-movement/06-remote-services.md)
-- [07-scheduled-tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
-- [08-dcom](../queries/phase-06-lateral-movement/08-dcom.md)
-- [09-valid-account-spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
+### [SMB](../queries/phase-06-lateral-movement/01-smb.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Smb. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Psexec](../queries/phase-06-lateral-movement/02-psexec.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Psexec. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [WMI](../queries/phase-06-lateral-movement/03-wmi.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Wmi. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [WinRM](../queries/phase-06-lateral-movement/04-winrm.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Winrm. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [RDP](../queries/phase-06-lateral-movement/05-rdp.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Rdp. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Remote Services](../queries/phase-06-lateral-movement/06-remote-services.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Remote Services. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Scheduled Tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Scheduled Tasks. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [DCOM](../queries/phase-06-lateral-movement/08-dcom.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Dcom. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Valid Account Spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
+
+**Why use it:** Looks for lateral-movement behavior involving Valid Account Spread. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

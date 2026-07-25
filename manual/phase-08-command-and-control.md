@@ -6,39 +6,59 @@
 
 Assess beaconing, DNS tunneling, TLS, HTTP, proxies, and tunnels used for operator communication.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 Regular timing alone is not C2; stack timing, infrastructure rarity, process ancestry, and protocol details.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-beaconing](../queries/phase-08-command-and-control/01-beaconing.md)
-- [02-dns-tunneling](../queries/phase-08-command-and-control/02-dns-tunneling.md)
-- [03-long-connections](../queries/phase-08-command-and-control/03-long-connections.md)
-- [04-ja3](../queries/phase-08-command-and-control/04-ja3.md)
-- [05-rare-domains](../queries/phase-08-command-and-control/05-rare-domains.md)
-- [06-user-agents](../queries/phase-08-command-and-control/06-user-agents.md)
-- [07-http-post](../queries/phase-08-command-and-control/07-http-post.md)
-- [08-tls](../queries/phase-08-command-and-control/08-tls.md)
-- [09-proxy-and-reverse-tunnel](../queries/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
+### [Beaconing](../queries/phase-08-command-and-control/01-beaconing.md)
+
+**Why use it:** Looks for command-and-control behavior involving Beaconing. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Dns Tunneling](../queries/phase-08-command-and-control/02-dns-tunneling.md)
+
+**Why use it:** Looks for command-and-control behavior involving Dns Tunneling. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Long Connections](../queries/phase-08-command-and-control/03-long-connections.md)
+
+**Why use it:** Looks for command-and-control behavior involving Long Connections. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [JA3](../queries/phase-08-command-and-control/04-ja3.md)
+
+**Why use it:** Looks for command-and-control behavior involving Ja3. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Rare Domains](../queries/phase-08-command-and-control/05-rare-domains.md)
+
+**Why use it:** Looks for command-and-control behavior involving Rare Domains. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [User Agents](../queries/phase-08-command-and-control/06-user-agents.md)
+
+**Why use it:** Looks for command-and-control behavior involving User Agents. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Http Post](../queries/phase-08-command-and-control/07-http-post.md)
+
+**Why use it:** Looks for command-and-control behavior involving Http Post. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [TLS](../queries/phase-08-command-and-control/08-tls.md)
+
+**Why use it:** Looks for command-and-control behavior involving Tls. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Proxy And Reverse Tunnel](../queries/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
+
+**Why use it:** Looks for command-and-control behavior involving Proxy And Reverse Tunnel. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

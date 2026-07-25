@@ -6,42 +6,74 @@
 
 Identify reconnaissance of accounts, hosts, networks, sessions, processes, and services.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 A single administration command can be normal; a clustered sequence, unusual parent, or post-compromise timing is stronger.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-whoami](../queries/phase-04-discovery/01-whoami.md)
-- [02-hostname-ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
-- [03-arp-route](../queries/phase-04-discovery/03-arp-route.md)
-- [04-systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
-- [05-net-user-group](../queries/phase-04-discovery/05-net-user-group.md)
-- [06-nltest](../queries/phase-04-discovery/06-nltest.md)
-- [07-netstat](../queries/phase-04-discovery/07-netstat.md)
-- [08-tasklist](../queries/phase-04-discovery/08-tasklist.md)
-- [09-quser-query-user](../queries/phase-04-discovery/09-quser-query-user.md)
-- [10-powershell-discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
-- [11-network-service-enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
-- [12-icmp-and-subnet-discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
+### [Whoami](../queries/phase-04-discovery/01-whoami.md)
+
+**Why use it:** Looks for host or network discovery activity involving Whoami. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Hostname Ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
+
+**Why use it:** Looks for host or network discovery activity involving Hostname Ipconfig. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Arp Route](../queries/phase-04-discovery/03-arp-route.md)
+
+**Why use it:** Looks for host or network discovery activity involving Arp Route. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
+
+**Why use it:** Looks for host or network discovery activity involving Systeminfo. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Net User Group](../queries/phase-04-discovery/05-net-user-group.md)
+
+**Why use it:** Looks for host or network discovery activity involving Net User Group. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Nltest](../queries/phase-04-discovery/06-nltest.md)
+
+**Why use it:** Looks for host or network discovery activity involving Nltest. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Netstat](../queries/phase-04-discovery/07-netstat.md)
+
+**Why use it:** Looks for host or network discovery activity involving Netstat. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Tasklist](../queries/phase-04-discovery/08-tasklist.md)
+
+**Why use it:** Looks for host or network discovery activity involving Tasklist. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Quser Query User](../queries/phase-04-discovery/09-quser-query-user.md)
+
+**Why use it:** Looks for host or network discovery activity involving Quser Query User. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Powershell Discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
+
+**Why use it:** Looks for host or network discovery activity involving Powershell Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Network Service Enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
+
+**Why use it:** Looks for host or network discovery activity involving Network Service Enumeration. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Icmp And Subnet Discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
+
+**Why use it:** Looks for host or network discovery activity involving Icmp And Subnet Discovery. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

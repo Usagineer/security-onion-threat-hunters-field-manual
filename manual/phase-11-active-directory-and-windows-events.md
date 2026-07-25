@@ -6,42 +6,74 @@
 
 Reconstruct authentication, privilege, account, process, Kerberos, task, and service activity.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
 An event ID needs source, logon type, account role, target, and adjacent behavior to be useful.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [4624-successful-logon](../queries/phase-11-active-directory/4624-successful-logon.md)
-- [4625-failed-logon](../queries/phase-11-active-directory/4625-failed-logon.md)
-- [4672-special-privileges](../queries/phase-11-active-directory/4672-special-privileges.md)
-- [4688-process-creation](../queries/phase-11-active-directory/4688-process-creation.md)
-- [4698-scheduled-task-created](../queries/phase-11-active-directory/4698-scheduled-task-created.md)
-- [4720-user-account-created](../queries/phase-11-active-directory/4720-user-account-created.md)
-- [4728-member-added-global-group](../queries/phase-11-active-directory/4728-member-added-global-group.md)
-- [4732-member-added-local-group](../queries/phase-11-active-directory/4732-member-added-local-group.md)
-- [4768-kerberos-tgt-requested](../queries/phase-11-active-directory/4768-kerberos-tgt-requested.md)
-- [4769-kerberos-service-ticket](../queries/phase-11-active-directory/4769-kerberos-service-ticket.md)
-- [4771-kerberos-preauth-failed](../queries/phase-11-active-directory/4771-kerberos-preauth-failed.md)
-- [7045-service-installed](../queries/phase-11-active-directory/7045-service-installed.md)
+### [Successful Logon](../queries/phase-11-active-directory/4624-successful-logon.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Successful Logon. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Failed Logon](../queries/phase-11-active-directory/4625-failed-logon.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Failed Logon. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Special Privileges](../queries/phase-11-active-directory/4672-special-privileges.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Special Privileges. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Process Creation](../queries/phase-11-active-directory/4688-process-creation.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Process Creation. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Scheduled Task Created](../queries/phase-11-active-directory/4698-scheduled-task-created.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Scheduled Task Created. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [User Account Created](../queries/phase-11-active-directory/4720-user-account-created.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving User Account Created. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Member Added Global Group](../queries/phase-11-active-directory/4728-member-added-global-group.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Member Added Global Group. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Member Added Local Group](../queries/phase-11-active-directory/4732-member-added-local-group.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Member Added Local Group. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Kerberos Tgt Requested](../queries/phase-11-active-directory/4768-kerberos-tgt-requested.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Tgt Requested. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Kerberos Service Ticket](../queries/phase-11-active-directory/4769-kerberos-service-ticket.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Service Ticket. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Kerberos Preauth Failed](../queries/phase-11-active-directory/4771-kerberos-preauth-failed.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Kerberos Preauth Failed. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Service Installed](../queries/phase-11-active-directory/7045-service-installed.md)
+
+**Why use it:** Reviews Windows and Active Directory event evidence involving Service Installed. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 

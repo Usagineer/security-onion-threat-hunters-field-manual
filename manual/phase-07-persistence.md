@@ -6,38 +6,54 @@
 
 Find mechanisms that survive reboot, logoff, or cleanup, including tasks, services, WMI, BITS, autoruns, and cron.
 
-## Before you run a query
-
-1. Set an absolute time range and note its timezone.
-2. Write down the starting lead and the asset, account, or service ownership.
-3. Replace all placeholders with case values; do not broaden searches until the first result is understood.
-4. Save the result count and the values that become your next pivot.
-
-## Investigation method
-
-1. **Start narrow.** Use the file that matches the observed behavior, host, account, protocol, or indicator.
-2. **Characterize the result.** Identify source, target, user, process, command line, time, and outcome.
-3. **Corroborate.** Check an independent source such as endpoint, network, identity, DNS, TLS, or Suricata evidence.
-4. **Compare with normal.** Validate role, approved tooling, maintenance windows, historical behavior, and clean peers.
-5. **Scope and decide.** Search the same artifact or behavior across the estate, preserve evidence, and document a benign explanation or escalation rationale.
-
 ## What makes a result meaningful
 
-The artifact configurationâ€”not its display name aloneâ€”shows whether it is durable and dangerous.
+The artifact configurationnot its display name aloneshows whether it is durable and dangerous.
 A useful finding usually has a sequence: an initiating event, an observable action, supporting context, and an affected asset or account. Record both confirming evidence and evidence that weakens the hypothesis; this makes handoffs and containment decisions defensible.
 
-## Query inventory
+## Why use each query?
 
-The query files below are the operational starting points for this phase:
+Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-- [01-registry-run-keys](../queries/phase-07-persistence/01-registry-run-keys.md)
-- [02-startup-folder](../queries/phase-07-persistence/02-startup-folder.md)
-- [03-services](../queries/phase-07-persistence/03-services.md)
-- [04-wmi-events](../queries/phase-07-persistence/04-wmi-events.md)
-- [05-scheduled-tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
-- [06-bits-jobs](../queries/phase-07-persistence/06-bits-jobs.md)
-- [07-com-hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
-- [08-linux-cron-and-temp-execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
+### [Registry Run Keys](../queries/phase-07-persistence/01-registry-run-keys.md)
+
+**Why use it:** Looks for persistence mechanisms involving Registry Run Keys. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Startup Folder](../queries/phase-07-persistence/02-startup-folder.md)
+
+**Why use it:** Looks for persistence mechanisms involving Startup Folder. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Services](../queries/phase-07-persistence/03-services.md)
+
+**Why use it:** Looks for persistence mechanisms involving Services. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Wmi Events](../queries/phase-07-persistence/04-wmi-events.md)
+
+**Why use it:** Looks for persistence mechanisms involving Wmi Events. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Scheduled Tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
+
+**Why use it:** Looks for persistence mechanisms involving Scheduled Tasks. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Bits Jobs](../queries/phase-07-persistence/06-bits-jobs.md)
+
+**Why use it:** Looks for persistence mechanisms involving Bits Jobs. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Com Hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
+
+**Why use it:** Looks for persistence mechanisms involving Com Hijacking. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
+
+### [Linux Cron And Temp Execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
+
+**Why use it:** Looks for persistence mechanisms involving Linux Cron And Temp Execution. Use the results with the surrounding host, user, time, and network context before escalating.
+Use the matching records to identify the involved source, destination, account, process, and time. Then pivot on the most specific value and validate the behavior against normal operations.
 
 ## Pivots and evidence preservation
 
