@@ -20,6 +20,11 @@ Every query file starts with a **What this does** section, followed by bare copy
 
 The examples use ECS-style fields as exposed by Security Onion. Field availability and exact names can vary with sensor configuration, Elastic Agent integrations, and Security Onion version.
 
+## Platform query libraries
+
+- [Security Onion](queries/security-onion/) contains Hunt/Elasticsearch queries for Security Onion 2.x.
+- [CrowdStrike Next-Gen SIEM](queries/crowdstrike/) mirrors all 14 phases in CrowdStrike Query Language (CQL), using native Falcon events where possible and normalized CPS/ECS fields for ingested network, identity, email, Windows, and OT sources.
+
 ## Investigation workflow
 
 ```text
@@ -58,7 +63,9 @@ When endpoint telemetry stops unexpectedly, do not assume the host is quiet. Com
 .
 ├── README.md
 ├── CONTRIBUTING.md
-├── queries/                 # 14 workflow phases; one Markdown file per hunt
+├── queries/
+│   ├── security-onion/      # Security Onion Hunt/Elasticsearch queries
+│   └── crowdstrike/         # CrowdStrike Next-Gen SIEM CQL queries
 ├── manual/                  # long-form Phase 1 manual and front matter
 ├── templates/               # hunt authoring template
 └── automation/              # optional query-runner tooling
