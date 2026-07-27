@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Everything](../queries/phase-02-investigate-the-ip/00-everything.md)
+### [Everything](../queries/security-onion/phase-02-investigate-the-ip/00-everything.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can use one address for delivery, C2, scanning, redirection, or tra
 
 By this point, the attacker may have learned which hosts and protocols communicate with the address. From **Everything**, the likely next move is to pivot to the endpoint process and behavior-specific phase. Analyst pivot: **network.protocol destination.port; event.dataset** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [SMB](../queries/phase-02-investigate-the-ip/01-smb.md)
+### [SMB](../queries/security-onion/phase-02-investigate-the-ip/01-smb.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can enumerate shares, copy tools, collect data, or execute through 
 
 By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **SMB**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **smb.share; file.name file.path** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [RDP](../queries/phase-02-investigate-the-ip/02-rdp.md)
+### [RDP](../queries/security-onion/phase-02-investigate-the-ip/02-rdp.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can authenticate with guessed, stolen, or reused credentials for an
 
 By this point, the attacker may have learned which Windows host and credential permit interactive access. From **RDP**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [WinRM](../queries/phase-02-investigate-the-ip/03-winrm.md)
+### [WinRM](../queries/security-onion/phase-02-investigate-the-ip/03-winrm.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can run commands remotely through Windows management with valid cre
 
 By this point, the attacker may have learned which hosts and accounts permit noninteractive administration. From **WinRM**, the likely next move is to deploy scripts, collect credentials, or continue movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [DNS](../queries/phase-02-investigate-the-ip/04-dns.md)
+### [DNS](../queries/security-onion/phase-02-investigate-the-ip/04-dns.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can resolve delivery or C2 infrastructure, use dynamic answers, or 
 
 By this point, the attacker may have learned which host queried which name and which address it received. From **DNS**, the likely next move is to connect to the answer, rotate infrastructure, or tunnel through DNS. Analyst pivot: **dns.question.name** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [HTTP](../queries/phase-02-investigate-the-ip/05-http.md)
+### [HTTP](../queries/security-onion/phase-02-investigate-the-ip/05-http.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can deliver payloads, receive commands, or transfer data through we
 
 By this point, the attacker may have learned which URI, client, and server complete the exchange. From **HTTP**, the likely next move is to retrieve content, post results, or switch to TLS. Analyst pivot: **url.domain http.request.method; user_agent.original** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [TLS](../queries/phase-02-investigate-the-ip/06-tls.md)
+### [TLS](../queries/security-onion/phase-02-investigate-the-ip/06-tls.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can hide delivery or C2 content inside encryption while leaking han
 
 By this point, the attacker may have learned which names, certificates, and clients identify the encrypted channel. From **TLS**, the likely next move is to cluster related hosts or pivot to the responsible endpoint process. Analyst pivot: **tls.client.server_name; tls.client.ja3 tls.server.ja3s** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [Suricata](../queries/phase-02-investigate-the-ip/07-suricata.md)
+### [Suricata](../queries/security-onion/phase-02-investigate-the-ip/07-suricata.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can send known exploit or malware traffic that matches a network si
 
 By this point, the attacker may have learned which flow triggered and whether communication succeeded. From **Suricata**, the likely next move is to pivot through community ID to protocol and endpoint evidence. Analyst pivot: **rule.name rule.category** into **endpoint ownership and the behavior-specific phase**, then verify the sequence with an independent telemetry source.
 
-### [Endpoint](../queries/phase-02-investigate-the-ip/08-endpoint.md)
+### [Endpoint](../queries/security-onion/phase-02-investigate-the-ip/08-endpoint.md)
 
 #### Why Hunt This
 

@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [FTP](../queries/phase-09-exfiltration/01-ftp.md)
+### [FTP](../queries/security-onion/phase-09-exfiltration/01-ftp.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can deliver payloads or exfiltrate data, sometimes with exposed cre
 
 By this point, the attacker may have learned which server accepts files and which credentials work. From **FTP**, the likely next move is to upload tooling, retrieve staged data, or switch to SFTP. Analyst pivot: **source.ip destination.ip; source.ip destination.ip ftp.arg** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [SFTP](../queries/phase-09-exfiltration/02-sftp.md)
+### [SFTP](../queries/security-onion/phase-09-exfiltration/02-sftp.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can use valid SSH credentials to import tools or export data while 
 
 By this point, the attacker may have learned which account and endpoint support file transfer. From **SFTP**, the likely next move is to repeat transfers or establish an interactive SSH session. Analyst pivot: **source.ip destination.ip; source.ip destination.ip ssh.client** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [SCP](../queries/phase-09-exfiltration/03-scp.md)
+### [SCP](../queries/security-onion/phase-09-exfiltration/03-scp.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can use stolen SSH credentials to import tools or export archives. 
 
 By this point, the attacker may have learned which account can copy which local and remote paths. From **SCP**, the likely next move is to execute the tool or move more collected data. Analyst pivot: **source.ip destination.ip source.bytes** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Cloud Storage](../queries/phase-09-exfiltration/04-cloud-storage.md)
+### [Cloud Storage](../queries/security-onion/phase-09-exfiltration/04-cloud-storage.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can blend exfiltration into commonly allowed HTTPS providers. Revie
 
 By this point, the attacker may have learned which provider and account accept uploads. From **Cloud Storage**, the likely next move is to move staged data or switch providers. Analyst pivot: **source.ip tls.client.server_name; source.ip dns.question.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Onedrive](../queries/phase-09-exfiltration/05-onedrive.md)
+### [Onedrive](../queries/security-onion/phase-09-exfiltration/05-onedrive.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can abuse a Microsoft account or sync client to upload collected fi
 
 By this point, the attacker may have learned which tenant, identity, and folders receive data. From **Onedrive**, the likely next move is to share or retrieve files externally. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Dropbox](../queries/phase-09-exfiltration/06-dropbox.md)
+### [Dropbox](../queries/security-onion/phase-09-exfiltration/06-dropbox.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can use Dropbox clients or APIs over trusted HTTPS. Review the resu
 
 By this point, the attacker may have learned which account or token accepts uploads. From **Dropbox**, the likely next move is to retrieve data or automate more uploads. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Mega](../queries/phase-09-exfiltration/07-mega.md)
+### [Mega](../queries/security-onion/phase-09-exfiltration/07-mega.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can use MEGA clients or APIs for encrypted archive transfer. Review
 
 By this point, the attacker may have learned which process and account can upload. From **Mega**, the likely next move is to move more archives or stage tools. Analyst pivot: **source.ip tls.client.server_name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Google Drive](../queries/phase-09-exfiltration/08-google-drive.md)
+### [Google Drive](../queries/security-onion/phase-09-exfiltration/08-google-drive.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can use OAuth, browsers, or sync tools for trusted-service exfiltra
 
 By this point, the attacker may have learned which user, token, and process perform uploads. From **Google Drive**, the likely next move is to share the files or continue synchronized collection. Analyst pivot: **source.ip tls.client.server_name; source.ip** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Large Uploads](../queries/phase-09-exfiltration/09-large-uploads.md)
+### [Large Uploads](../queries/security-onion/phase-09-exfiltration/09-large-uploads.md)
 
 #### Why Hunt This
 
@@ -141,7 +141,7 @@ An adversary can send archives or exports in large or threshold-avoiding chunks.
 
 By this point, the attacker may have learned which host, destination, and transfer size succeed. From **Large Uploads**, the likely next move is to complete exfiltration or switch to a quieter channel. Analyst pivot: **source.ip destination.ip; source.ip destination.as.organization.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Archive Creation](../queries/phase-09-exfiltration/10-archive-creation.md)
+### [Archive Creation](../queries/security-onion/phase-09-exfiltration/10-archive-creation.md)
 
 #### Why Hunt This
 
@@ -155,7 +155,7 @@ An adversary can compress and optionally encrypt collected files. Review the res
 
 By this point, the attacker may have learned which paths are readable and where staging is possible. From **Archive Creation**, the likely next move is to upload the archive and remove staging evidence. Analyst pivot: **host.name process.name file.name** into **collection, staging, and transfer evidence**, then verify the sequence with an independent telemetry source.
 
-### [Database Collection](../queries/phase-09-exfiltration/11-database-collection.md)
+### [Database Collection](../queries/security-onion/phase-09-exfiltration/11-database-collection.md)
 
 #### Why Hunt This
 

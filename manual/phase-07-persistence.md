@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Registry Run Keys](../queries/phase-07-persistence/01-registry-run-keys.md)
+### [Registry Run Keys](../queries/security-onion/phase-07-persistence/01-registry-run-keys.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can place a payload in an autorun value. Review the result in the c
 
 By this point, the attacker may have learned which user hive is writable and when it executes. From **Registry Run Keys**, the likely next move is to relaunch malware and resume C2. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Startup Folder](../queries/phase-07-persistence/02-startup-folder.md)
+### [Startup Folder](../queries/security-onion/phase-07-persistence/02-startup-folder.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can place a script, shortcut, or executable in a startup path. Revi
 
 By this point, the attacker may have learned which user and path trigger execution. From **Startup Folder**, the likely next move is to regain execution at logon. Analyst pivot: **host.name file.name process.name** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Services](../queries/phase-07-persistence/03-services.md)
+### [Services](../queries/security-onion/phase-07-persistence/03-services.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can register a payload as a Windows service. Review the result in t
 
 By this point, the attacker may have learned which account and binary path execute. From **Services**, the likely next move is to persist across reboot or run as SYSTEM. Analyst pivot: **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Wmi Events](../queries/phase-07-persistence/04-wmi-events.md)
+### [Wmi Events](../queries/security-onion/phase-07-persistence/04-wmi-events.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can execute remotely or bind filters and consumers for durable exec
 
 By this point, the attacker may have learned which hosts and event triggers accept WMI actions. From **Wmi Events**, the likely next move is to execute through WmiPrvSE or persist with subscriptions. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Scheduled Tasks](../queries/phase-07-persistence/05-scheduled-tasks.md)
+### [Scheduled Tasks](../queries/security-onion/phase-07-persistence/05-scheduled-tasks.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can register a payload for one-time execution or persistence. Revie
 
 By this point, the attacker may have learned which task principal, trigger, and command execute. From **Scheduled Tasks**, the likely next move is to run later, after reboot, or on another host. Analyst pivot: **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Bits Jobs](../queries/phase-07-persistence/06-bits-jobs.md)
+### [Bits Jobs](../queries/security-onion/phase-07-persistence/06-bits-jobs.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can download, upload, or launch content through trusted BITS compon
 
 By this point, the attacker may have learned which URL, path, and job owner succeed. From **Bits Jobs**, the likely next move is to retrieve a stage, transfer data, or persist. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Com Hijacking](../queries/phase-07-persistence/07-com-hijacking.md)
+### [Com Hijacking](../queries/security-onion/phase-07-persistence/07-com-hijacking.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can redirect a COM class to malicious code. Review the result in th
 
 By this point, the attacker may have learned which trusted callers and writable registrations are available. From **Com Hijacking**, the likely next move is to inherit the caller context and persist. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **payload execution and C2**, then verify the sequence with an independent telemetry source.
 
-### [Linux Cron And Temp Execution](../queries/phase-07-persistence/08-linux-cron-and-temp-execution.md)
+### [Linux Cron And Temp Execution](../queries/security-onion/phase-07-persistence/08-linux-cron-and-temp-execution.md)
 
 #### Why Hunt This
 

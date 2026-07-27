@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [SMB](../queries/phase-06-lateral-movement/01-smb.md)
+### [SMB](../queries/security-onion/phase-06-lateral-movement/01-smb.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can enumerate shares, copy tools, collect data, or execute through 
 
 By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **SMB**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **source.ip destination.ip; source.ip destination.ip smb.share** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [Psexec](../queries/phase-06-lateral-movement/02-psexec.md)
+### [Psexec](../queries/security-onion/phase-06-lateral-movement/02-psexec.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can copy a service binary and start it remotely with administrative
 
 By this point, the attacker may have learned which credentials and targets permit service execution. From **Psexec**, the likely next move is to run as SYSTEM and repeat movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [WMI](../queries/phase-06-lateral-movement/03-wmi.md)
+### [WMI](../queries/security-onion/phase-06-lateral-movement/03-wmi.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can execute remotely or bind filters and consumers for durable exec
 
 By this point, the attacker may have learned which hosts and event triggers accept WMI actions. From **WMI**, the likely next move is to execute through WmiPrvSE or persist with subscriptions. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [WinRM](../queries/phase-06-lateral-movement/04-winrm.md)
+### [WinRM](../queries/security-onion/phase-06-lateral-movement/04-winrm.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can run commands remotely through Windows management with valid cre
 
 By this point, the attacker may have learned which hosts and accounts permit noninteractive administration. From **WinRM**, the likely next move is to deploy scripts, collect credentials, or continue movement. Analyst pivot: **source.ip destination.ip** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [RDP](../queries/phase-06-lateral-movement/05-rdp.md)
+### [RDP](../queries/security-onion/phase-06-lateral-movement/05-rdp.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can authenticate with guessed, stolen, or reused credentials for an
 
 By this point, the attacker may have learned which Windows host and credential permit interactive access. From **RDP**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **source.ip destination.ip; source.ip winlog.event_data.TargetUserName destination.ip** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [Remote Services](../queries/phase-06-lateral-movement/06-remote-services.md)
+### [Remote Services](../queries/security-onion/phase-06-lateral-movement/06-remote-services.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can create or modify a service to run a supplied binary with privil
 
 By this point, the attacker may have learned which targets permit service control. From **Remote Services**, the likely next move is to execute as SYSTEM or establish persistence. Analyst pivot: **host.name winlog.event_data.ServiceName winlog.event_data.ImagePath** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [Scheduled Tasks](../queries/phase-06-lateral-movement/07-scheduled-tasks.md)
+### [Scheduled Tasks](../queries/security-onion/phase-06-lateral-movement/07-scheduled-tasks.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can register a payload for one-time execution or persistence. Revie
 
 By this point, the attacker may have learned which task principal, trigger, and command execute. From **Scheduled Tasks**, the likely next move is to run later, after reboot, or on another host. Analyst pivot: **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [DCOM](../queries/phase-06-lateral-movement/08-dcom.md)
+### [DCOM](../queries/security-onion/phase-06-lateral-movement/08-dcom.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can instantiate remote COM objects through valid credentials. Revie
 
 By this point, the attacker may have learned which systems expose DCOM and permit activation. From **DCOM**, the likely next move is to launch a target-side process and continue movement. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **destination-side execution, persistence, and C2**, then verify the sequence with an independent telemetry source.
 
-### [Valid Account Spread](../queries/phase-06-lateral-movement/09-valid-account-spread.md)
+### [Valid Account Spread](../queries/security-onion/phase-06-lateral-movement/09-valid-account-spread.md)
 
 #### Why Hunt This
 

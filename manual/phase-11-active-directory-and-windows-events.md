@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Successful Logon](../queries/phase-11-active-directory/4624-successful-logon.md)
+### [Successful Logon](../queries/security-onion/phase-11-active-directory/4624-successful-logon.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can use valid credentials for network, interactive, service, or RDP
 
 By this point, the attacker may have learned which account works on which target. From **Successful Logon**, the likely next move is to launch processes, access resources, or move laterally. Analyst pivot: **winlog.event_data.LogonType winlog.event_data.TargetUserName source.ip; source.ip winlog.event_data.TargetUserName host.name** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Failed Logon](../queries/phase-11-active-directory/4625-failed-logon.md)
+### [Failed Logon](../queries/security-onion/phase-11-active-directory/4625-failed-logon.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can guess, spray, validate, or test stolen credentials. Review the 
 
 By this point, the attacker may have learned which accounts exist and how controls respond. From **Failed Logon**, the likely next move is to refine the attack or follow a success. Analyst pivot: **source.ip winlog.event_data.TargetUserName; winlog.event_data.TargetUserName host.name** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Special Privileges](../queries/phase-11-active-directory/4672-special-privileges.md)
+### [Special Privileges](../queries/security-onion/phase-11-active-directory/4672-special-privileges.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can use an administrative identity for credential theft and system 
 
 By this point, the attacker may have learned which session carries powerful rights. From **Special Privileges**, the likely next move is to impair defenses, dump credentials, or persist. Analyst pivot: **winlog.event_data.SubjectUserName host.name** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Process Creation](../queries/phase-11-active-directory/4688-process-creation.md)
+### [Process Creation](../queries/security-onion/phase-11-active-directory/4688-process-creation.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can start shells, scripts, tools, or masqueraded binaries. Review t
 
 By this point, the attacker may have learned which execution chain and privilege work. From **Process Creation**, the likely next move is to spawn payloads, persist, or contact C2. Analyst pivot: **host.name winlog.event_data.NewProcessName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Scheduled Task Created](../queries/phase-11-active-directory/4698-scheduled-task-created.md)
+### [Scheduled Task Created](../queries/security-onion/phase-11-active-directory/4698-scheduled-task-created.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can create a task for execution, movement, or persistence. Review t
 
 By this point, the attacker may have learned which principal, trigger, and command execute. From **Scheduled Task Created**, the likely next move is to run later or deploy remotely. Analyst pivot: **host.name winlog.event_data.TaskName winlog.event_data.SubjectUserName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [User Account Created](../queries/phase-11-active-directory/4720-user-account-created.md)
+### [User Account Created](../queries/security-onion/phase-11-active-directory/4720-user-account-created.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can create a backdoor identity for durable access. Review the resul
 
 By this point, the attacker may have learned which account policies permit creation. From **User Account Created**, the likely next move is to grant groups and authenticate persistently. Analyst pivot: **host.name winlog.event_data.TargetUserName winlog.event_data.SubjectUserName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Member Added Global Group](../queries/phase-11-active-directory/4728-member-added-global-group.md)
+### [Member Added Global Group](../queries/security-onion/phase-11-active-directory/4728-member-added-global-group.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can grant a controlled identity broader domain rights. Review the r
 
 By this point, the attacker may have learned which global group supplies useful privilege. From **Member Added Global Group**, the likely next move is to access protected systems or modify identities. Analyst pivot: **winlog.event_data.TargetUserName winlog.event_data.MemberName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Member Added Local Group](../queries/phase-11-active-directory/4732-member-added-local-group.md)
+### [Member Added Local Group](../queries/security-onion/phase-11-active-directory/4732-member-added-local-group.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can grant a controlled account administrative rights on one system.
 
 By this point, the attacker may have learned which local group permits management. From **Member Added Local Group**, the likely next move is to log on elevated, disable controls, or persist. Analyst pivot: **host.name winlog.event_data.TargetUserName winlog.event_data.MemberName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Kerberos Tgt Requested](../queries/phase-11-active-directory/4768-kerberos-tgt-requested.md)
+### [Kerberos Tgt Requested](../queries/security-onion/phase-11-active-directory/4768-kerberos-tgt-requested.md)
 
 #### Why Hunt This
 
@@ -141,7 +141,7 @@ An adversary can validate domain credentials and obtain a ticket-granting ticket
 
 By this point, the attacker may have learned which account authenticates and which encryption applies. From **Kerberos Tgt Requested**, the likely next move is to request service tickets or reuse tickets. Analyst pivot: **winlog.event_data.TargetUserName source.ip** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Kerberos Service Ticket](../queries/phase-11-active-directory/4769-kerberos-service-ticket.md)
+### [Kerberos Service Ticket](../queries/security-onion/phase-11-active-directory/4769-kerberos-service-ticket.md)
 
 #### Why Hunt This
 
@@ -155,7 +155,7 @@ An adversary can access Kerberos services or collect tickets for Kerberoasting. 
 
 By this point, the attacker may have learned which SPNs and service accounts are useful. From **Kerberos Service Ticket**, the likely next move is to crack a ticket or access the service. Analyst pivot: **winlog.event_data.ServiceName winlog.event_data.TargetUserName** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Kerberos Preauth Failed](../queries/phase-11-active-directory/4771-kerberos-preauth-failed.md)
+### [Kerberos Preauth Failed](../queries/security-onion/phase-11-active-directory/4771-kerberos-preauth-failed.md)
 
 #### Why Hunt This
 
@@ -169,7 +169,7 @@ An adversary can spray passwords or validate accounts through Kerberos. Review t
 
 By this point, the attacker may have learned which accounts exist and how preauthentication responds. From **Kerberos Preauth Failed**, the likely next move is to continue guessing or target weaker accounts. Analyst pivot: **winlog.event_data.TargetUserName source.ip; source.ip** into **the correlated identity and execution chain**, then verify the sequence with an independent telemetry source.
 
-### [Service Installed](../queries/phase-11-active-directory/7045-service-installed.md)
+### [Service Installed](../queries/security-onion/phase-11-active-directory/7045-service-installed.md)
 
 #### Why Hunt This
 

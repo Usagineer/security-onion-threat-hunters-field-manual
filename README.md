@@ -7,7 +7,7 @@ This is a living Markdown manual. The query files are the source of truth and ar
 ## Start here
 
 1. Set an **absolute incident time range** before searching. Confirm the timezone and widen only when needed.
-2. Start in [Phase 1](queries/phase-01-find-suspicious-ips/) if you have a lead but no clear host or destination; otherwise use [Phase 2](queries/phase-02-investigate-the-ip/) for a known IP.
+2. Start in [Phase 1](queries/security-onion/phase-01-find-suspicious-ips/) if you have a lead but no clear host or destination; otherwise use [Phase 2](queries/security-onion/phase-02-investigate-the-ip/) for a known IP.
 3. Replace placeholders such as `<IP>`, `<HOST>`, `<ACCOUNT>`, and `<OT_RANGE>` with your case values or approved ranges.
 4. Run one query at a time, preserve the time window, and pivot on host, user, process, IP, domain, and alert context.
 5. Use the phase matching the behavior you find; Phase 14 provides short next-step pivots for common findings.

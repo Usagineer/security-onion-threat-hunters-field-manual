@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Ip](../queries/phase-13-ioc-hunting/01-ip.md)
+### [Ip](../queries/security-onion/phase-13-ioc-hunting/01-ip.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can reuse an address for delivery, C2, scanning, staging, or transf
 
 By this point, the attacker may have learned which hosts and processes contacted it. From **Ip**, the likely next move is to rotate infrastructure or continue on compromised hosts. Analyst pivot: **event.dataset** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [Domain](../queries/phase-13-ioc-hunting/02-domain.md)
+### [Domain](../queries/security-onion/phase-13-ioc-hunting/02-domain.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can use a name for phishing, delivery, redirects, dynamic resolutio
 
 By this point, the attacker may have learned which hosts resolve and contact the name. From **Domain**, the likely next move is to rotate addresses or retrieve payloads. Analyst pivot: **source.ip; dns.answers** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [Url](../queries/phase-13-ioc-hunting/03-url.md)
+### [Url](../queries/security-onion/phase-13-ioc-hunting/03-url.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can host malicious content or tasking at a specific path. Review th
 
 By this point, the attacker may have learned which user, process, request, and response are involved. From **Url**, the likely next move is to download content or switch paths. Analyst pivot: **source.ip destination.ip** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [Hash](../queries/phase-13-ioc-hunting/04-hash.md)
+### [Hash](../queries/security-onion/phase-13-ioc-hunting/04-hash.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can deploy the same payload, loader, archive, or tool to multiple h
 
 By this point, the attacker may have learned where the artifact exists or ran. From **Hash**, the likely next move is to recompile it or continue on affected hosts. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [JA3](../queries/phase-13-ioc-hunting/05-ja3.md)
+### [JA3](../queries/security-onion/phase-13-ioc-hunting/05-ja3.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can use a malware or offensive-framework TLS stack that differs fro
 
 By this point, the attacker may have learned which hosts share the same TLS implementation. From **JA3**, the likely next move is to rotate infrastructure or change the TLS stack. Analyst pivot: **source.ip destination.ip** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [User Agent](../queries/phase-13-ioc-hunting/06-user-agent.md)
+### [User Agent](../queries/security-onion/phase-13-ioc-hunting/06-user-agent.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can spoof or customize a user agent to blend C2 or downloads into w
 
 By this point, the attacker may have learned which HTTP client identity passes controls. From **User Agent**, the likely next move is to imitate a browser or move to encrypted traffic. Analyst pivot: **source.ip destination.ip** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [YARA](../queries/phase-13-ioc-hunting/07-yara.md)
+### [YARA](../queries/security-onion/phase-13-ioc-hunting/07-yara.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can reuse code and configuration despite changing hashes. Review th
 
 By this point, the attacker may have learned which malware family or capability is present. From **YARA**, the likely next move is to deploy variants or keep the same behavior. Analyst pivot: **file.name source.ip destination.ip; strelka.scan.yara.matches** into **affected hosts and the behavior represented by the IOC**, then verify the sequence with an independent telemetry source.
 
-### [Sigma](../queries/phase-13-ioc-hunting/08-sigma.md)
+### [Sigma](../queries/security-onion/phase-13-ioc-hunting/08-sigma.md)
 
 #### Why Hunt This
 

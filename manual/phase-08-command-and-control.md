@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Beaconing](../queries/phase-08-command-and-control/01-beaconing.md)
+### [Beaconing](../queries/security-onion/phase-08-command-and-control/01-beaconing.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can poll C2 at fixed or jittered intervals while generating little 
 
 By this point, the attacker may have learned which hosts are infected and how reliably C2 is reachable. From **Beaconing**, the likely next move is to deliver tasks, change timing, or move to backup C2. Analyst pivot: **source.ip destination.ip; network.bytes destination.port** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [Dns Tunneling](../queries/phase-08-command-and-control/02-dns-tunneling.md)
+### [Dns Tunneling](../queries/security-onion/phase-08-command-and-control/02-dns-tunneling.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can encode commands or stolen data in DNS questions and answers. Re
 
 By this point, the attacker may have learned which resolver path and controlled domain carry the tunnel. From **Dns Tunneling**, the likely next move is to expand the tunnel or use it for C2 and exfiltration. Analyst pivot: **dns.question.name; source.ip dns.question.name** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [Long Connections](../queries/phase-08-command-and-control/03-long-connections.md)
+### [Long Connections](../queries/security-onion/phase-08-command-and-control/03-long-connections.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can hold a session open for interactive control or protocol tunneli
 
 By this point, the attacker may have learned which destinations permit persistent sessions. From **Long Connections**, the likely next move is to relay traffic, administer the host, or stage transfer. Analyst pivot: **source.ip destination.ip destination.port; destination.as.organization.name** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [JA3](../queries/phase-08-command-and-control/04-ja3.md)
+### [JA3](../queries/security-onion/phase-08-command-and-control/04-ja3.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can use a malware or offensive-framework TLS stack that differs fro
 
 By this point, the attacker may have learned which hosts share the same TLS implementation. From **JA3**, the likely next move is to rotate infrastructure or change the TLS stack. Analyst pivot: **tls.client.ja3; source.ip destination.ip tls.client.server_name** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [Rare Domains](../queries/phase-08-command-and-control/05-rare-domains.md)
+### [Rare Domains](../queries/security-onion/phase-08-command-and-control/05-rare-domains.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can use a new or compromised domain for delivery, redirects, phishi
 
 By this point, the attacker may have learned which hosts resolve the domain and which addresses support it. From **Rare Domains**, the likely next move is to contact the infrastructure or rotate subdomains and addresses. Analyst pivot: **dns.question.name; tls.client.server_name** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [User Agents](../queries/phase-08-command-and-control/06-user-agents.md)
+### [User Agents](../queries/security-onion/phase-08-command-and-control/06-user-agents.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can spoof or customize a user agent to blend C2 or downloads into w
 
 By this point, the attacker may have learned which HTTP client identity passes controls. From **User Agents**, the likely next move is to imitate a browser or move to encrypted traffic. Analyst pivot: **user_agent.original; source.ip destination.ip** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [Http Post](../queries/phase-08-command-and-control/07-http-post.md)
+### [Http Post](../queries/security-onion/phase-08-command-and-control/07-http-post.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can send host data or stolen content in HTTP request bodies. Review
 
 By this point, the attacker may have learned which URI and destination accept uploads. From **Http Post**, the likely next move is to increase transfer volume or switch to HTTPS. Analyst pivot: **source.ip url.domain; source.ip destination.ip** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [TLS](../queries/phase-08-command-and-control/08-tls.md)
+### [TLS](../queries/security-onion/phase-08-command-and-control/08-tls.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can hide delivery or C2 content inside encryption while leaking han
 
 By this point, the attacker may have learned which names, certificates, and clients identify the encrypted channel. From **TLS**, the likely next move is to cluster related hosts or pivot to the responsible endpoint process. Analyst pivot: **source.ip destination.ip** into **tool delivery, movement, collection, or exfiltration**, then verify the sequence with an independent telemetry source.
 
-### [Proxy And Reverse Tunnel](../queries/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
+### [Proxy And Reverse Tunnel](../queries/security-onion/phase-08-command-and-control/09-proxy-and-reverse-tunnel.md)
 
 #### Why Hunt This
 

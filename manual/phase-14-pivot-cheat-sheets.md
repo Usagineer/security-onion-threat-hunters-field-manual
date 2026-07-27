@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Found Beaconing](../queries/phase-14-pivot-cheat-sheets/found-beaconing.md)
+### [Found Beaconing](../queries/security-onion/phase-14-pivot-cheat-sheets/found-beaconing.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can poll C2 at fixed or jittered intervals while generating little 
 
 By this point, the attacker may have learned which hosts are infected and how reliably C2 is reachable. From **Found Beaconing**, the likely next move is to deliver tasks, change timing, or move to backup C2. Analyst pivot: **tls.client.ja3 tls.client.server_name; url.original user_agent.original** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Dns](../queries/phase-14-pivot-cheat-sheets/found-dns.md)
+### [Found Dns](../queries/security-onion/phase-14-pivot-cheat-sheets/found-dns.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can resolve delivery or C2 infrastructure, use dynamic answers, or 
 
 By this point, the attacker may have learned which host queried which name and which address it received. From **Found Dns**, the likely next move is to connect to the answer, rotate infrastructure, or tunnel through DNS. Analyst pivot: **source.ip dns.answers; source.ip destination.port** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Powershell](../queries/phase-14-pivot-cheat-sheets/found-powershell.md)
+### [Found Powershell](../queries/security-onion/phase-14-pivot-cheat-sheets/found-powershell.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can use PowerShell for discovery, download, execution, credentials,
 
 By this point, the attacker may have learned which user, parent, script, and privilege are involved. From **Found Powershell**, the likely next move is to run another stage, persist, or execute remotely. Analyst pivot: **destination.ip destination.port; process.name** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Rdp](../queries/phase-14-pivot-cheat-sheets/found-rdp.md)
+### [Found Rdp](../queries/security-onion/phase-14-pivot-cheat-sheets/found-rdp.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can authenticate with guessed, stolen, or reused credentials for an
 
 By this point, the attacker may have learned which Windows host and credential permit interactive access. From **Found Rdp**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **source.ip winlog.event_data.TargetUserName host.name; source.ip winlog.event_data.TargetUserName** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Repeated Powershell](../queries/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
+### [Found Repeated Powershell](../queries/security-onion/phase-14-pivot-cheat-sheets/found-repeated-powershell.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can rerun scripts through tasks, services, WinRM, or C2. Review the
 
 By this point, the attacker may have learned which command and trigger recur. From **Found Repeated Powershell**, the likely next move is to refresh persistence or retrieve more commands. Analyst pivot: **process.command_line host.name user.name; host.name user.name process.parent.name process.command_line** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Smb](../queries/phase-14-pivot-cheat-sheets/found-smb.md)
+### [Found Smb](../queries/security-onion/phase-14-pivot-cheat-sheets/found-smb.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can enumerate shares, copy tools, collect data, or execute through 
 
 By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **Found Smb**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **smb.share; file.name** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Suspicious Ip](../queries/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
+### [Found Suspicious Ip](../queries/security-onion/phase-14-pivot-cheat-sheets/found-suspicious-ip.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can reuse an address for delivery, C2, scanning, staging, or transf
 
 By this point, the attacker may have learned which hosts and processes contacted it. From **Found Suspicious Ip**, the likely next move is to rotate infrastructure or continue on compromised hosts. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Telemetry Gap](../queries/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
+### [Found Telemetry Gap](../queries/security-onion/phase-14-pivot-cheat-sheets/found-telemetry-gap.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can disable or evade collection before louder actions. Review the r
 
 By this point, the attacker may have learned which host is blind and whether network activity continues. From **Found Telemetry Gap**, the likely next move is to dump credentials, move, or exfiltrate unseen. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **the full behavior phase named by the finding**, then verify the sequence with an independent telemetry source.
 
-### [Found Winrm](../queries/phase-14-pivot-cheat-sheets/found-winrm.md)
+### [Found Winrm](../queries/security-onion/phase-14-pivot-cheat-sheets/found-winrm.md)
 
 #### Why Hunt This
 

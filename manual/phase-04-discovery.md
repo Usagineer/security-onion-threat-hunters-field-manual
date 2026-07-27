@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Whoami](../queries/phase-04-discovery/01-whoami.md)
+### [Whoami](../queries/security-onion/phase-04-discovery/01-whoami.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can check whether the foothold already has useful privileges. Revie
 
 By this point, the attacker may have learned the effective identity and token capabilities. From **Whoami**, the likely next move is to choose escalation, credential theft, or permitted actions. Analyst pivot: **host.name process.parent.name** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Hostname Ipconfig](../queries/phase-04-discovery/02-hostname-ipconfig.md)
+### [Hostname Ipconfig](../queries/security-onion/phase-04-discovery/02-hostname-ipconfig.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can orient a foothold within the network. Review the result in the 
 
 By this point, the attacker may have learned the host name, address ranges, DNS suffix, and routes. From **Hostname Ipconfig**, the likely next move is to target local subnets or choose egress. Analyst pivot: **host.name process.parent.name** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Arp Route](../queries/phase-04-discovery/03-arp-route.md)
+### [Arp Route](../queries/security-onion/phase-04-discovery/03-arp-route.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can identify nearby systems and routes from local state. Review the
 
 By this point, the attacker may have learned neighbor addresses, gateways, and additional subnets. From **Arp Route**, the likely next move is to probe selected hosts or cross a routed boundary. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Systeminfo](../queries/phase-04-discovery/04-systeminfo.md)
+### [Systeminfo](../queries/security-onion/phase-04-discovery/04-systeminfo.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can profile a host for compatible exploits and payloads. Review the
 
 By this point, the attacker may have learned the platform, missing patches, architecture, and role. From **Systeminfo**, the likely next move is to select an exploit or deploy the correct binary. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Net User Group](../queries/phase-04-discovery/05-net-user-group.md)
+### [Net User Group](../queries/security-onion/phase-04-discovery/05-net-user-group.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can identify administrators, service accounts, and identities worth
 
 By this point, the attacker may have learned which accounts exist and which groups confer privilege. From **Net User Group**, the likely next move is to spray, steal, or impersonate a selected identity. Analyst pivot: **host.name process.command_line** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Nltest](../queries/phase-04-discovery/06-nltest.md)
+### [Nltest](../queries/security-onion/phase-04-discovery/06-nltest.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can map authentication infrastructure and trust paths. Review the r
 
 By this point, the attacker may have learned which controllers and domains accept credentials. From **Nltest**, the likely next move is to attack directory services or cross a trust. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Netstat](../queries/phase-04-discovery/07-netstat.md)
+### [Netstat](../queries/security-onion/phase-04-discovery/07-netstat.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can identify services, security tools, and usable communication pat
 
 By this point, the attacker may have learned which ports listen and which remote systems are trusted. From **Netstat**, the likely next move is to connect locally or mimic an approved channel. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Tasklist](../queries/phase-04-discovery/08-tasklist.md)
+### [Tasklist](../queries/security-onion/phase-04-discovery/08-tasklist.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can profile defenses and select credential or injection targets. Re
 
 By this point, the attacker may have learned which controls and useful processes are running. From **Tasklist**, the likely next move is to evade defenses, dump credentials, or inject code. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Quser Query User](../queries/phase-04-discovery/09-quser-query-user.md)
+### [Quser Query User](../queries/security-onion/phase-04-discovery/09-quser-query-user.md)
 
 #### Why Hunt This
 
@@ -141,7 +141,7 @@ An adversary can locate privileged sessions for hijacking or token theft. Review
 
 By this point, the attacker may have learned which users and sessions are present. From **Quser Query User**, the likely next move is to target or impersonate a privileged session. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Powershell Discovery](../queries/phase-04-discovery/10-powershell-discovery.md)
+### [Powershell Discovery](../queries/security-onion/phase-04-discovery/10-powershell-discovery.md)
 
 #### Why Hunt This
 
@@ -155,7 +155,7 @@ An adversary can collect broad environmental data through built-in capabilities.
 
 By this point, the attacker may have learned the same inventory available to an administrator. From **Powershell Discovery**, the likely next move is to feed discoveries into credential, movement, and collection scripts. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Network Service Enumeration](../queries/phase-04-discovery/11-network-service-enumeration.md)
+### [Network Service Enumeration](../queries/security-onion/phase-04-discovery/11-network-service-enumeration.md)
 
 #### Why Hunt This
 
@@ -169,7 +169,7 @@ An adversary can scan hosts for exploitable services or valid-account entry poin
 
 By this point, the attacker may have learned which ports, systems, and protocols respond. From **Network Service Enumeration**, the likely next move is to exploit or authenticate to a discovered service. Analyst pivot: **destination.ip destination.port connection.state; destination.ip destination.port network.protocol** into **credential access or lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Icmp And Subnet Discovery](../queries/phase-04-discovery/12-icmp-and-subnet-discovery.md)
+### [Icmp And Subnet Discovery](../queries/security-onion/phase-04-discovery/12-icmp-and-subnet-discovery.md)
 
 #### Why Hunt This
 

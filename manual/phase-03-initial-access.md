@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [RDP](../queries/phase-03-initial-access/01-rdp.md)
+### [RDP](../queries/security-onion/phase-03-initial-access/01-rdp.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can authenticate with guessed, stolen, or reused credentials for an
 
 By this point, the attacker may have learned which Windows host and credential permit interactive access. From **RDP**, the likely next move is to run discovery, steal credentials, or establish persistence. Analyst pivot: **source.ip destination.ip; source.ip winlog.event_data.TargetUserName** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [VPN](../queries/phase-03-initial-access/02-vpn.md)
+### [VPN](../queries/security-onion/phase-03-initial-access/02-vpn.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can use stolen credentials, session tokens, weak MFA, or an exposed
 
 By this point, the attacker may have learned which identity and source pass remote-access controls. From **VPN**, the likely next move is to enumerate internal routes and access managed endpoints. Analyst pivot: **source.ip destination.ip; source.ip source.geo.country_name user.name** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [SSH](../queries/phase-03-initial-access/03-ssh.md)
+### [SSH](../queries/security-onion/phase-03-initial-access/03-ssh.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can reuse keys or passwords for shells, tunneling, and file transfe
 
 By this point, the attacker may have learned which Unix-like hosts accept authentication and forwarding. From **SSH**, the likely next move is to add keys, transfer tools, or tunnel to another subnet. Analyst pivot: **source.ip destination.ip; source.ip destination.ip ssh.auth.success** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [Web Attacks](../queries/phase-03-initial-access/04-web-attacks.md)
+### [Web Attacks](../queries/security-onion/phase-03-initial-access/04-web-attacks.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can exploit injection, traversal, deserialization, upload, or authe
 
 By this point, the attacker may have learned which endpoint and payload cross the application boundary. From **Web Attacks**, the likely next move is to execute code, steal data, or write a web shell. Analyst pivot: **rule.name source.ip destination.ip; source.ip url.original** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [SMB](../queries/phase-03-initial-access/05-smb.md)
+### [SMB](../queries/security-onion/phase-03-initial-access/05-smb.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can enumerate shares, copy tools, collect data, or execute through 
 
 By this point, the attacker may have learned which hosts expose shares and which accounts can write. From **SMB**, the likely next move is to stage a payload, create a service, or move laterally. Analyst pivot: **source.ip destination.ip smb.share** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [MSSQL](../queries/phase-03-initial-access/06-mssql.md)
+### [MSSQL](../queries/security-onion/phase-03-initial-access/06-mssql.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can steal database credentials or enable command features such as x
 
 By this point, the attacker may have learned which database accepts access and whether its service can run OS commands. From **MSSQL**, the likely next move is to dump data, execute payloads, or pivot from the database host. Analyst pivot: **source.ip destination.ip** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [FTP](../queries/phase-03-initial-access/07-ftp.md)
+### [FTP](../queries/security-onion/phase-03-initial-access/07-ftp.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can deliver payloads or exfiltrate data, sometimes with exposed cre
 
 By this point, the attacker may have learned which server accepts files and which credentials work. From **FTP**, the likely next move is to upload tooling, retrieve staged data, or switch to SFTP. Analyst pivot: **source.ip destination.ip ftp.command ftp.reply_code; source.ip destination.ip** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [Email](../queries/phase-03-initial-access/08-email.md)
+### [Email](../queries/security-onion/phase-03-initial-access/08-email.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can deliver malicious links, attachments, or conversation hijacks. 
 
 By this point, the attacker may have learned which recipient and content bypass filtering. From **Email**, the likely next move is to trigger execution, capture credentials, or target related users. Analyst pivot: **source.ip destination.ip smtp.mailfrom smtp.rcptto; smtp.mailfrom smtp.subject** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [Phishing](../queries/phase-03-initial-access/09-phishing.md)
+### [Phishing](../queries/security-onion/phase-03-initial-access/09-phishing.md)
 
 #### Why Hunt This
 
@@ -141,7 +141,7 @@ An adversary can impersonate a trusted sender to obtain credentials or user exec
 
 By this point, the attacker may have learned which lure, identity, and delivery path succeed. From **Phishing**, the likely next move is to reuse credentials or deploy a payload. Analyst pivot: **source.ip destination.ip file.name** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [Drive By Downloads](../queries/phase-03-initial-access/10-drive-by-downloads.md)
+### [Drive By Downloads](../queries/security-onion/phase-03-initial-access/10-drive-by-downloads.md)
 
 #### Why Hunt This
 
@@ -155,7 +155,7 @@ An adversary can compromise a site or advertisement to deliver an exploit or pay
 
 By this point, the attacker may have learned which browser and user reach the delivery chain. From **Drive By Downloads**, the likely next move is to launch a payload, establish C2, or persist. Analyst pivot: **source.ip destination.ip file.name; url.domain url.original** into **execution, discovery, credential access, and persistence**, then verify the sequence with an independent telemetry source.
 
-### [Web Shell And Server Side Rce](../queries/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
+### [Web Shell And Server Side Rce](../queries/security-onion/phase-03-initial-access/11-web-shell-and-server-side-rce.md)
 
 #### Why Hunt This
 

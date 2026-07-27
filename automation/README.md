@@ -48,7 +48,7 @@ requires root in your install):
 
 ```
 python3 automation/so_hunt.py --so-cli --sudo --rare --last 7d \
-  --file queries/phase-01-find-suspicious-ips/01-rare-destination-ip.md
+  --file queries/security-onion/phase-01-find-suspicious-ips/01-rare-destination-ip.md
 ```
 
 Everything else (—`--phase`, `--var`, `--csv`, `--dry-run`, rare ordering) works
@@ -92,13 +92,13 @@ python automation/so_hunt.py --query "*" --last 15m --size 1
 Run one file (every query block in it):
 
 ```
-python automation/so_hunt.py --file queries/phase-01-find-suspicious-ips/01-rare-destination-ip.md --rare --last 7d
+python automation/so_hunt.py --file queries/security-onion/phase-01-find-suspicious-ips/01-rare-destination-ip.md --rare --last 7d
 ```
 
 Sweep an entire phase:
 
 ```
-python automation/so_hunt.py --phase queries/phase-01-find-suspicious-ips --last 24h
+python automation/so_hunt.py --phase queries/security-onion/phase-01-find-suspicious-ips --last 24h
 ```
 
 Run a literal query:
@@ -111,14 +111,14 @@ Fill in placeholders (queries with unresolved `<...>` are skipped unless you
 provide them):
 
 ```
-python automation/so_hunt.py --file queries/phase-02-investigate-the-ip/00-everything.md --var IP=10.0.1.2
+python automation/so_hunt.py --file queries/security-onion/phase-02-investigate-the-ip/00-everything.md --var IP=10.0.1.2
 ```
 
 Save results, or inspect the translation without running it:
 
 ```
-python automation/so_hunt.py --phase queries/phase-01-find-suspicious-ips --csv hunt.csv
-python automation/so_hunt.py --file queries/.../10-beaconing.md --dry-run
+python automation/so_hunt.py --phase queries/security-onion/phase-01-find-suspicious-ips --csv hunt.csv
+python automation/so_hunt.py --file queries/security-onion/.../10-beaconing.md --dry-run
 ```
 
 ### Useful flags
@@ -140,7 +140,7 @@ python automation/so_hunt.py --file queries/.../10-beaconing.md --dry-run
 
 ```
 0 7 * * *  cd /opt/manual && python3 automation/so_hunt.py --so-cli --sudo \
-  --file queries/phase-01-find-suspicious-ips/01-rare-destination-ip.md \
+  --file queries/security-onion/phase-01-find-suspicious-ips/01-rare-destination-ip.md \
   --rare --last 7d --csv /var/log/hunts/rare-dest-$(date +\%F).csv
 ```
 

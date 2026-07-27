@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Lsass Access](../queries/phase-05-credential-access/01-lsass-access.md)
+### [Lsass Access](../queries/security-onion/phase-05-credential-access/01-lsass-access.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can read or dump authentication memory after obtaining sufficient p
 
 By this point, the attacker may have learned which reusable credentials are present. From **Lsass Access**, the likely next move is to pass hashes or tickets and move laterally. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Mimikatz](../queries/phase-05-credential-access/02-mimikatz.md)
+### [Mimikatz](../queries/security-onion/phase-05-credential-access/02-mimikatz.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can extract secrets, manipulate Kerberos tickets, or impersonate id
 
 By this point, the attacker may have learned which credentials and protections are present. From **Mimikatz**, the likely next move is to perform pass-the-hash, pass-the-ticket, or DCSync. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Dcsync](../queries/phase-05-credential-access/03-dcsync.md)
+### [Dcsync](../queries/security-onion/phase-05-credential-access/03-dcsync.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can impersonate a domain controller using replication rights. Revie
 
 By this point, the attacker may have learned whether domain password material can be requested remotely. From **Dcsync**, the likely next move is to obtain privileged hashes and compromise more identities. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Kerberoasting](../queries/phase-05-credential-access/04-kerberoasting.md)
+### [Kerberoasting](../queries/security-onion/phase-05-credential-access/04-kerberoasting.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can request SPN tickets and crack them without repeated authenticat
 
 By this point, the attacker may have learned which service accounts use weak passwords or encryption. From **Kerberoasting**, the likely next move is to recover a service credential and access its resources. Analyst pivot: **winlog.event_data.ServiceName winlog.event_data.TargetUserName** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Asrep Roasting](../queries/phase-05-credential-access/05-asrep-roasting.md)
+### [Asrep Roasting](../queries/security-onion/phase-05-credential-access/05-asrep-roasting.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can request crackable authentication material without knowing a pas
 
 By this point, the attacker may have learned which accounts are misconfigured and crackable. From **Asrep Roasting**, the likely next move is to recover a password and use the account for access. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Procdump](../queries/phase-05-credential-access/06-procdump.md)
+### [Procdump](../queries/security-onion/phase-05-credential-access/06-procdump.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can write LSASS memory to disk for offline extraction. Review the r
 
 By this point, the attacker may have learned whether LSASS can be accessed and where dumps can be written. From **Procdump**, the likely next move is to extract, compress, and transfer credentials. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Sam](../queries/phase-05-credential-access/07-sam.md)
+### [Sam](../queries/security-onion/phase-05-credential-access/07-sam.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can export hives and derive local hashes offline. Review the result
 
 By this point, the attacker may have learned which local accounts and reusable passwords exist. From **Sam**, the likely next move is to crack or pass a local administrator hash. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Ntds Dit](../queries/phase-05-credential-access/08-ntds-dit.md)
+### [Ntds Dit](../queries/security-onion/phase-05-credential-access/08-ntds-dit.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can copy NTDS.dit and SYSTEM data for offline domain-hash extractio
 
 By this point, the attacker may have learned whether domain database files are accessible. From **Ntds Dit**, the likely next move is to forge authentication and compromise the domain at scale. Analyst pivot: **the matching host, account, process, source, destination, and timestamp** into **privilege escalation and lateral movement**, then verify the sequence with an independent telemetry source.
 
-### [Registry Hive And Sql Shell](../queries/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
+### [Registry Hive And Sql Shell](../queries/security-onion/phase-05-credential-access/09-registry-hive-and-sql-shell.md)
 
 #### Why Hunt This
 

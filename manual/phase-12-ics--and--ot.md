@@ -15,7 +15,7 @@ A useful finding usually has a sequence: an initiating event, an observable acti
 
 Choose the query that matches the behavior in the lead. Each result should give you a focused valuesuch as a host, account, IP, process, domain, or timestampto pivot into the next query or phase.
 
-### [Modbus](../queries/phase-12-ics-ot/01-modbus.md)
+### [Modbus](../queries/security-onion/phase-12-ics-ot/01-modbus.md)
 
 #### Why Hunt This
 
@@ -29,7 +29,7 @@ An adversary can issue weakly protected commands to coils and registers. Review 
 
 By this point, the attacker may have learned which devices, unit IDs, and functions respond. From **Modbus**, the likely next move is to alter state or target the process more precisely. Analyst pivot: **source.ip destination.ip modbus.function; source.ip destination.ip** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Ethernet Ip](../queries/phase-12-ics-ot/02-ethernet-ip.md)
+### [Ethernet Ip](../queries/security-onion/phase-12-ics-ot/02-ethernet-ip.md)
 
 #### Why Hunt This
 
@@ -43,7 +43,7 @@ An adversary can enumerate or interact with industrial devices across zones. Rev
 
 By this point, the attacker may have learned which devices and paths are reachable. From **Ethernet Ip**, the likely next move is to issue CIP requests or target controllers. Analyst pivot: **source.ip destination.ip; source.ip destination.ip enip.command** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Cip](../queries/phase-12-ics-ot/03-cip.md)
+### [Cip](../queries/security-onion/phase-12-ics-ot/03-cip.md)
 
 #### Why Hunt This
 
@@ -57,7 +57,7 @@ An adversary can enumerate or modify controller objects. Review the result in th
 
 By this point, the attacker may have learned which classes, instances, and services respond. From **Cip**, the likely next move is to move from discovery to programming. Analyst pivot: **source.ip destination.ip cip.service; source.ip destination.ip** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Dnp3](../queries/phase-12-ics-ot/04-dnp3.md)
+### [Dnp3](../queries/security-onion/phase-12-ics-ot/04-dnp3.md)
 
 #### Why Hunt This
 
@@ -71,7 +71,7 @@ An adversary can misuse a master role to issue control operations. Review the re
 
 By this point, the attacker may have learned which outstations and points accept commands. From **Dnp3**, the likely next move is to operate points or disrupt polling. Analyst pivot: **source.ip destination.ip dnp3.function; source.ip destination.ip** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Bacnet](../queries/phase-12-ics-ot/05-bacnet.md)
+### [Bacnet](../queries/security-onion/phase-12-ics-ot/05-bacnet.md)
 
 #### Why Hunt This
 
@@ -85,7 +85,7 @@ An adversary can enumerate devices and change HVAC, access, alarm, or schedule p
 
 By this point, the attacker may have learned which devices and objects allow writes. From **Bacnet**, the likely next move is to alter setpoints or disrupt building operations. Analyst pivot: **source.ip destination.ip; source.ip destination.ip bacnet.service** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Opc Ua](../queries/phase-12-ics-ot/06-opc-ua.md)
+### [Opc Ua](../queries/security-onion/phase-12-ics-ot/06-opc-ua.md)
 
 #### Why Hunt This
 
@@ -99,7 +99,7 @@ An adversary can browse nodes, read data, invoke methods, or write values. Revie
 
 By this point, the attacker may have learned which credentials, endpoints, and nodes are available. From **Opc Ua**, the likely next move is to move to process manipulation. Analyst pivot: **source.ip destination.ip** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [S7](../queries/phase-12-ics-ot/07-s7.md)
+### [S7](../queries/security-onion/phase-12-ics-ot/07-s7.md)
 
 #### Why Hunt This
 
@@ -113,7 +113,7 @@ An adversary can query or manipulate PLC state and program functions. Review the
 
 By this point, the attacker may have learned which PLCs and programming operations respond. From **S7**, the likely next move is to change blocks, logic, or operating state. Analyst pivot: **source.ip destination.ip; source.ip destination.ip s7comm.function** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Engineering Workstations](../queries/phase-12-ics-ot/08-engineering-workstations.md)
+### [Engineering Workstations](../queries/security-onion/phase-12-ics-ot/08-engineering-workstations.md)
 
 #### Why Hunt This
 
@@ -127,7 +127,7 @@ An adversary can compromise trusted engineering software and credentials. Review
 
 By this point, the attacker may have learned which projects, tools, and controller paths are available. From **Engineering Workstations**, the likely next move is to program PLCs or pivot deeper into OT. Analyst pivot: **source.ip destination.ip destination.port** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Plc Programming](../queries/phase-12-ics-ot/09-plc-programming.md)
+### [Plc Programming](../queries/security-onion/phase-12-ics-ot/09-plc-programming.md)
 
 #### Why Hunt This
 
@@ -141,7 +141,7 @@ An adversary can modify logic, firmware, setpoints, or operating state. Review t
 
 By this point, the attacker may have learned which controller accepts programming. From **Plc Programming**, the likely next move is to deploy logic changes or inhibit operations. Analyst pivot: **source.ip destination.ip** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [Unauthorized Controllers](../queries/phase-12-ics-ot/10-unauthorized-controllers.md)
+### [Unauthorized Controllers](../queries/security-onion/phase-12-ics-ot/10-unauthorized-controllers.md)
 
 #### Why Hunt This
 
@@ -155,7 +155,7 @@ An adversary can introduce or impersonate a controller. Review the result in the
 
 By this point, the attacker may have learned which systems trust the unauthorized device. From **Unauthorized Controllers**, the likely next move is to redirect traffic or establish a control point. Analyst pivot: **source.ip; source.ip destination.ip destination.port** into **owner-validated engineering and controller activity**, then verify the sequence with an independent telemetry source.
 
-### [It Ot Boundary And Hmi Impact](../queries/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
+### [It Ot Boundary And Hmi Impact](../queries/security-onion/phase-12-ics-ot/11-it-ot-boundary-and-hmi-impact.md)
 
 #### Why Hunt This
 
